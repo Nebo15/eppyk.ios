@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,12 +17,53 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9X-i3-ZFo">
+                                <rect key="frame" x="137" y="20" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="agd-MP-NOL"/>
+                                </constraints>
+                                <state key="normal" title="Start"/>
+                                <connections>
+                                    <action selector="startButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CWv-IF-ZI6"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kzS-hi-LZE">
+                                <rect key="frame" x="0.0" y="58" width="375" height="300"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="dq2-h9-unB"/>
+                                </constraints>
+                            </imageView>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="0.10000000000000001" maxValue="6" translatesAutoresizingMaskIntoConstraints="NO" id="2Kz-bo-e1F">
+                                <rect key="frame" x="85" y="366" width="204" height="31"/>
+                                <connections>
+                                    <action selector="animationSpeedChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="vrg-Xu-OLG"/>
+                                </connections>
+                            </slider>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="kzS-hi-LZE" secondAttribute="trailing" id="2np-y2-7wJ"/>
+                            <constraint firstItem="kzS-hi-LZE" firstAttribute="top" secondItem="d9X-i3-ZFo" secondAttribute="bottom" constant="8" symbolic="YES" id="2sU-N0-zdD"/>
+                            <constraint firstItem="2Kz-bo-e1F" firstAttribute="centerX" secondItem="kzS-hi-LZE" secondAttribute="centerX" id="I0R-rv-js2"/>
+                            <constraint firstItem="2Kz-bo-e1F" firstAttribute="top" secondItem="kzS-hi-LZE" secondAttribute="bottom" constant="8" symbolic="YES" id="MgQ-Dk-Fo0"/>
+                            <constraint firstItem="2Kz-bo-e1F" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="71" id="bTn-4w-SYO"/>
+                            <constraint firstItem="d9X-i3-ZFo" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="bjZ-zY-K9S"/>
+                            <constraint firstItem="d9X-i3-ZFo" firstAttribute="centerX" secondItem="kzS-hi-LZE" secondAttribute="centerX" id="nCC-YF-2S8"/>
+                            <constraint firstItem="kzS-hi-LZE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="szf-NA-NLa"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="animationDurationSlider" destination="2Kz-bo-e1F" id="47b-uR-ana"/>
+                        <outlet property="animationImageView" destination="kzS-hi-LZE" id="lnG-Lv-XM0"/>
+                        <outlet property="startButtonView" destination="d9X-i3-ZFo" id="Mhh-rx-9vt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="409.5" y="430.5"/>
         </scene>
     </scenes>
 </document>
