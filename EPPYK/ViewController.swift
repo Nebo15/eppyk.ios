@@ -8,56 +8,90 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: RootViewController, UIDynamicAnimatorDelegate {
+    
+    //MARK: Config
+    let starsCount = 25
+    let starsToStayCount = 10
 
     //MARK: Vars
-    
-    @IBOutlet weak var startButtonView: UIButton!
-    @IBOutlet weak var animationView: UIView!
-    @IBOutlet weak var animationImageView: UIImageView!
-    @IBOutlet weak var animationDurationSlider: UISlider!
-    
+    @IBOutlet weak var skyView: UIView!
+    @IBOutlet weak var goButton: UIButton!
+    @IBOutlet weak var gravityButton: UIButton!
+    var stars = [Star]()
+    var fixedStars = [Star]()
+    var droppedStars = 0
+
+    var animator: UIDynamicAnimator!
+    var gravity: UIGravityBehavior!
+    var collision: UICollisionBehavior!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
 
+        animator = UIDynamicAnimator(referenceView: self.skyView)
+        gravity = UIGravityBehavior()
+        animator.addBehavior(gravity)
+        
+        collision = UICollisionBehavior()
+        collision.translatesReferenceBoundsIntoBoundary = true
+        animator.addBehavior(collision)
+        animator.delegate = self
+        gravityButton.hidden = true
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
     
     
-    //MARK: Actions
-    
-    var animatedImage = UIImage.animatedImageNamed("test", duration: 3.0)
-    @IBAction func startButtonClicked(sender: AnyObject) {
-
-        animationImageView.animationImages = animatedImage?.images
-        animationImageView.animationRepeatCount = 1
-        animationImageView.startAnimating()
+    @IBAction func goClicked(sender: AnyObject) {
+        // Clear
+        for star in stars {
+            collision.removeItem(star)
+            gravity.removeItem(star)
+            star.removeFromSuperview()
+        }
         
-        startButtonView.setTitle("Stop", forState: .Normal)
-        startButtonView.removeTarget(self, action: "startButtonClicked:", forControlEvents: .TouchUpInside)
-        startButtonView.addTarget(self, action: "stopButtonClicked:", forControlEvents: .TouchUpInside)
+        
+        stars = [Star]()
+        droppedStars = 0
+        
+        for _ in 0 ... starsCount {
+            let star = Star()
+            stars.append(star)
+            self.skyView.insertSubview(star, atIndex: 0);
+            collision.addItem(star)
+        }
+        gravityButton.hidden = false
+    }
+    
+    @IBAction func gravityClicked(sender: AnyObject) {
+        goButton.hidden = true
+        gravityButton.hidden = true
+        for star in stars {
+            NSTimer.scheduledTimerWithTimeInterval(drand48(), target: self, selector: "gravityStars:", userInfo: star, repeats: false)
+        }
         
     }
     
-    func stopButtonClicked(sender: AnyObject) {
-        
-        animationImageView.stopAnimating()
-        
-        startButtonView.setTitle("Start", forState: .Normal)
-        startButtonView.removeTarget(self, action: Selector("stopButtonClicked:"), forControlEvents: .TouchUpInside)
-        startButtonView.addTarget(self, action: Selector("startButtonClicked:"), forControlEvents: .TouchUpInside)
-    
-    }
+    func gravityStars(timer: NSTimer) {
+        // Add gravity after delay
+        if let star = timer.userInfo {
+            gravity.addItem(star as! Star)
+            gravity.magnitude = 0.8
+            if droppedStars < starsCount - starsToStayCount {
+                collision.removeItem(star as! Star)
+            }
 
-    @IBAction func animationSpeedChanged(sender: AnyObject) {
-        animationImageView.animationDuration = Double(animationDurationSlider.value)
-        startButtonClicked(startButtonView)
+        }
+        droppedStars++
+        if droppedStars >= starsCount {
+            goButton.hidden = false;
+        }
     }
+    
 }
 
