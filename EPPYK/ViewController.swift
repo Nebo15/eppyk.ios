@@ -27,11 +27,15 @@ class ViewController: RootViewController, UIDynamicAnimatorDelegate {
     var stars = [Star]()
     var fixedStars = [Star]()
     var droppedStars = 0
+    var catchedStar : Star?
 
     //MARK: Animation & Behaviors
     var animator: UIDynamicAnimator!
     var gravity: UIGravityBehavior!
     var collision: UICollisionBehavior!
+    
+    var snap: UISnapBehavior!
+    
     
     //MARK: Code
     override func viewDidLoad() {
@@ -44,7 +48,9 @@ class ViewController: RootViewController, UIDynamicAnimatorDelegate {
         collision = UICollisionBehavior()
         collision.translatesReferenceBoundsIntoBoundary = true
         animator.addBehavior(collision)
+        
         animator.delegate = self
+        
         gravityButton.hidden = true
         
     }
@@ -67,11 +73,16 @@ class ViewController: RootViewController, UIDynamicAnimatorDelegate {
         
         stars = [Star]()
         droppedStars = 0
-        
-        for _ in 0 ... starsCount {
+        let catchStarIndex = Int.init(arc4random_uniform( UInt32.init(starsCount) ))
+        for index in 0 ... starsCount {
             let star = Star()
             stars.append(star)
-            self.skyView.insertSubview(star, atIndex: 0);
+            var viewIndex = 0
+            if index == catchStarIndex {
+                viewIndex = 100
+                catchedStar = star
+            }
+            self.skyView.insertSubview(star, atIndex: viewIndex);
             collision.addItem(star)
             star.startGlowing(.Big)
         }
@@ -91,10 +102,19 @@ class ViewController: RootViewController, UIDynamicAnimatorDelegate {
     func gravityStars(timer: NSTimer) {
         // Add gravity after delay
         if let star = timer.userInfo {
-            gravity.addItem(star as! Star)
-            gravity.magnitude = 0.8
-            if droppedStars < starsCount - starsToStayCount {
+            
+            if star as? Star == catchedStar {
                 collision.removeItem(star as! Star)
+                let handPosition = CGPoint.init(x: princeView.frame.origin.x + princeView.frame.size.width, y: princeView.frame.origin.y + princeView.frame.size.height / 2 + 20)
+                snap = UISnapBehavior(item: star as! Star, snapToPoint: handPosition)
+                snap.damping = 6
+                animator.addBehavior(snap)
+            } else {
+                gravity.addItem(star as! Star)
+                gravity.magnitude = 0.8
+                if droppedStars < starsCount - starsToStayCount {
+                    collision.removeItem(star as! Star)
+                }
             }
 
         }
