@@ -29,22 +29,42 @@ class Star: UIView {
     
     init() {
         super.init(frame: CGRect.null)
-        let starImage = UIImage.init(named: "star")!.resize(CGFloat.init(arc4random_uniform(maxStarSize - minStarSize)+minStarSize))
+        //Create & resize image
+        let resizeType = arc4random_uniform(4)
+        var starImage = UIImage.init(named: "star")!
+        if resizeType == 0 { starImage = resizeWithBlur(starImage) }
+
         self.image = UIImageView.init(image: starImage)
+        if resizeType != 0 { self.image = resize(self.image!) }
         
+        // Image position
         let randPoint = CGPoint.init(x: Int(arc4random_uniform(UInt32.init(screenSize.width - starImage.size.width))),
             y: Int(arc4random_uniform(UInt32.init(screenSize.height/2))))
-        
-        
         let padding = CGFloat.init(2)
-        
         self.frame = CGRect(x: randPoint.x, y: randPoint.y, width: starImage.size.width + padding * 2, height: starImage.size.height + padding * 2)
         
+        // Add image on view
         self.image?.center = self.convertPoint((self.image?.center)!, fromView: self)
         self.addSubview(self.image!)
-        
     }
 
+    //MARK: Resize
+    private func resizeWithBlur(starImage: UIImage) -> UIImage {
+        let starSize = CGFloat.init(arc4random_uniform(maxStarSize - minStarSize)+minStarSize)
+        return starImage.resize(starSize)
+    }
+    
+    private func resize(imageView: UIImageView) ->UIImageView {
+        let starSize = CGFloat.init(arc4random_uniform(maxStarSize - minStarSize)+minStarSize)
+        var frame = imageView.frame
+        frame.size.height = starSize
+        frame.size.width = starSize
+        imageView.frame = frame
+        return imageView
+    }
+    
+
+    //MARK: Glow effect
     func startGlowing(chance: GlowChance) {
         self.glowChance = chance
         let time = Double.init(arc4random_uniform(5)) + 3.0 + drand48()

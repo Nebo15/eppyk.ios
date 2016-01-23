@@ -14,9 +14,11 @@
 		3A3BA5291C4DA97300B5194C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A3BA5281C4DA97300B5194C /* Assets.xcassets */; };
 		3A3BA52C1C4DA97300B5194C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A3BA52A1C4DA97300B5194C /* LaunchScreen.storyboard */; };
 		3A3BA5371C4DA97300B5194C /* EPPYKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3BA5361C4DA97300B5194C /* EPPYKTests.swift */; };
-		3A3FBD1B1C527B6500A6719D /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3FBD1A1C527B6500A6719D /* TestViewController.swift */; };
 		3A3FBD1F1C527DAC00A6719D /* StarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3FBD1E1C527DAC00A6719D /* StarView.swift */; };
 		3A433C8D1C52C12B009E531A /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A433C8C1C52C12B009E531A /* ImageExtension.swift */; };
+		3A5F67281C539328002BB6F9 /* Sabado Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3A5F67261C539328002BB6F9 /* Sabado Italic.otf */; };
+		3A5F67291C539328002BB6F9 /* Sabado Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3A5F67271C539328002BB6F9 /* Sabado Regular.otf */; };
+		3A5F672D1C5394DD002BB6F9 /* EppykLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F672C1C5394DD002BB6F9 /* EppykLabelView.swift */; };
 		3AE6E9BD1C4DAA0E00FD4E07 /* test0.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE6E9711C4DAA0E00FD4E07 /* test0.png */; };
 		3AE6E9BE1C4DAA0E00FD4E07 /* test43.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE6E9721C4DAA0E00FD4E07 /* test43.png */; };
 		3AE6E9BF1C4DAA0E00FD4E07 /* test44.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AE6E9731C4DAA0E00FD4E07 /* test44.png */; };
@@ -119,9 +121,12 @@
 		3A3BA5321C4DA97300B5194C /* EPPYKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EPPYKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A3BA5361C4DA97300B5194C /* EPPYKTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPPYKTests.swift; sourceTree = "<group>"; };
 		3A3BA5381C4DA97300B5194C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3A3FBD1A1C527B6500A6719D /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestViewController.swift; path = ViewControllers/TestViewController.swift; sourceTree = "<group>"; };
 		3A3FBD1E1C527DAC00A6719D /* StarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StarView.swift; path = Views/StarView.swift; sourceTree = "<group>"; };
 		3A433C8C1C52C12B009E531A /* ImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageExtension.swift; path = Exteisions/ImageExtension.swift; sourceTree = "<group>"; };
+		3A5F67261C539328002BB6F9 /* Sabado Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Sabado Italic.otf"; path = "Resources/fonts/Sabado Italic.otf"; sourceTree = "<group>"; };
+		3A5F67271C539328002BB6F9 /* Sabado Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Sabado Regular.otf"; path = "Resources/fonts/Sabado Regular.otf"; sourceTree = "<group>"; };
+		3A5F672C1C5394DD002BB6F9 /* EppykLabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EppykLabelView.swift; path = Views/EppykLabelView.swift; sourceTree = "<group>"; };
+		3A5F672E1C53965A002BB6F9 /* UIPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = UIPlayground.playground; sourceTree = "<group>"; };
 		3AE6E9711C4DAA0E00FD4E07 /* test0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = test0.png; path = Resources/test/test0.png; sourceTree = "<group>"; };
 		3AE6E9721C4DAA0E00FD4E07 /* test43.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = test43.png; path = Resources/test/test43.png; sourceTree = "<group>"; };
 		3AE6E9731C4DAA0E00FD4E07 /* test44.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = test44.png; path = Resources/test/test44.png; sourceTree = "<group>"; };
@@ -255,6 +260,7 @@
 				3A3BA52D1C4DA97300B5194C /* Info.plist */,
 				3AE6E96F1C4DA9EA00FD4E07 /* Resources */,
 				3AF37E1C1C528CC2008C3B27 /* AnimationPlayground.playground */,
+				3A5F672E1C53965A002BB6F9 /* UIPlayground.playground */,
 			);
 			path = EPPYK;
 			sourceTree = "<group>";
@@ -271,7 +277,6 @@
 		3A3FBD1C1C527B6800A6719D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				3A3FBD1A1C527B6500A6719D /* TestViewController.swift */,
 				3A3BA5231C4DA97300B5194C /* ViewController.swift */,
 				3A2C6D7F1C52DC12006C3C92 /* RootViewController.swift */,
 			);
@@ -282,6 +287,7 @@
 			isa = PBXGroup;
 			children = (
 				3A3FBD1E1C527DAC00A6719D /* StarView.swift */,
+				3A5F672C1C5394DD002BB6F9 /* EppykLabelView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -294,9 +300,19 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
+		3A5F67251C539309002BB6F9 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				3A5F67261C539328002BB6F9 /* Sabado Italic.otf */,
+				3A5F67271C539328002BB6F9 /* Sabado Regular.otf */,
+			);
+			name = fonts;
+			sourceTree = "<group>";
+		};
 		3AE6E96F1C4DA9EA00FD4E07 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3A5F67251C539309002BB6F9 /* fonts */,
 				3AE6E9701C4DAA0300FD4E07 /* test */,
 			);
 			name = Resources;
@@ -455,6 +471,7 @@
 				TargetAttributes = {
 					3A3BA51D1C4DA97300B5194C = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = FQ4NLM7MD5;
 					};
 					3A3BA5311C4DA97300B5194C = {
 						CreatedOnToolsVersion = 7.2;
@@ -526,6 +543,7 @@
 				3A3BA5291C4DA97300B5194C /* Assets.xcassets in Resources */,
 				3AE6E9CA1C4DAA0E00FD4E07 /* test55.png in Resources */,
 				3AE6E9F21C4DAA0E00FD4E07 /* test20.png in Resources */,
+				3A5F67281C539328002BB6F9 /* Sabado Italic.otf in Resources */,
 				3AE6E9EA1C4DAA0E00FD4E07 /* test12.png in Resources */,
 				3AE6EA001C4DAA0E00FD4E07 /* test34.png in Resources */,
 				3AE6EA061C4DAA0E00FD4E07 /* test40.png in Resources */,
@@ -549,6 +567,7 @@
 				3AE6E9F61C4DAA0E00FD4E07 /* test24.png in Resources */,
 				3AE6E9FE1C4DAA0E00FD4E07 /* test32.png in Resources */,
 				3AE6E9C81C4DAA0E00FD4E07 /* test53.png in Resources */,
+				3A5F67291C539328002BB6F9 /* Sabado Regular.otf in Resources */,
 				3AE6EA071C4DAA0E00FD4E07 /* test41.png in Resources */,
 				3AE6E9C11C4DAA0E00FD4E07 /* test46.png in Resources */,
 				3AE6E9E31C4DAA0E00FD4E07 /* test5.png in Resources */,
@@ -631,9 +650,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A3BA5241C4DA97300B5194C /* ViewController.swift in Sources */,
-				3A3FBD1B1C527B6500A6719D /* TestViewController.swift in Sources */,
 				3A2C6D801C52DC12006C3C92 /* RootViewController.swift in Sources */,
 				3A3FBD1F1C527DAC00A6719D /* StarView.swift in Sources */,
+				3A5F672D1C5394DD002BB6F9 /* EppykLabelView.swift in Sources */,
 				3A433C8D1C52C12B009E531A /* ImageExtension.swift in Sources */,
 				3A3BA5221C4DA97300B5194C /* AppDelegate.swift in Sources */,
 			);
@@ -763,6 +782,7 @@
 			baseConfigurationReference = 50E842554F3EB7F25233E240 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = EPPYK/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Nebo-15.EPPYK";
@@ -775,6 +795,7 @@
 			baseConfigurationReference = 29E4DA030E178A1C624ABE1F /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = EPPYK/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Nebo-15.EPPYK";
