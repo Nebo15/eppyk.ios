@@ -56,6 +56,16 @@ class Star: UIView {
         })
     }
     
+    func glow() {
+        let color = UIColor.redColor()
+        
+        self.layer.shadowColor = color.CGColor
+        self.layer.shadowRadius = 10.0
+        self.layer.shadowOpacity = 1
+        self.layer.shadowOffset = CGSizeZero
+        self.layer.masksToBounds = false
+    }
+    
     
 }
 let f: Int64 = Int64((1.0 + drand48())) * Int64(NSEC_PER_SEC)
@@ -68,7 +78,7 @@ let r = 2 * NSEC_PER_SEC
 var stars = [Star]()
 var fixedStars = [Star]()
 
-for index in 0 ... 20 {
+for index in 0 ... 3 {
     let star = Star()
     stars.append(star)
     containerView.addSubview(star);
@@ -76,7 +86,7 @@ for index in 0 ... 20 {
         fixedStars.append(star)
     }
     
-    star.animateTransform(CGAffineTransformMakeScale(1.3, 1.3))
+    star.glow()
 }
 
 
@@ -87,7 +97,7 @@ var collision: UICollisionBehavior!
 animator = UIDynamicAnimator(referenceView: containerView)
 gravity = UIGravityBehavior(items: stars)
 gravity.magnitude = 0.8
-animator.addBehavior(gravity)
+//animator.addBehavior(gravity)
 
 
 collision = UICollisionBehavior(items: fixedStars)

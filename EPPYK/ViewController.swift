@@ -18,14 +18,22 @@ class ViewController: RootViewController, UIDynamicAnimatorDelegate {
     @IBOutlet weak var skyView: UIView!
     @IBOutlet weak var goButton: UIButton!
     @IBOutlet weak var gravityButton: UIButton!
+    @IBOutlet weak var planetView: UIImageView!
+    @IBOutlet weak var dogView: UIImageView!
+    @IBOutlet weak var princeView: UIImageView!
+    
+    
+    //MARK: Starts
     var stars = [Star]()
     var fixedStars = [Star]()
     var droppedStars = 0
 
+    //MARK: Animation & Behaviors
     var animator: UIDynamicAnimator!
     var gravity: UIGravityBehavior!
     var collision: UICollisionBehavior!
     
+    //MARK: Code
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -52,6 +60,7 @@ class ViewController: RootViewController, UIDynamicAnimatorDelegate {
         for star in stars {
             collision.removeItem(star)
             gravity.removeItem(star)
+            gravity.removeItem(planetView)
             star.removeFromSuperview()
         }
         
@@ -64,7 +73,9 @@ class ViewController: RootViewController, UIDynamicAnimatorDelegate {
             stars.append(star)
             self.skyView.insertSubview(star, atIndex: 0);
             collision.addItem(star)
+            star.startGlowing(.Big)
         }
+//        collision.addItem(planetView)
         gravityButton.hidden = false
     }
     

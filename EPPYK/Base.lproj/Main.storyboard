@@ -169,8 +169,11 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="dogView" destination="LDc-k4-SVP" id="idN-LR-aKc"/>
                         <outlet property="goButton" destination="C8r-D9-sEm" id="MZa-S0-JVh"/>
                         <outlet property="gravityButton" destination="WSc-bV-SaQ" id="LVY-sG-TJY"/>
+                        <outlet property="planetView" destination="NJp-73-gO5" id="gzH-TV-3V0"/>
+                        <outlet property="princeView" destination="yIp-6L-1ib" id="QRr-EV-w2D"/>
                         <outlet property="skyView" destination="4ze-Hk-VlH" id="GyY-qH-KSF"/>
                     </connections>
                 </viewController>

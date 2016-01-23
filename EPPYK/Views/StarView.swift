@@ -8,14 +8,20 @@
 
 import Foundation
 import UIKit
+import QuartzCore
+
+enum GlowChance: UInt32 {
+    case VeryBig=5, Big=10, Medium=15, Small=20, VerySmall=30
+}
 
 class Star: UIView {
     
-    let minStarSize: UInt32 = 15
-    let maxStarSize: UInt32 = 45
+    private let minStarSize: UInt32 = 15
+    private let maxStarSize: UInt32 = 45
+    private var glowChance: GlowChance = .Medium
     
-    var image: UIImageView?
-    let screenSize: CGRect = UIScreen.mainScreen().bounds
+    private var image: UIImageView?
+    private let screenSize: CGRect = UIScreen.mainScreen().bounds
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -39,12 +45,40 @@ class Star: UIView {
         
     }
 
-    func animateTransform(transform: CGAffineTransform) {
-        let random = Double.init(Int(arc4random_uniform(2))) + drand48() + 1
-        UIView.animateWithDuration(random, animations: { () -> Void in
-            self.transform = transform
-        })
+    func startGlowing(chance: GlowChance) {
+        self.glowChance = chance
+        let time = Double.init(arc4random_uniform(5)) + 3.0 + drand48()
+        NSTimer.scheduledTimerWithTimeInterval(time, target: self, selector: "glow", userInfo: nil, repeats: true)
     }
     
+    func glow() {
+        let chance = arc4random_uniform(self.glowChance.rawValue)
+        if chance != 0 {
+            return
+        }
+        
+        let duration = 1.0
+        
+        // Set the image's shadowColor, radius, offset, and
+        // set masks to bounds to false
+        self.image!.layer.shadowColor = UIColor.yellowColor().CGColor
+        self.image!.layer.shadowRadius = 10.0
+        self.image!.layer.shadowOpacity = 0
+        self.image!.layer.shadowOffset = CGSizeZero
+        self.image!.layer.masksToBounds = false
+
+        let delay = duration * Double(NSEC_PER_SEC)
+        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+
+        dispatch_after(time, dispatch_get_main_queue(), {
+            // Animate the shadow opacity to "fade it out"
+            let shadowAnimOut = CABasicAnimation()
+            shadowAnimOut.keyPath = "shadowOpacity"
+            shadowAnimOut.fromValue = NSNumber(float: 1.0)
+            shadowAnimOut.toValue = NSNumber(float: 0.0)
+            shadowAnimOut.duration = duration
+            self.image!.layer.addAnimation(shadowAnimOut, forKey: "shadowOpacity")
+        })
+    }
     
 }
