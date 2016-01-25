@@ -31,7 +31,7 @@ class Star: UIView {
         super.init(frame: CGRect.null)
         //Create & resize image
         let resizeType = arc4random_uniform(4)
-        var starImage = UIImage.init(named: "star")!
+        var starImage = UIImage.init(named: "yellow-star")!
         if resizeType == 0 { starImage = resizeWithBlur(starImage) }
 
         self.image = UIImageView.init(image: starImage)
