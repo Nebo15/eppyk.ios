@@ -123,6 +123,7 @@
 		3A3BA5381C4DA97300B5194C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A3FBD1E1C527DAC00A6719D /* StarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StarView.swift; path = Views/StarView.swift; sourceTree = "<group>"; };
 		3A433C8C1C52C12B009E531A /* ImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageExtension.swift; path = Exteisions/ImageExtension.swift; sourceTree = "<group>"; };
+		3A5E83231C54302D0075C254 /* EPPYK-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "EPPYK-Bridging-Header.h"; path = "Utils/EPPYK-Bridging-Header.h"; sourceTree = "<group>"; };
 		3A5F67261C539328002BB6F9 /* Sabado Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Sabado Italic.otf"; path = "Resources/fonts/Sabado Italic.otf"; sourceTree = "<group>"; };
 		3A5F67271C539328002BB6F9 /* Sabado Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Sabado Regular.otf"; path = "Resources/fonts/Sabado Regular.otf"; sourceTree = "<group>"; };
 		3A5F672C1C5394DD002BB6F9 /* EppykLabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EppykLabelView.swift; path = Views/EppykLabelView.swift; sourceTree = "<group>"; };
@@ -250,6 +251,7 @@
 		3A3BA5201C4DA97300B5194C /* EPPYK */ = {
 			isa = PBXGroup;
 			children = (
+				3A5E83221C5430140075C254 /* Utils */,
 				3A433C8B1C52C0C8009E531A /* Extensions */,
 				3A3FBD1D1C527D8100A6719D /* Views */,
 				3A3FBD1C1C527B6800A6719D /* ViewControllers */,
@@ -298,6 +300,14 @@
 				3A433C8C1C52C12B009E531A /* ImageExtension.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		3A5E83221C5430140075C254 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				3A5E83231C54302D0075C254 /* EPPYK-Bridging-Header.h */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 		3A5F67251C539309002BB6F9 /* fonts */ = {
@@ -736,6 +746,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "EPPYK/Utils/EPPYK-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -773,6 +784,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "EPPYK/Utils/EPPYK-Bridging-Header.h";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
