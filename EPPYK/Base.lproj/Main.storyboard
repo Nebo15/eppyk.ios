@@ -22,7 +22,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="1QI-Xy-MGU">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sky-background" translatesAutoresizingMaskIntoConstraints="NO" id="1QI-Xy-MGU">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ze-Hk-VlH">
@@ -136,9 +136,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="background" width="375" height="667"/>
         <image name="dog" width="46" height="57"/>
         <image name="planet" width="218" height="128"/>
         <image name="prince" width="210" height="238"/>
+        <image name="sky-background" width="375" height="667"/>
     </resources>
 </document>
