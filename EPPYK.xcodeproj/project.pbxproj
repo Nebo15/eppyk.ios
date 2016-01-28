@@ -16,6 +16,10 @@
 		3A3BA5371C4DA97300B5194C /* EPPYKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3BA5361C4DA97300B5194C /* EPPYKTests.swift */; };
 		3A3FBD1F1C527DAC00A6719D /* StarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3FBD1E1C527DAC00A6719D /* StarView.swift */; };
 		3A433C8D1C52C12B009E531A /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A433C8C1C52C12B009E531A /* ImageExtension.swift */; };
+		3A56C04C1C5A3FF9008DFF59 /* QADataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3A56C04A1C5A3FF9008DFF59 /* QADataModel.xcdatamodeld */; };
+		3A56C0501C5A7522008DFF59 /* Answer+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A56C04E1C5A7522008DFF59 /* Answer+CoreDataProperties.swift */; };
+		3A56C0511C5A7522008DFF59 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A56C04F1C5A7522008DFF59 /* Answer.swift */; };
+		3A56C0531C5A75C3008DFF59 /* QAManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A56C0521C5A75C3008DFF59 /* QAManager.swift */; };
 		3A5F67281C539328002BB6F9 /* Sabado Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3A5F67261C539328002BB6F9 /* Sabado Italic.otf */; };
 		3A5F67291C539328002BB6F9 /* Sabado Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3A5F67271C539328002BB6F9 /* Sabado Regular.otf */; };
 		3A5F672D1C5394DD002BB6F9 /* EppykLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F672C1C5394DD002BB6F9 /* EppykLabelView.swift */; };
@@ -123,6 +127,10 @@
 		3A3BA5381C4DA97300B5194C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A3FBD1E1C527DAC00A6719D /* StarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StarView.swift; path = Views/StarView.swift; sourceTree = "<group>"; };
 		3A433C8C1C52C12B009E531A /* ImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageExtension.swift; path = Exteisions/ImageExtension.swift; sourceTree = "<group>"; };
+		3A56C04B1C5A3FF9008DFF59 /* QADataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QADataModel.xcdatamodel; sourceTree = "<group>"; };
+		3A56C04E1C5A7522008DFF59 /* Answer+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Answer+CoreDataProperties.swift"; path = "Data/Answer+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3A56C04F1C5A7522008DFF59 /* Answer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Answer.swift; path = Data/Answer.swift; sourceTree = "<group>"; };
+		3A56C0521C5A75C3008DFF59 /* QAManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QAManager.swift; path = Managers/QAManager.swift; sourceTree = "<group>"; };
 		3A5E83231C54302D0075C254 /* EPPYK-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "EPPYK-Bridging-Header.h"; path = "Utils/EPPYK-Bridging-Header.h"; sourceTree = "<group>"; };
 		3A5F67261C539328002BB6F9 /* Sabado Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Sabado Italic.otf"; path = "Resources/fonts/Sabado Italic.otf"; sourceTree = "<group>"; };
 		3A5F67271C539328002BB6F9 /* Sabado Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Sabado Regular.otf"; path = "Resources/fonts/Sabado Regular.otf"; sourceTree = "<group>"; };
@@ -251,6 +259,8 @@
 		3A3BA5201C4DA97300B5194C /* EPPYK */ = {
 			isa = PBXGroup;
 			children = (
+				3A56C0541C5A75CB008DFF59 /* Managers */,
+				3A56C04D1C5A74E6008DFF59 /* Data */,
 				3A5E83221C5430140075C254 /* Utils */,
 				3A433C8B1C52C0C8009E531A /* Extensions */,
 				3A3FBD1D1C527D8100A6719D /* Views */,
@@ -300,6 +310,24 @@
 				3A433C8C1C52C12B009E531A /* ImageExtension.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		3A56C04D1C5A74E6008DFF59 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				3A56C04E1C5A7522008DFF59 /* Answer+CoreDataProperties.swift */,
+				3A56C04F1C5A7522008DFF59 /* Answer.swift */,
+				3A56C04A1C5A3FF9008DFF59 /* QADataModel.xcdatamodeld */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		3A56C0541C5A75CB008DFF59 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				3A56C0521C5A75C3008DFF59 /* QAManager.swift */,
+			);
+			name = Managers;
 			sourceTree = "<group>";
 		};
 		3A5E83221C5430140075C254 /* Utils */ = {
@@ -662,9 +690,13 @@
 				3A3BA5241C4DA97300B5194C /* ViewController.swift in Sources */,
 				3A2C6D801C52DC12006C3C92 /* RootViewController.swift in Sources */,
 				3A3FBD1F1C527DAC00A6719D /* StarView.swift in Sources */,
+				3A56C0511C5A7522008DFF59 /* Answer.swift in Sources */,
 				3A5F672D1C5394DD002BB6F9 /* EppykLabelView.swift in Sources */,
 				3A433C8D1C52C12B009E531A /* ImageExtension.swift in Sources */,
+				3A56C0501C5A7522008DFF59 /* Answer+CoreDataProperties.swift in Sources */,
+				3A56C0531C5A75C3008DFF59 /* QAManager.swift in Sources */,
 				3A3BA5221C4DA97300B5194C /* AppDelegate.swift in Sources */,
+				3A56C04C1C5A3FF9008DFF59 /* QADataModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -870,6 +902,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3A56C04A1C5A3FF9008DFF59 /* QADataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3A56C04B1C5A3FF9008DFF59 /* QADataModel.xcdatamodel */,
+			);
+			currentVersion = 3A56C04B1C5A3FF9008DFF59 /* QADataModel.xcdatamodel */;
+			path = QADataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3A3BA5161C4DA97300B5194C /* Project object */;
 }

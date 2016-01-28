@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: RootViewController, UIDynamicAnimatorDelegate {
+class ViewController: RootViewController, UIDynamicAnimatorDelegate, UITextFieldDelegate {
     
     //MARK: Config
     let starsCount = Int.init(UIScreen.mainScreen().bounds.height / 27)
@@ -57,6 +57,9 @@ class ViewController: RootViewController, UIDynamicAnimatorDelegate {
         gravityButton.hidden = true
         self.goClicked(self.goButton)
         
+        self.questionTextField.delegate = self
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -81,17 +84,8 @@ class ViewController: RootViewController, UIDynamicAnimatorDelegate {
     override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
         super.motionEnded(motion, withEvent: event)
         if motion == .MotionShake {
-            activateGravity()
+            self.getAnswer()
         }
-    }
-    
-    func addUICollision() {
-//        collision.addItem(planetView)
-//        collision.addItem(whatIsYourQuestionLabel)
-    }
-    
-    func removeUICollision() {
-//        collision.removeItem(whatIsYourQuestionLabel)
     }
     
     //MARK: Gravity
@@ -119,7 +113,6 @@ class ViewController: RootViewController, UIDynamicAnimatorDelegate {
             collision.addItem(star)
             star.startGlowing(.Big)
         }
-        self.addUICollision()
         gravityButton.hidden = false
     }
     
@@ -127,7 +120,6 @@ class ViewController: RootViewController, UIDynamicAnimatorDelegate {
         self.view.endEditing(true)
         goButton.hidden = true
         gravityButton.hidden = true
-        removeUICollision()
         for star in stars {
             NSTimer.scheduledTimerWithTimeInterval(drand48(), target: self, selector: "startGravityForStarByTimer:", userInfo: star, repeats: false)
         }
@@ -156,6 +148,33 @@ class ViewController: RootViewController, UIDynamicAnimatorDelegate {
         if droppedStars >= starsCount {
             goButton.hidden = false;
         }
+    }
+    
+    //MARK: Q&A
+    
+    @IBAction func addQuestion(sender: AnyObject) {
+        guard self.questionTextField.text!.characters.count != 0 else {
+            return;
+        }
+        
+        QAManager.sharedInstance.addAnswer(self.questionTextField.text!)
+    }
+    
+    func getAnswer() {
+        
+        let answer = QAManager.sharedInstance.fetchAnswer()
+        self.questionTextField.text = answer.text
+        
+        activateGravity()
+    }
+    
+    
+    
+    //MARK: UITextFieldDelegate
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.getAnswer()
+        return true
     }
     
 }

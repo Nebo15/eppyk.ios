@@ -7,18 +7,50 @@
 //
 
 import UIKit
+import CoreData
+
+var agManagedObjectContext: NSManagedObjectContext?
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    static let sharedInstance = self
+    
     var window: UIWindow?
-
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
         application.applicationSupportsShakeToEdit = false
         
+        self.configCoreData()
+        
         return true
+    }
+    
+    
+    func configCoreData() {
+        guard let modelURL = NSBundle.mainBundle().URLForResource("QADataModel", withExtension:"momd") else {
+            fatalError("Error loading model from bundle")
+        }
+        guard let mom = NSManagedObjectModel(contentsOfURL: modelURL) else {
+            fatalError("Error initializing mom from: \(modelURL)")
+        }
+        
+        let psc = NSPersistentStoreCoordinator(managedObjectModel: mom)
+        agManagedObjectContext = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
+        agManagedObjectContext!.persistentStoreCoordinator = psc
+        
+        let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
+        let docURL = urls[urls.endIndex-1]
+        
+        /* The directory the application uses to store the Core Data store file.
+        This code uses a file named "DataModel.sqlite" in the application's documents directory.
+        */
+        let storeURL = docURL.URLByAppendingPathComponent("QADataModel.sqlite")
+        do {
+            try psc.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: storeURL, options: nil)
+        } catch {
+            fatalError("Error migrating store: \(error)")
+        }
     }
 
     func applicationWillResignActive(application: UIApplication) {
