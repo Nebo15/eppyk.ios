@@ -21,7 +21,8 @@ class ViewController: RootViewController, UIDynamicAnimatorDelegate {
     @IBOutlet weak var planetView: UIImageView!
     @IBOutlet weak var dogView: UIImageView!
     @IBOutlet weak var princeView: UIImageView!
-    @IBOutlet weak var whatIsYourQuestionLabel: EppykLabelView!
+    @IBOutlet weak var whatIsYourQuestionLabel:EppykLabelView!
+    @IBOutlet weak var questionTextField: UITextField!
     
     
     //MARK: Starts
@@ -55,10 +56,6 @@ class ViewController: RootViewController, UIDynamicAnimatorDelegate {
         
         gravityButton.hidden = true
         self.goClicked(self.goButton)
-        print(UIScreen.mainScreen().bounds.height)
-        // 568
-        // 667
-        // 736
         
     }
     
@@ -127,6 +124,7 @@ class ViewController: RootViewController, UIDynamicAnimatorDelegate {
     }
     
     func activateGravity() {
+        self.view.endEditing(true)
         goButton.hidden = true
         gravityButton.hidden = true
         removeUICollision()
