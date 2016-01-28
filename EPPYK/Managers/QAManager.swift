@@ -31,17 +31,34 @@ class QAManager {
     }
     
     
-    func fetchAnswer() -> Answer {
+    func fetchAnswer() ->String {
+        guard let dbAnswer = self.fetchAnswerDB() else {
+            return self.fetchAnswerL10n()
+        }
+        return dbAnswer
+    }
+
+    func fetchAnswerL10n() -> String {
+        let answersCount = Int.init("count".localizedAnswer)!
+        let answerId = Int(arc4random_uniform(UInt32.init(answersCount)))
+        let text = "answer\(answerId)".localizedAnswer
+        return text
+    }
+    
+    
+    func fetchAnswerDB() -> String? {
         let moc = agManagedObjectContext!
         let personFetch = NSFetchRequest(entityName: "AnswerEntity")
-        
+        var answerText: String? = nil
         do {
             let fetchedAnswer = try moc.executeFetchRequest(personFetch) as! [Answer]
-            let position = Int(arc4random_uniform(UInt32.init(fetchedAnswer.count)))
-            return fetchedAnswer[position]
-        } catch {
-            fatalError("Failed to fetch person: \(error)")
-        }
+            
+            if !fetchedAnswer.isEmpty {
+                let position = Int(arc4random_uniform(UInt32.init(fetchedAnswer.count)))
+                answerText = fetchedAnswer[position].text
+            }
+        } catch {}
+        return answerText
     }
     
     

@@ -161,9 +161,7 @@ class ViewController: RootViewController, UIDynamicAnimatorDelegate, UITextField
     }
     
     func getAnswer() {
-        
-        let answer = QAManager.sharedInstance.fetchAnswer()
-        self.questionTextField.text = answer.text
+        self.questionTextField.text = QAManager.sharedInstance.fetchAnswer()
         
         activateGravity()
     }

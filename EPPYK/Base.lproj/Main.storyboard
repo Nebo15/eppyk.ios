@@ -82,12 +82,12 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WIf-vL-Szx">
-                                        <rect key="frame" x="61" y="302" width="253" height="44"/>
+                                        <rect key="frame" x="20" y="302" width="335" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="pkz-Vr-oeO"/>
                                         </constraints>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" name="Sabado" family="Sabado" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="Sabado" family="Sabado" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="go"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="laU-8q-m2j">
@@ -111,14 +111,14 @@
                                     <constraint firstAttribute="bottom" secondItem="NJp-73-gO5" secondAttribute="bottom" id="LIv-ud-iRb"/>
                                     <constraint firstItem="C8r-D9-sEm" firstAttribute="top" secondItem="4ze-Hk-VlH" secondAttribute="top" id="Rm5-NC-amf"/>
                                     <constraint firstItem="LDc-k4-SVP" firstAttribute="centerX" secondItem="4ze-Hk-VlH" secondAttribute="centerX" constant="9" id="VwV-hD-CLT"/>
-                                    <constraint firstItem="WIf-vL-Szx" firstAttribute="leading" secondItem="4ze-Hk-VlH" secondAttribute="leading" constant="61" id="WPI-Z3-Qxa"/>
+                                    <constraint firstItem="WIf-vL-Szx" firstAttribute="leading" secondItem="4ze-Hk-VlH" secondAttribute="leading" constant="20" id="WPI-Z3-Qxa"/>
                                     <constraint firstItem="STe-pW-rMm" firstAttribute="centerY" secondItem="4ze-Hk-VlH" secondAttribute="centerY" constant="-90" id="ZZW-ev-Yao"/>
                                     <constraint firstItem="WIf-vL-Szx" firstAttribute="centerY" secondItem="4ze-Hk-VlH" secondAttribute="centerY" id="bD4-ve-S9r"/>
                                     <constraint firstItem="WSc-bV-SaQ" firstAttribute="top" secondItem="4ze-Hk-VlH" secondAttribute="top" id="dLU-eH-rxM"/>
                                     <constraint firstAttribute="bottom" secondItem="NJp-73-gO5" secondAttribute="bottom" id="eeT-Fp-eeB"/>
                                     <constraint firstItem="yIp-6L-1ib" firstAttribute="centerX" secondItem="4ze-Hk-VlH" secondAttribute="centerX" constant="26" id="fNy-ty-j5f"/>
                                     <constraint firstAttribute="bottom" secondItem="yIp-6L-1ib" secondAttribute="bottom" id="gIb-7v-ZSr"/>
-                                    <constraint firstAttribute="trailing" secondItem="WIf-vL-Szx" secondAttribute="trailing" constant="61" id="lpr-sP-TI2"/>
+                                    <constraint firstAttribute="trailing" secondItem="WIf-vL-Szx" secondAttribute="trailing" constant="20" id="lpr-sP-TI2"/>
                                     <constraint firstItem="STe-pW-rMm" firstAttribute="leading" secondItem="4ze-Hk-VlH" secondAttribute="leading" constant="8" id="mcN-t6-dPX"/>
                                     <constraint firstAttribute="trailing" secondItem="WSc-bV-SaQ" secondAttribute="trailing" constant="8" id="oOQ-gq-N0k"/>
                                     <constraint firstAttribute="trailing" secondItem="STe-pW-rMm" secondAttribute="trailing" constant="8" id="pxu-hP-vtX"/>

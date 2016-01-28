@@ -1,0 +1,16 @@
+/* 
+  L10n.strings
+  EPPYK
+
+  Created by Anton Rogachevskiy on 28/01/16.
+  Copyright © 2016 Anton Rogachevskyi. All rights reserved.
+*/
+
+"count"="7";
+"answer0"="Твою мать, ну конечно!";
+"answer1"="Ну и тупые у тебя вопросы... Да";
+"answer2"="Звучит хорошо";
+"answer3"="Херня какая-то";
+"answer4"="Да, но не сейчас";
+"answer5"="Начинай прямо сейчас";
+"answer6"="У меня ответы закончились";
