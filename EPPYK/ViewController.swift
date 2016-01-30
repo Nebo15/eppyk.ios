@@ -17,7 +17,6 @@ class ViewController: RootViewController, UIDynamicAnimatorDelegate, UITextField
     //MARK: Vars
     @IBOutlet weak var skyView: UIView!
     @IBOutlet weak var goButton: UIButton!
-    @IBOutlet weak var gravityButton: UIButton!
     @IBOutlet weak var planetView: UIImageView!
     @IBOutlet weak var dogView: UIImageView!
     @IBOutlet weak var princeView: UIImageView!
@@ -54,12 +53,17 @@ class ViewController: RootViewController, UIDynamicAnimatorDelegate, UITextField
         
         animator.delegate = self
         
-        gravityButton.hidden = true
         self.goClicked(self.goButton)
         
         self.questionTextField.delegate = self
         
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        self.skyView.addGestureRecognizer(tap)
         
+    }
+    
+    func dismissKeyboard() {
+        self.view.endEditing(true)
     }
     
     override func didReceiveMemoryWarning() {
@@ -70,10 +74,6 @@ class ViewController: RootViewController, UIDynamicAnimatorDelegate, UITextField
     //MARK: Actions
     @IBAction func goClicked(sender: AnyObject) {
         generateStars()
-    }
-    
-    @IBAction func gravityClicked(sender: AnyObject) {
-        activateGravity()
     }
     
     //MARK: Shake guester
@@ -113,13 +113,11 @@ class ViewController: RootViewController, UIDynamicAnimatorDelegate, UITextField
             collision.addItem(star)
             star.startGlowing(.Big)
         }
-        gravityButton.hidden = false
     }
     
     func activateGravity() {
         self.view.endEditing(true)
         goButton.hidden = true
-        gravityButton.hidden = true
         for star in stars {
             NSTimer.scheduledTimerWithTimeInterval(drand48(), target: self, selector: "startGravityForStarByTimer:", userInfo: star, repeats: false)
         }
@@ -150,19 +148,9 @@ class ViewController: RootViewController, UIDynamicAnimatorDelegate, UITextField
         }
     }
     
-    //MARK: Q&A
-    
-    @IBAction func addQuestion(sender: AnyObject) {
-        guard self.questionTextField.text!.characters.count != 0 else {
-            return;
-        }
-        
-        QAManager.sharedInstance.addAnswer(self.questionTextField.text!)
-    }
-    
+    //MARK: Q&A    
     func getAnswer() {
         self.questionTextField.text = QAManager.sharedInstance.fetchAnswer()
-        
         activateGravity()
     }
     

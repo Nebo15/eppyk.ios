@@ -11,6 +11,11 @@ import CoreData
 
 
 class QAManager {
+    
+    enum QASource: Int {
+        case L10N = 0, DB = 1
+    }
+    
     static let sharedInstance = QAManager()
     
     func addAnswer(text: String) {
@@ -30,6 +35,14 @@ class QAManager {
         }
     }
     
+    func getSource() -> QASource {
+        let moc = agManagedObjectContext!
+        let answerFetch = NSFetchRequest(entityName: "AnswerEntity")
+        var count = 0
+        var error: NSError? = nil
+        count = moc.countForFetchRequest(answerFetch, error: &error)
+        return count == 0 ? .L10N : .DB
+    }
     
     func fetchAnswer() ->String {
         guard let dbAnswer = self.fetchAnswerDB() else {

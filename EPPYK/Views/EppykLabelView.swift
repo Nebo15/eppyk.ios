@@ -13,7 +13,11 @@ class EppykLabelView: UILabel {
 
     override func awakeFromNib() {
         let attributedString = NSMutableAttributedString(string: self.text!)
-        attributedString.addAttribute(NSKernAttributeName, value: 3, range: NSMakeRange(0, attributedString.length))
+        var kernValue = 0
+        if self.tag == 1 {
+            kernValue = 3
+        }
+        attributedString.addAttribute(NSKernAttributeName, value: kernValue, range: NSMakeRange(0, attributedString.length))
         self.attributedText = attributedString
     }
 
