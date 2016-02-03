@@ -132,6 +132,17 @@
                                             <constraint firstAttribute="height" constant="36" id="zpJ-Kw-qAc"/>
                                         </constraints>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oPQ-tE-cuW">
+                                        <rect key="frame" x="148" y="0.0" width="79" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="4QD-dk-kgP"/>
+                                            <constraint firstAttribute="width" constant="79" id="6X6-Xj-9Za"/>
+                                        </constraints>
+                                        <state key="normal" title="Screenshot"/>
+                                        <connections>
+                                            <action selector="makeScreenshotClicked:" destination="dlq-Dc-Oif" eventType="touchUpInside" id="Kzb-nt-Av8"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="STe-pW-rMm" firstAttribute="top" secondItem="uZL-iA-arl" secondAttribute="bottom" constant="36" id="2Go-TL-GNr"/>
@@ -149,12 +160,14 @@
                                     <constraint firstItem="WIf-vL-Szx" firstAttribute="leading" secondItem="4ze-Hk-VlH" secondAttribute="leading" constant="40" id="WPI-Z3-Qxa"/>
                                     <constraint firstItem="fIT-eP-R5C" firstAttribute="leading" secondItem="4ze-Hk-VlH" secondAttribute="leading" constant="8" id="WnS-ab-MFI"/>
                                     <constraint firstItem="STe-pW-rMm" firstAttribute="centerY" secondItem="4ze-Hk-VlH" secondAttribute="centerY" constant="-90" id="ZZW-ev-Yao"/>
+                                    <constraint firstItem="oPQ-tE-cuW" firstAttribute="top" secondItem="4ze-Hk-VlH" secondAttribute="top" id="c1Z-Pb-JRJ"/>
                                     <constraint firstItem="WSc-bV-SaQ" firstAttribute="top" secondItem="4ze-Hk-VlH" secondAttribute="top" id="dLU-eH-rxM"/>
                                     <constraint firstItem="Evb-BU-xCI" firstAttribute="centerX" secondItem="4ze-Hk-VlH" secondAttribute="centerX" id="eJ3-Bn-Rep"/>
                                     <constraint firstItem="uZL-iA-arl" firstAttribute="top" secondItem="4ze-Hk-VlH" secondAttribute="top" constant="16" id="ecu-tD-EQz"/>
                                     <constraint firstAttribute="bottom" secondItem="NJp-73-gO5" secondAttribute="bottom" id="eeT-Fp-eeB"/>
                                     <constraint firstItem="yIp-6L-1ib" firstAttribute="centerX" secondItem="4ze-Hk-VlH" secondAttribute="centerX" constant="26" id="fNy-ty-j5f"/>
                                     <constraint firstAttribute="bottom" secondItem="yIp-6L-1ib" secondAttribute="bottom" id="gIb-7v-ZSr"/>
+                                    <constraint firstItem="oPQ-tE-cuW" firstAttribute="centerX" secondItem="4ze-Hk-VlH" secondAttribute="centerX" id="iTS-JA-US9"/>
                                     <constraint firstAttribute="trailing" secondItem="WIf-vL-Szx" secondAttribute="trailing" constant="40" id="lpr-sP-TI2"/>
                                     <constraint firstItem="uZL-iA-arl" firstAttribute="centerX" secondItem="4ze-Hk-VlH" secondAttribute="centerX" id="m0q-eE-FP9"/>
                                     <constraint firstItem="STe-pW-rMm" firstAttribute="leading" secondItem="4ze-Hk-VlH" secondAttribute="leading" constant="8" id="mcN-t6-dPX"/>
@@ -200,6 +213,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ltv-qZ-fvk" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-539.5" y="241.5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="dxx-bC-VU0">
+            <objects>
+                <viewController id="ExW-aR-0Re" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Iha-Em-3Kp"/>
+                        <viewControllerLayoutGuide type="bottom" id="4DJ-1k-Eh3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5dJ-KX-YNm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LK4-IU-YaK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-94.5" y="241.5"/>
         </scene>
         <!--Admin View Controller-->
         <scene sceneID="EtM-MD-dSL">
@@ -276,7 +308,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bLu-A6-a9k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-93.5" y="241.5"/>
+            <point key="canvasLocation" x="-539.5" y="1015.5"/>
         </scene>
     </scenes>
     <resources>
