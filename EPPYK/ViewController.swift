@@ -79,11 +79,11 @@ class ViewController: RootViewController, UIDynamicAnimatorDelegate, UITextField
     
     @IBAction func makeScreenshotClicked(sender: AnyObject) {
         let view = self.view
-        UIGraphicsBeginImageContext(view.frame.size)
-        view.layer.renderInContext(UIGraphicsGetCurrentContext()!)
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        
+        let image = ImageManager.sharedInstance.screenshotView(view)
+        ImageManager.sharedInstance.saveImageToGallery(image) { (success: Bool, error: NSError?) -> Void in
+            print(success ? "OK" : error!.localizedDescription)
+        }
         
     }
     

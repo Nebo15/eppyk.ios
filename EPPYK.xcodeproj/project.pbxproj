@@ -28,6 +28,7 @@
 		3A5F67281C539328002BB6F9 /* Sabado Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3A5F67261C539328002BB6F9 /* Sabado Italic.otf */; };
 		3A5F67291C539328002BB6F9 /* Sabado Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3A5F67271C539328002BB6F9 /* Sabado Regular.otf */; };
 		3A5F672D1C5394DD002BB6F9 /* EppykLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F672C1C5394DD002BB6F9 /* EppykLabelView.swift */; };
+		3A9786D21C634FF100C87A27 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9786D11C634FF100C87A27 /* ImageManager.swift */; };
 		CC888155EF069759EDC3409D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC572D75B26B3100F30B269C /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +74,7 @@
 		3A5F67271C539328002BB6F9 /* Sabado Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Sabado Regular.otf"; path = "Resources/fonts/Sabado Regular.otf"; sourceTree = "<group>"; };
 		3A5F672C1C5394DD002BB6F9 /* EppykLabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EppykLabelView.swift; path = Views/EppykLabelView.swift; sourceTree = "<group>"; };
 		3A5F672E1C53965A002BB6F9 /* UIPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = UIPlayground.playground; sourceTree = "<group>"; };
+		3A9786D11C634FF100C87A27 /* ImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageManager.swift; path = Managers/ImageManager.swift; sourceTree = "<group>"; };
 		3AF37E1C1C528CC2008C3B27 /* AnimationPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AnimationPlayground.playground; sourceTree = "<group>"; };
 		50E842554F3EB7F25233E240 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		BC572D75B26B3100F30B269C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -190,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				3A56C0521C5A75C3008DFF59 /* QAManager.swift */,
+				3A9786D11C634FF100C87A27 /* ImageManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 				3A56C0511C5A7522008DFF59 /* Answer.swift in Sources */,
 				3A5DA5331C5D3F2100D57A45 /* AdminViewController.swift in Sources */,
 				3A5F672D1C5394DD002BB6F9 /* EppykLabelView.swift in Sources */,
+				3A9786D21C634FF100C87A27 /* ImageManager.swift in Sources */,
 				3A5DA5311C5D2BB400D57A45 /* Global.swift in Sources */,
 				3A433C8D1C52C12B009E531A /* ImageExtension.swift in Sources */,
 				3A56C0501C5A7522008DFF59 /* Answer+CoreDataProperties.swift in Sources */,
