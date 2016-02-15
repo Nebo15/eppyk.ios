@@ -12,7 +12,7 @@ import Photos
 
 
 class ImageManager {
-    static let albumName = "EPPYK"
+    static let albumName = "EPPYK Move Answers"
     var assetCollection: PHAssetCollection!
     static let sharedInstance = ImageManager()
     

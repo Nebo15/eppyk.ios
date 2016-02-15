@@ -29,6 +29,8 @@
 		3A5F67291C539328002BB6F9 /* Sabado Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3A5F67271C539328002BB6F9 /* Sabado Regular.otf */; };
 		3A5F672D1C5394DD002BB6F9 /* EppykLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F672C1C5394DD002BB6F9 /* EppykLabelView.swift */; };
 		3A9786D21C634FF100C87A27 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9786D11C634FF100C87A27 /* ImageManager.swift */; };
+		3AAD92741C71027200ECAAA2 /* UpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAD92731C71027200ECAAA2 /* UpdateManager.swift */; };
+		3AAD927D1C71EDE200ECAAA2 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3AAD927C1C71EDE100ECAAA2 /* Config.plist */; };
 		CC888155EF069759EDC3409D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC572D75B26B3100F30B269C /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +77,8 @@
 		3A5F672C1C5394DD002BB6F9 /* EppykLabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EppykLabelView.swift; path = Views/EppykLabelView.swift; sourceTree = "<group>"; };
 		3A5F672E1C53965A002BB6F9 /* UIPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = UIPlayground.playground; sourceTree = "<group>"; };
 		3A9786D11C634FF100C87A27 /* ImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageManager.swift; path = Managers/ImageManager.swift; sourceTree = "<group>"; };
+		3AAD92731C71027200ECAAA2 /* UpdateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UpdateManager.swift; path = Managers/UpdateManager.swift; sourceTree = "<group>"; };
+		3AAD927C1C71EDE100ECAAA2 /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		3AF37E1C1C528CC2008C3B27 /* AnimationPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AnimationPlayground.playground; sourceTree = "<group>"; };
 		50E842554F3EB7F25233E240 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		BC572D75B26B3100F30B269C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +136,7 @@
 				3A3BA5251C4DA97300B5194C /* Main.storyboard */,
 				3A3BA52A1C4DA97300B5194C /* LaunchScreen.storyboard */,
 				3A3BA52D1C4DA97300B5194C /* Info.plist */,
+				3AAD927C1C71EDE100ECAAA2 /* Config.plist */,
 				3AE6E96F1C4DA9EA00FD4E07 /* Resources */,
 				3AF37E1C1C528CC2008C3B27 /* AnimationPlayground.playground */,
 				3A5F672E1C53965A002BB6F9 /* UIPlayground.playground */,
@@ -193,6 +198,7 @@
 			children = (
 				3A56C0521C5A75C3008DFF59 /* QAManager.swift */,
 				3A9786D11C634FF100C87A27 /* ImageManager.swift */,
+				3AAD92731C71027200ECAAA2 /* UpdateManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -333,6 +339,7 @@
 				3A5F67281C539328002BB6F9 /* Sabado Italic.otf in Resources */,
 				3A3BA5271C4DA97300B5194C /* Main.storyboard in Resources */,
 				3A5F67291C539328002BB6F9 /* Sabado Regular.otf in Resources */,
+				3AAD927D1C71EDE200ECAAA2 /* Config.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,6 +417,7 @@
 				3A56C0501C5A7522008DFF59 /* Answer+CoreDataProperties.swift in Sources */,
 				3A5DA52F1C5D27C300D57A45 /* EppykTextField.swift in Sources */,
 				3A56C0531C5A75C3008DFF59 /* QAManager.swift in Sources */,
+				3AAD92741C71027200ECAAA2 /* UpdateManager.swift in Sources */,
 				3A3BA5221C4DA97300B5194C /* AppDelegate.swift in Sources */,
 				3A56C0601C5A97D8008DFF59 /* StringExtension.swift in Sources */,
 				3A56C04C1C5A3FF9008DFF59 /* QADataModel.xcdatamodeld in Sources */,
@@ -555,6 +563,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = EPPYK/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Nebo-15.EPPYK";
@@ -568,6 +577,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = EPPYK/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Nebo-15.EPPYK";

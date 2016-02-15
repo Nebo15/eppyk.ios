@@ -78,6 +78,11 @@ class ViewController: RootViewController, UIDynamicAnimatorDelegate, UITextField
     
     
     @IBAction func makeScreenshotClicked(sender: AnyObject) {
+        
+        UpdateManager.sharedInstance.updateAnswers();
+        
+        
+        return;
         let view = self.view
         
         let image = ImageManager.sharedInstance.screenshotView(view)
