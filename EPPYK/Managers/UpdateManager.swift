@@ -29,20 +29,30 @@ class UpdateManager: NSObject {
         
         manager.GET( String(format: "%@%@", url, UMRequest.Answers.rawValue),
             parameters: params,
-            success: { (operation: AFHTTPRequestOperation!,responseObject: AnyObject!) in
-                let dateFormatter = NSDateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd"
-                self.setUpdateAfter(dateFormatter.stringFromDate(NSDate()))
-                
+            success: { (operation: AFHTTPRequestOperation!, responseObject: AnyObject!) in
                 print("JSON: " + responseObject.description)
+
+                let code = responseObject["meta"]!!["code"]
+                if let _code = code where _code as! Int == 200 {
+                    let data: Array<Dictionary<String, String>> = responseObject["data"] as! Array
+                    for item in data {
+                        guard let dbAnswer = QAManager.sharedInstance.findAnswerById(item["id"]!) else {
+                            QAManager.sharedInstance.addAnswer(item["id"]!, text: item["text"]!)
+                            continue
+                        }
+                        dbAnswer.text = item["text"]!
+                        QAManager.sharedInstance.editAnswer(dbAnswer)
+                    }
+                    
+                    let dateFormatter = NSDateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd"
+                    self.setUpdateAfter(dateFormatter.stringFromDate(NSDate()))
+                }
             },
             failure: { (operation: AFHTTPRequestOperation?, error: NSError!) in
                 print("Error: " + error.localizedDescription)
         })
-        
-        
     }
-    
     
     private func getUpdateAfter() -> String? {
         var date : String? = nil

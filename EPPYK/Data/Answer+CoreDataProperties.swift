@@ -14,6 +14,7 @@ import CoreData
 
 extension Answer {
 
+    @NSManaged var id: String?
     @NSManaged var text: String?
 
 }

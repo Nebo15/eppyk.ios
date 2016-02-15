@@ -30,8 +30,7 @@
 		3A5F672D1C5394DD002BB6F9 /* EppykLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F672C1C5394DD002BB6F9 /* EppykLabelView.swift */; };
 		3A9786D21C634FF100C87A27 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9786D11C634FF100C87A27 /* ImageManager.swift */; };
 		3AAD92741C71027200ECAAA2 /* UpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAD92731C71027200ECAAA2 /* UpdateManager.swift */; };
-		3AAD927D1C71EDE200ECAAA2 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3AAD927C1C71EDE100ECAAA2 /* Config.plist */; };
-		CC888155EF069759EDC3409D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC572D75B26B3100F30B269C /* libPods.a */; };
+		4EA2FB8DFA6B471FB949C9E9 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64E0CBC0F61296908BEC8378 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,10 +77,9 @@
 		3A5F672E1C53965A002BB6F9 /* UIPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = UIPlayground.playground; sourceTree = "<group>"; };
 		3A9786D11C634FF100C87A27 /* ImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageManager.swift; path = Managers/ImageManager.swift; sourceTree = "<group>"; };
 		3AAD92731C71027200ECAAA2 /* UpdateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UpdateManager.swift; path = Managers/UpdateManager.swift; sourceTree = "<group>"; };
-		3AAD927C1C71EDE100ECAAA2 /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		3AF37E1C1C528CC2008C3B27 /* AnimationPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AnimationPlayground.playground; sourceTree = "<group>"; };
 		50E842554F3EB7F25233E240 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		BC572D75B26B3100F30B269C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		64E0CBC0F61296908BEC8378 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC888155EF069759EDC3409D /* libPods.a in Frameworks */,
+				4EA2FB8DFA6B471FB949C9E9 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,7 +134,6 @@
 				3A3BA5251C4DA97300B5194C /* Main.storyboard */,
 				3A3BA52A1C4DA97300B5194C /* LaunchScreen.storyboard */,
 				3A3BA52D1C4DA97300B5194C /* Info.plist */,
-				3AAD927C1C71EDE100ECAAA2 /* Config.plist */,
 				3AE6E96F1C4DA9EA00FD4E07 /* Resources */,
 				3AF37E1C1C528CC2008C3B27 /* AnimationPlayground.playground */,
 				3A5F672E1C53965A002BB6F9 /* UIPlayground.playground */,
@@ -233,7 +230,7 @@
 		A58200FFF127CD0621AED73E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BC572D75B26B3100F30B269C /* libPods.a */,
+				64E0CBC0F61296908BEC8378 /* Pods.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -339,7 +336,6 @@
 				3A5F67281C539328002BB6F9 /* Sabado Italic.otf in Resources */,
 				3A3BA5271C4DA97300B5194C /* Main.storyboard in Resources */,
 				3A5F67291C539328002BB6F9 /* Sabado Regular.otf in Resources */,
-				3AAD927D1C71EDE200ECAAA2 /* Config.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

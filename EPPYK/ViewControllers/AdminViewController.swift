@@ -31,7 +31,7 @@ class AdminViewController: RootViewController {
             return
         }
         
-        QAManager.sharedInstance.addAnswer(self.answerTextField.text!)
+//        QAManager.sharedInstance.addAnswer(self.answerTextField.text!)
         self.answerTextField.text = ""
         
     }

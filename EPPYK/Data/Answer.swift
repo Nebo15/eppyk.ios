@@ -12,6 +12,4 @@ import CoreData
 @objc(Answer)
 class Answer: NSManagedObject {
 
-// Insert code here to add functionality to your managed object subclass
-
 }

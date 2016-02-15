@@ -18,13 +18,31 @@ class QAManager {
     
     static let sharedInstance = QAManager()
     
-    func addAnswer(text: String) {
+    
+    func findAnswerById(id: String) -> Answer? {
+        var answer : Answer? = nil
+        let moc = agManagedObjectContext!
+        let answerFetch = NSFetchRequest(entityName: "AnswerEntity")
+        answerFetch.predicate = NSPredicate(format: "id == %@", id)
+        do {
+            let fetchedAnswer = try moc.executeFetchRequest(answerFetch) as! [Answer]
+            if !fetchedAnswer.isEmpty {
+                answer = fetchedAnswer[0]
+            }
+        } catch {}
+        
+        return answer
+    }
+    
+    
+    func addAnswer(id: String, text: String) {
         
         // create an instance of our managedObjectContext
         let moc = agManagedObjectContext!
         let entity = NSEntityDescription.insertNewObjectForEntityForName("AnswerEntity", inManagedObjectContext: moc) as! Answer
-        
+    
         // add a data
+        entity.setValue(id, forKey: "id")
         entity.setValue(text, forKey: "text")
         
         // Save the entity
@@ -32,6 +50,14 @@ class QAManager {
             try moc.save()
         } catch {
             fatalError("Failure to save context: \(error)")
+        }
+    }
+    
+    func editAnswer(answer: Answer) {
+        do {
+            try answer.managedObjectContext?.save()
+        } catch {
+            fatalError("Failure to edit context: \(error)")
         }
     }
     
@@ -45,7 +71,7 @@ class QAManager {
     }
     
     func fetchAnswer() ->String {
-        guard let dbAnswer = self.fetchAnswerDB() else {
+        guard let dbAnswer = self.fetchAnswerDB().1 else {
             return self.fetchAnswerL10n()
         }
         return dbAnswer
@@ -59,19 +85,21 @@ class QAManager {
     }
     
     
-    func fetchAnswerDB() -> String? {
+    func fetchAnswerDB() -> (String?, String?)  {
         let moc = agManagedObjectContext!
-        let personFetch = NSFetchRequest(entityName: "AnswerEntity")
+        let answerFetch = NSFetchRequest(entityName: "AnswerEntity")
         var answerText: String? = nil
+        var answerId: String? = nil
         do {
-            let fetchedAnswer = try moc.executeFetchRequest(personFetch) as! [Answer]
+            let fetchedAnswer = try moc.executeFetchRequest(answerFetch) as! [Answer]
             
             if !fetchedAnswer.isEmpty {
                 let position = Int(arc4random_uniform(UInt32.init(fetchedAnswer.count)))
+                answerId = fetchedAnswer[position].id
                 answerText = fetchedAnswer[position].text
             }
         } catch {}
-        return answerText
+        return (answerId, answerText)
     }
     
     
