@@ -10,7 +10,7 @@ import Foundation
 
 extension String {
     var localized: String {
-        return NSLocalizedString(self, tableName: nil, bundle: NSBundle.mainBundle(), value: "", comment: "")
+        return NSLocalizedString(self, tableName: "UI", bundle: NSBundle.mainBundle(), value: "", comment: "")
     }
 
     var localizedAnswer: String {

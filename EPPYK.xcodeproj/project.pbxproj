@@ -29,6 +29,15 @@
 		3A5F67291C539328002BB6F9 /* Sabado Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3A5F67271C539328002BB6F9 /* Sabado Regular.otf */; };
 		3A5F672D1C5394DD002BB6F9 /* EppykLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5F672C1C5394DD002BB6F9 /* EppykLabelView.swift */; };
 		3A9786D21C634FF100C87A27 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9786D11C634FF100C87A27 /* ImageManager.swift */; };
+		3AA3E8A51C76674100BE0CDF /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA3E8A41C76674100BE0CDF /* StartViewController.swift */; };
+		3AA3E8A71C76851E00BE0CDF /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA3E8A61C76851D00BE0CDF /* SettingsManager.swift */; };
+		3AA3E8AE1C7696A700BE0CDF /* L10nView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AA3E8AD1C7696A700BE0CDF /* L10nView.xib */; };
+		3AA3E8B01C7696E900BE0CDF /* L10nView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA3E8AF1C7696E900BE0CDF /* L10nView.swift */; };
+		3AA3E8B21C76977E00BE0CDF /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA3E8B11C76977E00BE0CDF /* UIViewExtension.swift */; };
+		3AA3E8B51C769C9F00BE0CDF /* L10NTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA3E8B31C769C9F00BE0CDF /* L10NTableViewCell.swift */; };
+		3AA3E8B61C769C9F00BE0CDF /* L10NTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AA3E8B41C769C9F00BE0CDF /* L10NTableViewCell.xib */; };
+		3AA3E8B81C77318D00BE0CDF /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA3E8B71C77318D00BE0CDF /* L10n.swift */; };
+		3AA3E8BB1C77461700BE0CDF /* UI.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3AA3E8BD1C77461700BE0CDF /* UI.strings */; };
 		3AAD92741C71027200ECAAA2 /* UpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAD92731C71027200ECAAA2 /* UpdateManager.swift */; };
 		4EA2FB8DFA6B471FB949C9E9 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64E0CBC0F61296908BEC8378 /* Pods.framework */; };
 /* End PBXBuildFile section */
@@ -76,6 +85,16 @@
 		3A5F672C1C5394DD002BB6F9 /* EppykLabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EppykLabelView.swift; path = Views/EppykLabelView.swift; sourceTree = "<group>"; };
 		3A5F672E1C53965A002BB6F9 /* UIPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = UIPlayground.playground; sourceTree = "<group>"; };
 		3A9786D11C634FF100C87A27 /* ImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageManager.swift; path = Managers/ImageManager.swift; sourceTree = "<group>"; };
+		3AA3E8A41C76674100BE0CDF /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StartViewController.swift; path = ViewControllers/StartViewController.swift; sourceTree = "<group>"; };
+		3AA3E8A61C76851D00BE0CDF /* SettingsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsManager.swift; path = Managers/SettingsManager.swift; sourceTree = "<group>"; };
+		3AA3E8AD1C7696A700BE0CDF /* L10nView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = L10nView.xib; path = UI/L10nView.xib; sourceTree = "<group>"; };
+		3AA3E8AF1C7696E900BE0CDF /* L10nView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = L10nView.swift; path = UI/L10nView.swift; sourceTree = "<group>"; };
+		3AA3E8B11C76977E00BE0CDF /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewExtension.swift; path = Exteisions/UIViewExtension.swift; sourceTree = "<group>"; };
+		3AA3E8B31C769C9F00BE0CDF /* L10NTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = L10NTableViewCell.swift; path = UI/L10NTableViewCell.swift; sourceTree = "<group>"; };
+		3AA3E8B41C769C9F00BE0CDF /* L10NTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = L10NTableViewCell.xib; path = UI/L10NTableViewCell.xib; sourceTree = "<group>"; };
+		3AA3E8B71C77318D00BE0CDF /* L10n.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = L10n.swift; path = Data/L10n.swift; sourceTree = "<group>"; };
+		3AA3E8BE1C77461800BE0CDF /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/UI.strings; sourceTree = "<group>"; };
+		3AA3E8BF1C77463A00BE0CDF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/UI.strings; sourceTree = "<group>"; };
 		3AAD92731C71027200ECAAA2 /* UpdateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UpdateManager.swift; path = Managers/UpdateManager.swift; sourceTree = "<group>"; };
 		3AF37E1C1C528CC2008C3B27 /* AnimationPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AnimationPlayground.playground; sourceTree = "<group>"; };
 		50E842554F3EB7F25233E240 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -130,9 +149,8 @@
 				3A56C0541C5A75CB008DFF59 /* Managers */,
 				3A3FBD1D1C527D8100A6719D /* Views */,
 				3A3FBD1C1C527B6800A6719D /* ViewControllers */,
+				3AA3E8A81C76940300BE0CDF /* UI */,
 				3A3BA5211C4DA97300B5194C /* AppDelegate.swift */,
-				3A3BA5251C4DA97300B5194C /* Main.storyboard */,
-				3A3BA52A1C4DA97300B5194C /* LaunchScreen.storyboard */,
 				3A3BA52D1C4DA97300B5194C /* Info.plist */,
 				3AE6E96F1C4DA9EA00FD4E07 /* Resources */,
 				3AF37E1C1C528CC2008C3B27 /* AnimationPlayground.playground */,
@@ -157,6 +175,7 @@
 				3A3BA5231C4DA97300B5194C /* ViewController.swift */,
 				3A2C6D7F1C52DC12006C3C92 /* RootViewController.swift */,
 				3A5DA5321C5D3F2100D57A45 /* AdminViewController.swift */,
+				3AA3E8A41C76674100BE0CDF /* StartViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -176,6 +195,7 @@
 			children = (
 				3A433C8C1C52C12B009E531A /* ImageExtension.swift */,
 				3A56C05F1C5A97D8008DFF59 /* StringExtension.swift */,
+				3AA3E8B11C76977E00BE0CDF /* UIViewExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -186,6 +206,7 @@
 				3A56C04E1C5A7522008DFF59 /* Answer+CoreDataProperties.swift */,
 				3A56C04F1C5A7522008DFF59 /* Answer.swift */,
 				3A56C04A1C5A3FF9008DFF59 /* QADataModel.xcdatamodeld */,
+				3AA3E8B71C77318D00BE0CDF /* L10n.swift */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -196,6 +217,7 @@
 				3A56C0521C5A75C3008DFF59 /* QAManager.swift */,
 				3A9786D11C634FF100C87A27 /* ImageManager.swift */,
 				3AAD92731C71027200ECAAA2 /* UpdateManager.swift */,
+				3AA3E8A61C76851D00BE0CDF /* SettingsManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -217,12 +239,26 @@
 			name = fonts;
 			sourceTree = "<group>";
 		};
+		3AA3E8A81C76940300BE0CDF /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				3A3BA5251C4DA97300B5194C /* Main.storyboard */,
+				3A3BA52A1C4DA97300B5194C /* LaunchScreen.storyboard */,
+				3AA3E8AD1C7696A700BE0CDF /* L10nView.xib */,
+				3AA3E8AF1C7696E900BE0CDF /* L10nView.swift */,
+				3AA3E8B31C769C9F00BE0CDF /* L10NTableViewCell.swift */,
+				3AA3E8B41C769C9F00BE0CDF /* L10NTableViewCell.xib */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
 		3AE6E96F1C4DA9EA00FD4E07 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				3A3BA5281C4DA97300B5194C /* Assets.xcassets */,
 				3A5F67251C539309002BB6F9 /* fonts */,
+				3A3BA5281C4DA97300B5194C /* Assets.xcassets */,
 				3A56C05B1C5A8E83008DFF59 /* L10n.strings */,
+				3AA3E8BD1C77461700BE0CDF /* UI.strings */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -330,9 +366,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AA3E8BB1C77461700BE0CDF /* UI.strings in Resources */,
 				3A3BA52C1C4DA97300B5194C /* LaunchScreen.storyboard in Resources */,
 				3A56C0591C5A8E83008DFF59 /* L10n.strings in Resources */,
+				3AA3E8AE1C7696A700BE0CDF /* L10nView.xib in Resources */,
 				3A3BA5291C4DA97300B5194C /* Assets.xcassets in Resources */,
+				3AA3E8B61C769C9F00BE0CDF /* L10NTableViewCell.xib in Resources */,
 				3A5F67281C539328002BB6F9 /* Sabado Italic.otf in Resources */,
 				3A3BA5271C4DA97300B5194C /* Main.storyboard in Resources */,
 				3A5F67291C539328002BB6F9 /* Sabado Regular.otf in Resources */,
@@ -409,13 +448,19 @@
 				3A5F672D1C5394DD002BB6F9 /* EppykLabelView.swift in Sources */,
 				3A9786D21C634FF100C87A27 /* ImageManager.swift in Sources */,
 				3A5DA5311C5D2BB400D57A45 /* Global.swift in Sources */,
+				3AA3E8A71C76851E00BE0CDF /* SettingsManager.swift in Sources */,
 				3A433C8D1C52C12B009E531A /* ImageExtension.swift in Sources */,
+				3AA3E8B51C769C9F00BE0CDF /* L10NTableViewCell.swift in Sources */,
+				3AA3E8B21C76977E00BE0CDF /* UIViewExtension.swift in Sources */,
+				3AA3E8B01C7696E900BE0CDF /* L10nView.swift in Sources */,
 				3A56C0501C5A7522008DFF59 /* Answer+CoreDataProperties.swift in Sources */,
+				3AA3E8A51C76674100BE0CDF /* StartViewController.swift in Sources */,
 				3A5DA52F1C5D27C300D57A45 /* EppykTextField.swift in Sources */,
 				3A56C0531C5A75C3008DFF59 /* QAManager.swift in Sources */,
 				3AAD92741C71027200ECAAA2 /* UpdateManager.swift in Sources */,
 				3A3BA5221C4DA97300B5194C /* AppDelegate.swift in Sources */,
 				3A56C0601C5A97D8008DFF59 /* StringExtension.swift in Sources */,
+				3AA3E8B81C77318D00BE0CDF /* L10n.swift in Sources */,
 				3A56C04C1C5A3FF9008DFF59 /* QADataModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -464,6 +509,16 @@
 				3A56C05E1C5A8E95008DFF59 /* en */,
 			);
 			name = L10n.strings;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3AA3E8BD1C77461700BE0CDF /* UI.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3AA3E8BE1C77461800BE0CDF /* ru */,
+				3AA3E8BF1C77463A00BE0CDF /* en */,
+			);
+			name = UI.strings;
 			path = Resources;
 			sourceTree = "<group>";
 		};

@@ -9,8 +9,8 @@
 import Foundation
 
 enum UMRequest: String {
-    case Answers = "/locales/en_US/answers"
-    
+    case Answers = "/locales/%@/answers"
+    case L10Ns = "/locales"
 }
 
 class UpdateManager: NSObject {
@@ -20,14 +20,15 @@ class UpdateManager: NSObject {
     private let url = "http://128.199.50.95/api/v1"
     
     
-    func updateAnswers() {
+    func updateAnswers(l10n: String) {
         
         var params : Dictionary<String, String>? = nil
-        if let date = self.getUpdateAfter() {
+        if let date = SettingsManager.sharedInstance.getValue(SettingsManager.UpdateAfter) {
             params = ["updated_after": date]
         }
         
-        manager.GET( String(format: "%@%@", url, UMRequest.Answers.rawValue),
+        print( String(format: "%@%@", url, String(format: UMRequest.Answers.rawValue, l10n)))
+        manager.GET( String(format: "%@%@", url, String(format: UMRequest.Answers.rawValue, l10n)),
             parameters: params,
             success: { (operation: AFHTTPRequestOperation!, responseObject: AnyObject!) in
                 print("JSON: " + responseObject.description)
@@ -46,7 +47,7 @@ class UpdateManager: NSObject {
                     
                     let dateFormatter = NSDateFormatter()
                     dateFormatter.dateFormat = "yyyy-MM-dd"
-                    self.setUpdateAfter(dateFormatter.stringFromDate(NSDate()))
+                    SettingsManager.sharedInstance.setValue(dateFormatter.stringFromDate(NSDate()), key: SettingsManager.UpdateAfter)
                 }
             },
             failure: { (operation: AFHTTPRequestOperation?, error: NSError!) in
@@ -54,36 +55,29 @@ class UpdateManager: NSObject {
         })
     }
     
-    private func getUpdateAfter() -> String? {
-        var date : String? = nil
-        var myDict: NSDictionary?
-        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) as NSArray
-        let documentsDirectory = paths.objectAtIndex(0) as! NSString
-        let path = documentsDirectory.stringByAppendingPathComponent("Config.plist")
-        myDict = NSDictionary(contentsOfFile: path)
+    func updateL10ns(completion: (result: Bool, l10ns: [L10n]) -> Void) {
 
-        if let dict = myDict {
-            date = dict.objectForKey("updated_after") as! String?
-        }
-        return date
-    }
-    
-    private func setUpdateAfter(date: String) {
-        
-        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) as NSArray
-        let documentsDirectory = paths.objectAtIndex(0) as! NSString
-        let path = documentsDirectory.stringByAppendingPathComponent("Config.plist")
-        
-        let dict: NSMutableDictionary = ["XInitializerItem": "DoNotEverChangeMe"]
-        
-        dict.setObject(date, forKey: "updated_after")
-        
-        //writing to GameData.plist
-        dict.writeToFile(path, atomically: false)
-        
-        let resultDictionary = NSMutableDictionary(contentsOfFile: path)
-        print("Saved Config.plist file is --> \(resultDictionary?.description)")
-        
+        manager.GET(String(format: "%@%@", url, UMRequest.L10Ns.rawValue),
+            parameters: nil,
+            success: { (operation: AFHTTPRequestOperation!, responseObject: AnyObject!) in
+                print("JSON: " + responseObject.description)
+                
+                let code = responseObject["meta"]!!["code"]
+                if let _code = code where _code as! Int == 200 {
+                    var l10ns = [L10n]()
+                    // Data
+                    let data: Array<Dictionary<String, String>> = responseObject["data"] as! Array
+                    for item in data {
+                        let l10n = L10n(code:item["code"]!, id:item["id"]!, title: item["title"]!)
+                        l10ns.append(l10n)
+                    }
+                    completion(result: true, l10ns: l10ns)
+                }
+            },
+            failure: { (operation: AFHTTPRequestOperation?, error: NSError!) in
+                print("Error: " + error.localizedDescription)
+                completion(result: false, l10ns: [L10n]())
+        })
     }
     
     

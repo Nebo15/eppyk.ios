@@ -79,7 +79,7 @@ class ViewController: RootViewController, UIDynamicAnimatorDelegate, UITextField
     
     @IBAction func makeScreenshotClicked(sender: AnyObject) {
         
-        UpdateManager.sharedInstance.updateAnswers();
+        UpdateManager.sharedInstance.updateAnswers("en_US");
         
         
         return;

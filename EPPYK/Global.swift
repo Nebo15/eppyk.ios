@@ -9,7 +9,11 @@
 import Foundation
 import UIKit
 
+
+let ScreenSize = UIScreen.mainScreen().bounds.size
+
 func UIColorFromRGB(rgbValue: UInt) -> UIColor {
+    
     return UIColor(
         red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
         green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
