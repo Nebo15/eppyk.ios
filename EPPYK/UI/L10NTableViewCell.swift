@@ -34,9 +34,9 @@ class L10NTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         if selected {
-            self.backgroundColor = UIColor.redColor()
+            self.arrowImage.image = UIImage.init(named: "check")
         } else {
-            self.backgroundColor = UIColor.clearColor()
+            self.arrowImage.image = nil
         }
         
     }
