@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -22,17 +24,17 @@
                         <viewControllerLayoutGuide type="bottom" id="5XW-NM-h6y"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="xxs-Ow-GaQ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sky-background" translatesAutoresizingMaskIntoConstraints="NO" id="1QI-Xy-MGU">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ze-Hk-VlH">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
                                 <subviews>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="prince" translatesAutoresizingMaskIntoConstraints="NO" id="yIp-6L-1ib">
-                                        <rect key="frame" x="109" y="409" width="210" height="238"/>
+                                        <rect key="frame" x="145" y="415" width="176" height="301"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="210" id="GMD-7h-JvO"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="140" id="NpH-dx-VwN"/>
@@ -46,7 +48,7 @@
                                         </variation>
                                     </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="redraw" image="planet" translatesAutoresizingMaskIntoConstraints="NO" id="NJp-73-gO5">
-                                        <rect key="frame" x="0.0" y="519" width="218" height="128"/>
+                                        <rect key="frame" x="0.0" y="554" width="218" height="162"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="128" id="dwt-gF-Ko6"/>
                                             <constraint firstAttribute="width" constant="218" id="krU-MM-bBY"/>
@@ -58,7 +60,7 @@
                                         </variation>
                                     </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="dog" translatesAutoresizingMaskIntoConstraints="NO" id="LDc-k4-SVP">
-                                        <rect key="frame" x="174" y="590" width="46" height="57"/>
+                                        <rect key="frame" x="193" y="644" width="46" height="72"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="46" id="i5F-nv-1P4"/>
                                             <constraint firstAttribute="height" constant="57" id="qgj-UA-PUS"/>
@@ -81,7 +83,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WSc-bV-SaQ">
-                                        <rect key="frame" x="323" y="0.0" width="44" height="30"/>
+                                        <rect key="frame" x="362" y="0.0" width="44" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="44" id="Rc2-1y-d0q"/>
                                             <constraint firstAttribute="height" constant="30" id="p8E-Zc-TUN"/>
@@ -92,7 +94,7 @@
                                         </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ask it here" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WIf-vL-Szx" customClass="EppykTextField" customModule="EPPYK" customModuleProvider="target">
-                                        <rect key="frame" x="40" y="204" width="295" height="40"/>
+                                        <rect key="frame" x="40" y="204" width="334" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="pkz-Vr-oeO"/>
                                         </constraints>
@@ -101,14 +103,14 @@
                                         <textInputTraits key="textInputTraits" returnKeyType="go"/>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eppyk-text" translatesAutoresizingMaskIntoConstraints="NO" id="uZL-iA-arl">
-                                        <rect key="frame" x="87" y="16" width="200" height="115"/>
+                                        <rect key="frame" x="107" y="16" width="200" height="115"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="T9V-s1-wtg"/>
                                             <constraint firstAttribute="height" constant="115" id="ZG3-93-hi5"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WHAT'S YOUR QUESTION?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="STe-pW-rMm" customClass="EppykLabelView" customModule="EPPYK" customModuleProvider="target">
-                                        <rect key="frame" x="8" y="167" width="359" height="21"/>
+                                        <rect key="frame" x="8" y="167" width="398" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="eKm-uy-6lc"/>
                                         </constraints>
@@ -117,7 +119,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AND SHAKE YOUR PHOE TO GET THE ANSWER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIT-eP-R5C" customClass="EppykLabelView" customModule="EPPYK" customModuleProvider="target">
-                                        <rect key="frame" x="8" y="308" width="359" height="21"/>
+                                        <rect key="frame" x="8" y="308" width="398" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="HQT-J0-gty"/>
                                         </constraints>
@@ -126,14 +128,14 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="shake-me" translatesAutoresizingMaskIntoConstraints="NO" id="Evb-BU-xCI">
-                                        <rect key="frame" x="174" y="260" width="27" height="36"/>
+                                        <rect key="frame" x="193" y="260" width="27" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="27" id="2Ir-uY-4vr"/>
                                             <constraint firstAttribute="height" constant="36" id="zpJ-Kw-qAc"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oPQ-tE-cuW">
-                                        <rect key="frame" x="148" y="0.0" width="79" height="30"/>
+                                        <rect key="frame" x="167" y="0.0" width="79" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="4QD-dk-kgP"/>
                                             <constraint firstAttribute="width" constant="79" id="6X6-Xj-9Za"/>
@@ -199,7 +201,7 @@
                         </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="dogView" destination="LDc-k4-SVP" id="idN-LR-aKc"/>
                         <outlet property="goButton" destination="C8r-D9-sEm" id="MZa-S0-JVh"/>
@@ -223,11 +225,11 @@
                         <viewControllerLayoutGuide type="bottom" id="4DJ-1k-Eh3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="5dJ-KX-YNm">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LK4-IU-YaK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -317,7 +319,7 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Nnu-xO-m7d">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -339,37 +341,155 @@
                         <viewControllerLayoutGuide type="bottom" id="fsA-9a-9Ng"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="7Qy-oe-hVA">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash-background" translatesAutoresizingMaskIntoConstraints="NO" id="to5-NG-4f1">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sky-background" translatesAutoresizingMaskIntoConstraints="NO" id="to5-NG-4f1">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_begin.gif" translatesAutoresizingMaskIntoConstraints="NO" id="goY-Kw-PiQ" customClass="XAnimatedImageView" customModule="EPPYK" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="planet" translatesAutoresizingMaskIntoConstraints="NO" id="YUM-A4-G1R">
+                                <rect key="frame" x="0.0" y="574" width="354" height="162"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="YUM-A4-G1R" secondAttribute="height" multiplier="59:27" id="HNK-mK-QNI"/>
+                                    <constraint firstAttribute="height" constant="128" id="x73-58-Vam"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="x73-58-Vam"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eppyk-text" translatesAutoresizingMaskIntoConstraints="NO" id="wJl-02-YIr">
+                                <rect key="frame" x="54" y="100" width="306" height="156"/>
+                            </imageView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eppyk-text" translatesAutoresizingMaskIntoConstraints="NO" id="b4O-xU-ZeF">
+                                <rect key="frame" x="131" y="34" width="153" height="78"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="b4O-xU-ZeF" secondAttribute="height" multiplier="306:157" id="NuI-gb-F93"/>
+                                    <constraint firstAttribute="width" constant="153" id="SlS-MG-WKB"/>
+                                    <constraint firstAttribute="height" constant="78" id="vIh-Iq-kpW"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="NuI-gb-F93"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="man_stat_1.gif" translatesAutoresizingMaskIntoConstraints="NO" id="SFd-Ca-j6J" customClass="XAnimatedImageView" customModule="EPPYK" customModuleProvider="target">
+                                <rect key="frame" x="-56" y="347" width="312" height="245"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="SFd-Ca-j6J" secondAttribute="height" multiplier="44:57" id="31i-m3-csa"/>
+                                    <constraint firstAttribute="width" secondItem="SFd-Ca-j6J" secondAttribute="height" multiplier="312:245" id="xQJ-h8-HJj"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="31i-m3-csa"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dog_move_1.gif" translatesAutoresizingMaskIntoConstraints="NO" id="S2t-zN-XYX" customClass="XAnimatedImageView" customModule="EPPYK" customModuleProvider="target">
+                                <rect key="frame" x="43.5" y="482" width="85" height="118"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="S2t-zN-XYX" secondAttribute="height" multiplier="23:32" id="VPB-pi-ggx"/>
+                                    <constraint firstAttribute="width" secondItem="S2t-zN-XYX" secondAttribute="height" multiplier="85:118" id="rtz-Sg-aFp"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="VPB-pi-ggx"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6eb-4c-QrY">
+                                <rect key="frame" x="28" y="28" width="25" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="QCG-HS-eXQ"/>
+                                    <constraint firstAttribute="height" constant="24" id="meE-dn-bcI"/>
+                                </constraints>
+                                <state key="normal" image="globe"/>
+                                <connections>
+                                    <action selector="showL10View:" destination="563-Sh-dcB" eventType="touchUpInside" id="w75-49-rX8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="goY-Kw-PiQ" secondAttribute="trailing" id="29Z-Zw-0Nd"/>
+                            <constraint firstItem="goY-Kw-PiQ" firstAttribute="leading" secondItem="7Qy-oe-hVA" secondAttribute="leading" id="4F2-0u-tlg"/>
+                            <constraint firstItem="6eb-4c-QrY" firstAttribute="top" secondItem="XEw-r9-1dg" secondAttribute="bottom" constant="8" id="6eM-iO-B7F"/>
+                            <constraint firstItem="b4O-xU-ZeF" firstAttribute="width" secondItem="b4O-xU-ZeF" secondAttribute="height" multiplier="306:157" id="74C-pD-e0q"/>
+                            <constraint firstItem="YUM-A4-G1R" firstAttribute="leading" secondItem="7Qy-oe-hVA" secondAttribute="leading" id="F5s-vZ-Gwv"/>
                             <constraint firstAttribute="trailing" secondItem="to5-NG-4f1" secondAttribute="trailing" id="Igh-PH-MQC"/>
+                            <constraint firstItem="SFd-Ca-j6J" firstAttribute="leading" secondItem="YUM-A4-G1R" secondAttribute="leading" constant="-56" id="LSm-or-23y"/>
+                            <constraint firstItem="wJl-02-YIr" firstAttribute="centerX" secondItem="7Qy-oe-hVA" secondAttribute="centerX" id="MOg-cw-0Rh"/>
+                            <constraint firstItem="6eb-4c-QrY" firstAttribute="leading" secondItem="7Qy-oe-hVA" secondAttribute="leadingMargin" constant="8" id="Mw5-8O-Tju"/>
+                            <constraint firstItem="YUM-A4-G1R" firstAttribute="top" secondItem="SFd-Ca-j6J" secondAttribute="bottom" constant="-93" id="Ofi-J0-8GR"/>
+                            <constraint firstItem="S2t-zN-XYX" firstAttribute="width" secondItem="YUM-A4-G1R" secondAttribute="height" multiplier="85:162" id="OvY-sC-8FQ"/>
+                            <constraint firstItem="S2t-zN-XYX" firstAttribute="width" secondItem="YUM-A4-G1R" secondAttribute="height" multiplier="23:81" id="Q9y-No-iXe"/>
+                            <constraint firstAttribute="trailing" secondItem="YUM-A4-G1R" secondAttribute="trailing" constant="60" id="Qjy-jX-6py"/>
+                            <constraint firstItem="fsA-9a-9Ng" firstAttribute="top" secondItem="YUM-A4-G1R" secondAttribute="bottom" id="SLa-qR-NfZ"/>
                             <constraint firstItem="to5-NG-4f1" firstAttribute="leading" secondItem="7Qy-oe-hVA" secondAttribute="leading" id="Vqv-Mk-mO6"/>
+                            <constraint firstItem="YUM-A4-G1R" firstAttribute="leading" secondItem="SFd-Ca-j6J" secondAttribute="trailing" constant="-196" id="Wtc-ge-rrn"/>
+                            <constraint firstItem="YUM-A4-G1R" firstAttribute="top" secondItem="S2t-zN-XYX" secondAttribute="bottom" constant="-26" id="XSG-kg-6sE"/>
+                            <constraint firstItem="YUM-A4-G1R" firstAttribute="leading" secondItem="S2t-zN-XYX" secondAttribute="trailing" constant="-110" id="XY8-rq-ejI"/>
+                            <constraint firstItem="SFd-Ca-j6J" firstAttribute="width" secondItem="YUM-A4-G1R" secondAttribute="height" multiplier="52:27" id="YGe-la-WpA"/>
                             <constraint firstItem="to5-NG-4f1" firstAttribute="top" secondItem="7Qy-oe-hVA" secondAttribute="top" id="ZzW-QW-mVM"/>
+                            <constraint firstItem="goY-Kw-PiQ" firstAttribute="top" secondItem="7Qy-oe-hVA" secondAttribute="top" id="bVa-1S-Wnp"/>
+                            <constraint firstItem="b4O-xU-ZeF" firstAttribute="top" secondItem="XEw-r9-1dg" secondAttribute="bottom" constant="14" id="bfi-el-aNn"/>
+                            <constraint firstItem="wJl-02-YIr" firstAttribute="top" secondItem="XEw-r9-1dg" secondAttribute="bottom" constant="80" id="huU-ux-BK5"/>
+                            <constraint firstItem="SFd-Ca-j6J" firstAttribute="width" secondItem="YUM-A4-G1R" secondAttribute="height" multiplier="88:81" id="iXT-av-0l4"/>
+                            <constraint firstItem="wJl-02-YIr" firstAttribute="height" secondItem="b4O-xU-ZeF" secondAttribute="height" multiplier="2" id="koc-fr-7tv"/>
                             <constraint firstItem="fsA-9a-9Ng" firstAttribute="top" secondItem="to5-NG-4f1" secondAttribute="bottom" id="mwu-59-jJI"/>
+                            <constraint firstItem="SFd-Ca-j6J" firstAttribute="bottom" secondItem="S2t-zN-XYX" secondAttribute="bottom" constant="-8" id="o7V-JD-mEi"/>
+                            <constraint firstItem="S2t-zN-XYX" firstAttribute="centerX" secondItem="SFd-Ca-j6J" secondAttribute="centerX" constant="-14" id="ult-dE-pLf"/>
+                            <constraint firstItem="fsA-9a-9Ng" firstAttribute="top" secondItem="goY-Kw-PiQ" secondAttribute="bottom" id="vDK-63-j9U"/>
+                            <constraint firstItem="b4O-xU-ZeF" firstAttribute="centerX" secondItem="7Qy-oe-hVA" secondAttribute="centerX" id="wd4-G0-LbT"/>
+                            <constraint firstItem="wJl-02-YIr" firstAttribute="width" secondItem="b4O-xU-ZeF" secondAttribute="width" multiplier="2" id="zNA-yH-p7l"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="74C-pD-e0q"/>
+                                <exclude reference="iXT-av-0l4"/>
+                                <exclude reference="Q9y-No-iXe"/>
+                                <exclude reference="Ofi-J0-8GR"/>
+                                <exclude reference="Wtc-ge-rrn"/>
+                                <exclude reference="XY8-rq-ejI"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="tJi-j4-weS"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="dogImageView" destination="S2t-zN-XYX" id="eKX-C8-uo9"/>
+                        <outlet property="gifStarView" destination="goY-Kw-PiQ" id="q7u-lY-fnV"/>
+                        <outlet property="globeButton" destination="6eb-4c-QrY" id="mgN-ul-BaG"/>
+                        <outlet property="logoImage" destination="wJl-02-YIr" id="Xhn-9n-Fu3"/>
+                        <outlet property="logoTopConst" destination="huU-ux-BK5" id="nh5-NB-651"/>
+                        <outlet property="manLeftConstraint" destination="LSm-or-23y" id="Vt7-9t-GU4"/>
+                        <outlet property="planetButtomConst" destination="SLa-qR-NfZ" id="tho-8E-8sw"/>
+                        <outlet property="planetImage" destination="YUM-A4-G1R" id="Alp-E1-rE0"/>
+                        <outlet property="princeImageView" destination="SFd-Ca-j6J" id="uwu-M5-AL9"/>
+                        <outlet property="smallLogoImage" destination="b4O-xU-ZeF" id="Ipz-Qw-oLd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RAs-V5-uze" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-498.5" y="234.5"/>
+            <point key="canvasLocation" x="-499" y="234"/>
         </scene>
     </scenes>
     <resources>
-        <image name="dog" width="46" height="57"/>
-        <image name="eppyk-text" width="167" height="113"/>
-        <image name="planet" width="218" height="128"/>
-        <image name="prince" width="210" height="238"/>
+        <image name="dog" width="46" height="64"/>
+        <image name="dog_move_1.gif" width="83" height="83"/>
+        <image name="eppyk-text" width="301" height="156"/>
+        <image name="globe" width="25" height="24"/>
+        <image name="man_stat_1.gif" width="166" height="166"/>
+        <image name="planet" width="354" height="162"/>
+        <image name="prince" width="176" height="228"/>
         <image name="shake-me" width="27" height="36"/>
         <image name="sky-background" width="375" height="667"/>
-        <image name="splash-background" width="375" height="667"/>
+        <image name="star_begin.gif" width="375" height="667"/>
     </resources>
 </document>

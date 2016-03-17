@@ -9,8 +9,8 @@
 import Foundation
 
 protocol L10nViewProtocol {
-    func didSelectL10N(l10n: String)
-    func didFinishWithL10N(l10n: String)
+    func didSelectL10N(l10n: L10n)
+    func didFinish()
 }
 
 class L10nView: UIView, UITableViewDataSource, UITableViewDelegate {
@@ -49,7 +49,7 @@ class L10nView: UIView, UITableViewDataSource, UITableViewDelegate {
                     }) { (Bool) -> Void in
                         self.removeFromSuperview()
                         if let delegate = self.delegate {
-                            delegate.didFinishWithL10N("")
+                            delegate.didFinish()
                         }
                 }
         }
@@ -69,6 +69,14 @@ class L10nView: UIView, UITableViewDataSource, UITableViewDelegate {
         cell.setL10N(l10n)
         
         return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let l10n = self.data[indexPath.row]
+        if let delegate = self.delegate {
+            delegate.didSelectL10N(l10n)
+        }
+
     }
     
 }
