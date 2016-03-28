@@ -190,7 +190,7 @@ class XAnimatedImageView: UIImageView {
     }
     
     // MARK: Animating Images
-    
+        
     override func startAnimating() {
         if self.animatedImage != nil {
             // Lazily create the display link.

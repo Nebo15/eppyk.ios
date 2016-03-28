@@ -171,7 +171,12 @@ public class XAnimatedImage {
         // Get `LoopCount`
         
         let imageProperties = CGImageSourceCopyProperties(imageSource,nil)! as NSDictionary
-        loopCount = imageProperties.objectForKey(kCGImagePropertyGIFDictionary)?.objectForKey(kCGImagePropertyGIFLoopCount) as! Int
+        
+        loopCount = 0
+        if let loops = imageProperties.objectForKey(kCGImagePropertyGIFDictionary)?.objectForKey(kCGImagePropertyGIFLoopCount) {
+            loopCount = loops as! Int
+        }
+        
         
         // Iterate through frame images
         
