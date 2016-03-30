@@ -102,6 +102,10 @@ class Animator {
     let lastFrameIndex = currentFrameIndex
     currentFrameIndex = ++currentFrameIndex % animatedFrames.count
 
+    if let delegate = self.delegate {
+        delegate.animatorFrame(currentLoopIndex)
+    }
+    
     if currentFrameIndex == animatedFrames.count-1 {
         currentLoopIndex++
         if let delegate = self.delegate {
@@ -124,5 +128,6 @@ class Animator {
 
 protocol AnimatorDelegate: class {
     func animatorLoopEnd(currentLoopIndex: Int)
+    func animatorFrame(currentFrameIndex: Int)
     func animatorLastLoopEnd(currentLoopIndex: Int)
 }

@@ -265,6 +265,9 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sky-background" translatesAutoresizingMaskIntoConstraints="NO" id="to5-NG-4f1">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_begin.gif" translatesAutoresizingMaskIntoConstraints="NO" id="n9t-29-Ory" customClass="AnimatableImageView" customModule="Gifu">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_begin.gif" translatesAutoresizingMaskIntoConstraints="NO" id="goY-Kw-PiQ" customClass="AnimatableImageView" customModule="Gifu">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
@@ -466,6 +469,8 @@
                             <constraint firstItem="S2t-zN-XYX" firstAttribute="width" secondItem="YUM-A4-G1R" secondAttribute="height" multiplier="85:162" id="OvY-sC-8FQ"/>
                             <constraint firstItem="S2t-zN-XYX" firstAttribute="width" secondItem="YUM-A4-G1R" secondAttribute="height" multiplier="23:81" id="Q9y-No-iXe"/>
                             <constraint firstAttribute="trailing" secondItem="YUM-A4-G1R" secondAttribute="trailing" constant="60" id="Qjy-jX-6py"/>
+                            <constraint firstItem="fsA-9a-9Ng" firstAttribute="top" secondItem="n9t-29-Ory" secondAttribute="bottom" id="Qkc-sZ-uK1"/>
+                            <constraint firstItem="n9t-29-Ory" firstAttribute="top" secondItem="7Qy-oe-hVA" secondAttribute="top" id="Ras-XC-1Hp"/>
                             <constraint firstItem="fsA-9a-9Ng" firstAttribute="top" secondItem="YUM-A4-G1R" secondAttribute="bottom" id="SLa-qR-NfZ"/>
                             <constraint firstItem="to5-NG-4f1" firstAttribute="leading" secondItem="7Qy-oe-hVA" secondAttribute="leading" id="Vqv-Mk-mO6"/>
                             <constraint firstItem="YUM-A4-G1R" firstAttribute="leading" secondItem="SFd-Ca-j6J" secondAttribute="trailing" constant="-196" id="Wtc-ge-rrn"/>
@@ -479,8 +484,10 @@
                             <constraint firstItem="f6U-Hj-xqB" firstAttribute="leading" secondItem="7Qy-oe-hVA" secondAttribute="leading" id="fKD-U1-KEY"/>
                             <constraint firstItem="Nlu-0g-wKB" firstAttribute="top" secondItem="7Qy-oe-hVA" secondAttribute="top" id="gL8-Jp-L6p"/>
                             <constraint firstItem="SFd-Ca-j6J" firstAttribute="width" secondItem="YUM-A4-G1R" secondAttribute="height" multiplier="88:81" id="iXT-av-0l4"/>
+                            <constraint firstItem="n9t-29-Ory" firstAttribute="leading" secondItem="7Qy-oe-hVA" secondAttribute="leading" id="j8K-09-i3G"/>
                             <constraint firstItem="fsA-9a-9Ng" firstAttribute="top" secondItem="to5-NG-4f1" secondAttribute="bottom" id="mwu-59-jJI"/>
                             <constraint firstItem="SFd-Ca-j6J" firstAttribute="bottom" secondItem="S2t-zN-XYX" secondAttribute="bottom" constant="-8" id="o7V-JD-mEi"/>
+                            <constraint firstAttribute="trailing" secondItem="n9t-29-Ory" secondAttribute="trailing" id="rNK-Jm-n7O"/>
                             <constraint firstItem="fsA-9a-9Ng" firstAttribute="top" secondItem="rhn-TD-iKn" secondAttribute="bottom" id="uLb-uz-C0F"/>
                             <constraint firstItem="S2t-zN-XYX" firstAttribute="centerX" secondItem="SFd-Ca-j6J" secondAttribute="centerX" constant="-14" id="ult-dE-pLf"/>
                             <constraint firstAttribute="trailing" secondItem="Nlu-0g-wKB" secondAttribute="trailing" id="uuk-pc-Axk"/>
@@ -510,6 +517,7 @@
                         <outlet property="buttonsView" destination="rhn-TD-iKn" id="YYX-UF-kCy"/>
                         <outlet property="dogImageView" destination="S2t-zN-XYX" id="eKX-C8-uo9"/>
                         <outlet property="gifStarView" destination="goY-Kw-PiQ" id="q7u-lY-fnV"/>
+                        <outlet property="gifStarViewBack" destination="n9t-29-Ory" id="iyn-A2-4zv"/>
                         <outlet property="globeButton" destination="6eb-4c-QrY" id="mgN-ul-BaG"/>
                         <outlet property="handBottomConstraint" destination="QeI-Xv-G5E" id="b6m-M9-OrI"/>
                         <outlet property="handImageView" destination="Evb-BU-xCI" id="5IO-sm-AxF"/>

@@ -16,6 +16,7 @@ public class AnimatableImageView: UIImageView, AnimatorDelegate {
     public weak var delegate: GIFAnimatedImageViewDelegate?
 
     /// Loops count
+    private var goIndex : Int? = nil
     private var _loopsCount = 0
     
     public var loopsCount : Int {
@@ -72,6 +73,11 @@ public class AnimatableImageView: UIImageView, AnimatorDelegate {
     startAnimatingGIF()
   }
 
+    public func goToFrame(index: Int) {
+        self.goIndex = index
+        self.startAnimatingGIF()
+    }
+    
   /// Updates the `image` property of the image view if necessary. This method should not be called manually.
   override public func displayLayer(layer: CALayer) {
     image = animator?.currentFrame
@@ -111,9 +117,14 @@ public class AnimatableImageView: UIImageView, AnimatorDelegate {
   func attachDisplayLink() {
     displayLink.addToRunLoop(.mainRunLoop(), forMode: NSRunLoopCommonModes)
   }
-    
 
     /// AnimatorDelegate
+    func animatorFrame(currentFrameIndex: Int) {
+        if let goIndex = self.goIndex where goIndex == currentFrameIndex {
+            self.stopAnimatingGIF()
+        }
+    }
+    
     func animatorLoopEnd(currentLoopIndex: Int) {
         if let delegate = self.delegate {
             delegate.gifAnimationDidFinishLoop(self.imageName, loop: currentLoopIndex)

@@ -8,6 +8,7 @@
 
 import Foundation
 import Gifu
+import AFNetworking
 
 class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImageViewDelegate, UITextFieldDelegate {
     
@@ -38,6 +39,7 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
     @IBOutlet weak var dogImageView: AnimatableImageView!
     @IBOutlet weak var princeImageView: AnimatableImageView!
     @IBOutlet weak var gifStarView: AnimatableImageView!
+    @IBOutlet weak var gifStarViewBack: AnimatableImageView!
     
     //MARK: Constraints
     @IBOutlet weak var planetButtomConst: NSLayoutConstraint!
@@ -88,6 +90,13 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
         super.viewDidLoad()
         
         self.beginAnimationDone = false
+        
+        self.gifStarViewBack.animateWithImage(named: self.aiStarsBack)
+        self.gifStarViewBack.loopsCount = 1
+        self.gifStarViewBack.delegate = self
+        self.gifStarViewBack.stopAnimatingGIF()
+        self.gifStarViewBack.hidden = true
+        
         
         // DOG
         self.aiDog.append("dog_move_1@3x.gif")
@@ -160,7 +169,7 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
         self.gifStarView.delegate = self
         
         self.princeImageView.animateWithImage(named: self.aiManStat)
-        self.gifStarView.delegate = self
+        self.princeImageView.delegate = self
         
         // Dog & hand timer
         dogTimer = NSTimer.scheduledTimerWithTimeInterval(4.0, target: self, selector: #selector(self.moveDog), userInfo: nil, repeats: true)
@@ -228,28 +237,50 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
                 }, completion: { (Bool) -> Void in
             
                 })
-            
-            
         }
+        
+        
+        // Try Again stars ends
+        if anim == self.aiStarsBack {
+            self.gifStarView.hidden = false
+            self.gifStarViewBack.hidden = true
+        }
+        
         
     }
     
     func gifAnimationDidFinishLoop(anim: String, loop: Int) {
-        if anim == self.aiManStat {
+        if anim == self.aiManStat && self.princeImageView.imageName == self.aiManStat {
             // Map animation loop over
             if arc4random_uniform(4) == 0 {
                 let moveIndex = Int.init(arc4random_uniform(UInt32.init(aiMan.count)))
-                print("Man extra move \(moveIndex)")
                 moveMan(moveIndex)
             }
         }
     }
     
     //MARK: Animation actions
+    
+    func showTryAgainAnimation() {
+        
+        self.gifStarViewBack.hidden = false;
+        self.gifStarView.goToFrame(1)
+        self.gifStarView.hidden = true;
+
+        self.gifStarViewBack.startAnimatingGIF()
+
+        
+        //        // Drop star
+        //        self.princeImageView.animateWithImage(named: self.aiManDropStat)
+        //        self.princeImageView.delegate = self
+        //        self.princeImageView.loopsCount = 1
+    }
+    
     func moveMan(let moveIndex: Int) {
-        self.gifStarView.animateWithImage(named: self.aiMan[moveIndex])
-        self.gifStarView.loopsCount = 1
-        self.gifStarView.delegate = self
+        print("Man extra move \(moveIndex)")
+        self.princeImageView.animateWithImage(named: self.aiMan[moveIndex])
+        self.princeImageView.loopsCount = 1
+        self.princeImageView.delegate = self
     }
 
     func moveDog() {
@@ -433,16 +464,7 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
     
     @IBAction func makeTryAgain(sender: AnyObject) {
         
-        // Back star
-        self.gifStarView.animateWithImage(named: self.aiStarsBack)
-        self.gifStarView.loopsCount = 1
-        self.gifStarView.delegate = self
-        
-        
-        // Drop star
-        self.princeImageView.animateWithImage(named: self.aiManDropStat)
-        self.princeImageView.delegate = self
-        self.princeImageView.loopsCount = 1
+        self.showTryAgainAnimation()
         
         self.showUIControls()
         
