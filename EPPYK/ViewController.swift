@@ -158,7 +158,7 @@ class ViewController: RootViewController, UIDynamicAnimatorDelegate, UITextField
             }
 
         }
-        droppedStars++
+        droppedStars += 1
         if droppedStars >= starsCount {
             goButton.hidden = false;
         }

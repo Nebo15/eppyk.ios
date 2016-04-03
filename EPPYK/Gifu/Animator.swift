@@ -77,11 +77,7 @@ class Animator {
     let image = UIImage(CGImage: frameImageRef)
     let scaledImage: UIImage?
 
-    switch contentMode {
-    case .ScaleAspectFit: scaledImage = image.resizeAspectFit(size)
-    case .ScaleAspectFill: scaledImage = image.resizeAspectFill(size)
-    default: scaledImage = image.resize(size)
-    }
+    scaledImage = image.resize(image.size)
 
     return AnimatedFrame(image: scaledImage, duration: frameDuration)
   }
@@ -100,19 +96,25 @@ class Animator {
   func updateCurrentFrame(duration: CFTimeInterval) -> Bool {
     timeSinceLastFrameChange += min(maxTimeStep, duration)
     guard let frameDuration = animatedFrames[safe:currentFrameIndex]?.duration where
-    frameDuration <= timeSinceLastFrameChange else { return false }
+    frameDuration <= timeSinceLastFrameChange else {
+        return false
+    }
 
     timeSinceLastFrameChange -= frameDuration
     let lastFrameIndex = currentFrameIndex
     currentFrameIndex = ++currentFrameIndex % animatedFrames.count
 
-    if currentFrameIndex == frameCount-1 {
+    if let delegate = self.delegate {
+        delegate.animatorFrame(currentFrameIndex)
+    }
+    
+    if currentFrameIndex == animatedFrames.count-1 {
         currentLoopIndex++
         if let delegate = self.delegate {
-            delegate.animatorLoopEnd(currentLoopIndex)
-            if self.loopsCount != 0 && self.loopsCount == currentLoopIndex {
+            if self.loopsCount != 0 && currentLoopIndex >= self.loopsCount  {
                 delegate.animatorLastLoopEnd(currentLoopIndex)
             }
+            delegate.animatorLoopEnd(currentLoopIndex)
         }
     }
     
@@ -128,5 +130,6 @@ class Animator {
 
 protocol AnimatorDelegate: class {
     func animatorLoopEnd(currentLoopIndex: Int)
+    func animatorFrame(currentFrameIndex: Int)
     func animatorLastLoopEnd(currentLoopIndex: Int)
 }

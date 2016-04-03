@@ -8,7 +8,7 @@ public class AnimatableImageView: UIImageView, AnimatorDelegate {
   lazy var displayLink: CADisplayLink = CADisplayLink(target: self, selector: Selector("updateFrame"))
 
   /// The size of the frame cache.
-  public var framePreloadCount = 50
+  public var framePreloadCount = 100
 
     public var imageName : String = ""
     
@@ -83,23 +83,29 @@ public class AnimatableImageView: UIImageView, AnimatorDelegate {
     image = animator?.currentFrame
   }
 
-  /// Starts the image view animation.
-  public func startAnimatingGIF() {
-    if animator?.isAnimatable ?? false {
-      displayLink.paused = false
-        if let delegate = self.delegate {
-            delegate.gifAnimationDidStart(self.imageName)
+    /// Starts the image view animation.
+    public func startAnimatingGIF() {
+        animator?.currentLoopIndex = 0
+        //animator?.currentFrameIndex = 0
+        if animator?.isAnimatable ?? false {
+            displayLink.paused = false
+            if let delegate = self.delegate {
+                delegate.gifAnimationDidStart(self.imageName)
+            }
         }
     }
-  }
 
   /// Stops the image view animation.
   public func stopAnimatingGIF() {
-    displayLink.paused = true
-    if let delegate = self.delegate {
-        delegate.gifAnimationDidStop(self.imageName, finished: true)
-    }
+    self.stopAnimatingGIF(true)
   }
+    
+    public func stopAnimatingGIF(callout: Bool) {
+        displayLink.paused = true
+        if let delegate = self.delegate where callout {
+            delegate.gifAnimationDidStop(self.imageName, finished: true)
+        }
+    }
 
   /// Update the current frame with the displayLink duration
   func updateFrame() {
@@ -121,7 +127,8 @@ public class AnimatableImageView: UIImageView, AnimatorDelegate {
     /// AnimatorDelegate
     func animatorFrame(currentFrameIndex: Int) {
         if let goIndex = self.goIndex where goIndex == currentFrameIndex {
-            self.stopAnimatingGIF()
+            self.goIndex = nil
+            self.stopAnimatingGIF(false)
         }
     }
     

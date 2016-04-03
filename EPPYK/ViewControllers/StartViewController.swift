@@ -10,6 +10,20 @@ import Foundation
 import Gifu
 import AFNetworking
 
+enum GIFAnimationType: String {
+    case GIFStarsBegin = "star_begin@2x.gif"
+    case GIFStarsDrop = "star_drop@2x.gif"
+    case GIFStarsBack = "star_back@2x.gif"
+    
+    case GIFManStat = "man_stat_1@3x.gif"
+    case GIFManStatWithStar = "man_stat_2@3x.gif"
+    case GIFManStarCatch = "man_star_catch@3x.gif"
+    case GIFManStarDrop = "man_star_drop@3x.gif"
+    
+    case GIFHandShake = "hand@3x.gif"
+    
+}
+
 class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImageViewDelegate, UITextFieldDelegate {
     
     //MARK: Declarations
@@ -37,9 +51,12 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
     @IBOutlet weak var buttonsView: UIView!
     @IBOutlet weak var handImageView: AnimatableImageView!
     @IBOutlet weak var dogImageView: AnimatableImageView!
-    @IBOutlet weak var princeImageView: AnimatableImageView!
-    @IBOutlet weak var gifStarView: AnimatableImageView!
+    
+    @IBOutlet weak var manImageView: AnimatableImageView!
+    @IBOutlet weak var gifStarViewBegin: AnimatableImageView!
     @IBOutlet weak var gifStarViewBack: AnimatableImageView!
+    
+    @IBOutlet weak var gifStarViewDrop: AnimatableImageView!
     
     //MARK: Constraints
     @IBOutlet weak var planetButtomConst: NSLayoutConstraint!
@@ -61,18 +78,9 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
     
     
     
-    //MARK: AIs
-    var aiStarsBegin = "star_begin@2x.gif"
-    var aiStarsDrop = "star_drop@2x.gif"
-    var aiStarsBack = "star_back@2x.gif"
-    var aiManStat = "man_stat_1@3x.gif"
-    var aiManStatWithStar = "man_stat_2@3x.gif"
-    var aiManCatchStat = "man_star_catch@3x.gif"
-    var aiManDropStat = "man_star_drop@3x.gif"
     
     var aiDog: [String] = []
     var aiMan: [String] = []
-    var aiHand = "hand@3x.gif"
     
     //MARK: L10nViewProtocol
     func didSelectL10N(l10n: L10n) {
@@ -91,12 +99,7 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
         
         self.beginAnimationDone = false
         
-        self.gifStarViewBack.animateWithImage(named: self.aiStarsBack)
-        self.gifStarViewBack.loopsCount = 1
-        self.gifStarViewBack.delegate = self
-        self.gifStarViewBack.stopAnimatingGIF()
-        self.gifStarViewBack.hidden = true
-        
+        //self.gifAnimation(.GIFStarsBegin);
         
         // DOG
         self.aiDog.append("dog_move_1@3x.gif")
@@ -163,13 +166,12 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
     
     func showMainView() {
         
-        // Star brgin animation
-        self.gifStarView.animateWithImage(named: self.aiStarsBegin)
-        self.gifStarView.loopsCount = 1
-        self.gifStarView.delegate = self
+        self.loadGIFs()
         
-        self.princeImageView.animateWithImage(named: self.aiManStat)
-        self.princeImageView.delegate = self
+        self.gifAnimation(.GIFStarsBegin)
+        
+        self.manImageView.animateWithImage(named: GIFAnimationType.GIFManStat.rawValue)
+        self.manImageView.delegate = self
         
         // Dog & hand timer
         dogTimer = NSTimer.scheduledTimerWithTimeInterval(4.0, target: self, selector: #selector(self.moveDog), userInfo: nil, repeats: true)
@@ -212,6 +214,8 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
         self.showUIControls()
         
     }
+    
+    
 
     //MARK: xAnimation
     func gifAnimationDidStart(anim: String) {
@@ -219,40 +223,33 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
     }
     
     func gifAnimationDidStop(anim: String, finished: Bool) {
-        if anim == self.aiStarsBegin {
-        }
         
         if aiMan.contains(anim) {
-            self.princeImageView.animateWithImage(named: self.aiManStat)
+            self.manImageView.animateWithImage(named: GIFAnimationType.GIFManStat.rawValue)
+            self.manImageView.loopsCount = 0
         }
         
-        if anim == self.aiManCatchStat {
-            self.princeImageView.animateWithImage(named: self.aiManStatWithStar)
-            self.princeImageView.loopsCount = 0
+        if anim == GIFAnimationType.GIFManStarCatch.rawValue {
+            self.manImageView.animateWithImage(named: GIFAnimationType.GIFManStatWithStar.rawValue)
+            self.manImageView.loopsCount = 0
             
             // Show control buttons
             UIView.animateWithDuration(1, delay: 1, options: .CurveEaseInOut, animations: { () -> Void in
-                
-                
                 }, completion: { (Bool) -> Void in
-            
                 })
         }
         
-        
-        // Try Again stars ends
-        if anim == self.aiStarsBack {
-            self.gifStarView.hidden = false
-            self.gifStarViewBack.hidden = true
+        if anim == GIFAnimationType.GIFManStarDrop.rawValue {
+            self.manImageView.animateWithImage(named: GIFAnimationType.GIFManStat.rawValue)
         }
         
         
     }
     
     func gifAnimationDidFinishLoop(anim: String, loop: Int) {
-        if anim == self.aiManStat && self.princeImageView.imageName == self.aiManStat {
+        if anim == GIFAnimationType.GIFManStat.rawValue && self.manImageView.imageName == GIFAnimationType.GIFManStat.rawValue {
             // Map animation loop over
-            if arc4random_uniform(4) == 0 {
+            if arc4random_uniform(6) == 0 {
                 let moveIndex = Int.init(arc4random_uniform(UInt32.init(aiMan.count)))
                 moveMan(moveIndex)
             }
@@ -261,26 +258,103 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
     
     //MARK: Animation actions
     
+    func loadGIFs() {
+        self.gifStarViewBegin.animateWithImage(named: GIFAnimationType.GIFStarsBegin.rawValue)
+        self.gifStarViewBegin.loopsCount = 1
+        self.gifStarViewBegin.delegate = self
+        self.gifStarViewBegin.stopAnimatingGIF(false)
+
+        
+        self.gifStarViewDrop.animateWithImage(named: GIFAnimationType.GIFStarsDrop.rawValue)
+        self.gifStarViewDrop.loopsCount = 1
+        self.gifStarViewDrop.delegate = self
+        self.gifStarViewDrop.stopAnimatingGIF(false)
+        
+        
+        self.gifStarViewBack.animateWithImage(named: GIFAnimationType.GIFStarsBack.rawValue)
+        self.gifStarViewBack.loopsCount = 1
+        self.gifStarViewBack.delegate = self
+        self.gifStarViewBack.stopAnimatingGIF(false)
+        self.gifStarViewBack.hidden = true
+    }
+    
+    func stopAllAnimation() {
+        handImageView.stopAnimatingGIF(false)
+        dogImageView.stopAnimatingGIF(false)
+        manImageView.stopAnimatingGIF(false)
+        gifStarViewBegin.stopAnimatingGIF(false)
+        gifStarViewBack.stopAnimatingGIF(false)
+        gifStarViewDrop.stopAnimatingGIF(false)
+        
+        handTimer?.invalidate()
+        dogTimer?.invalidate()
+        
+    }
+    
+    func gifAnimation(type: GIFAnimationType) {
+        switch type {
+
+        case .GIFStarsBegin:
+            // Star brgin animation
+            self.gifStarViewBegin.hidden = false;
+            self.gifStarViewBegin.startAnimatingGIF()
+
+            break
+            
+        case .GIFStarsDrop:
+            
+            // Star brgin animation
+            
+            self.gifStarViewBegin.hidden = true;
+            self.gifStarViewBegin.goToFrame(1)
+            self.gifStarViewBack.hidden = true;
+            self.gifStarViewBack.goToFrame(1)
+            
+            self.gifStarViewDrop.hidden = false;
+            self.gifStarViewDrop.startAnimatingGIF()
+
+            let dispatchTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(0.7 * Double(NSEC_PER_SEC)))
+            dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+                self.manImageView.animateWithImage(named: GIFAnimationType.GIFManStarCatch.rawValue)
+                self.manImageView.delegate = self
+                self.manImageView.loopsCount = 1
+            })
+            
+            break
+            
+        case .GIFStarsBack:
+            
+            self.gifStarViewBegin.hidden = true;
+            self.gifStarViewBegin.goToFrame(1)
+            self.gifStarViewDrop.hidden = true;
+            self.gifStarViewDrop.goToFrame(1)
+            
+            self.gifStarViewBack.hidden = false;
+            self.gifStarViewBack.startAnimatingGIF()
+
+            break
+            
+        default:
+            break
+        }
+    }
+    
+    
     func showTryAgainAnimation() {
         
-        self.gifStarViewBack.hidden = false;
-        self.gifStarView.goToFrame(1)
-        self.gifStarView.hidden = true;
-
-        self.gifStarViewBack.startAnimatingGIF()
-
+        self.gifAnimation(.GIFStarsBack)
         
-        //        // Drop star
-        //        self.princeImageView.animateWithImage(named: self.aiManDropStat)
-        //        self.princeImageView.delegate = self
-        //        self.princeImageView.loopsCount = 1
+        // Drop star
+        self.manImageView.animateWithImage(named: GIFAnimationType.GIFManStarDrop.rawValue)
+        self.manImageView.delegate = self
+        self.manImageView.loopsCount = 1
     }
     
     func moveMan(let moveIndex: Int) {
         print("Man extra move \(moveIndex)")
-        self.princeImageView.animateWithImage(named: self.aiMan[moveIndex])
-        self.princeImageView.loopsCount = 1
-        self.princeImageView.delegate = self
+        self.manImageView.animateWithImage(named: self.aiMan[moveIndex])
+        self.manImageView.loopsCount = 1
+        self.manImageView.delegate = self
     }
 
     func moveDog() {
@@ -297,7 +371,7 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
     
     func moveHand() {
         print("Shake hand")
-        self.handImageView.animateWithImage(named: self.aiHand)
+        self.handImageView.animateWithImage(named: GIFAnimationType.GIFHandShake.rawValue)
         self.handImageView.loopsCount = 2
         self.handImageView.delegate = self
     }
@@ -415,23 +489,12 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
         
         self.dropStars()
         
-        self.questionTextField.text = QAManager.sharedInstance.fetchAnswer()
-        
     }
     
     func dropStars() {
-        // Star drop animation
-        self.gifStarView.animateWithImage(named: self.aiStarsDrop)
-        self.gifStarView.loopsCount = 1
-        self.gifStarView.delegate = self
         
-        // Sart catch star
-        let dispatchTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(0.7 * Double(NSEC_PER_SEC)))
-        dispatch_after(dispatchTime, dispatch_get_main_queue(), {
-            self.princeImageView.animateWithImage(named: self.aiManCatchStat)
-            self.princeImageView.delegate = self
-            self.princeImageView.loopsCount = 1
-        })
+        self.gifAnimation(.GIFStarsDrop)
+        
         
         // User controls start animation
         self.shakeBottomConstraint.constant += 40
@@ -449,8 +512,11 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
         }) { (Bool) -> Void in
             self.showButtons()
         }
+        
+        self.questionTextField.text = QAManager.sharedInstance.fetchAnswer()
+        
+
     }
-    
     
     @IBAction func makeScreenshot(sender: AnyObject) {
         let view = self.view

@@ -8,14 +8,15 @@ public class AnimatableImageView: UIImageView, AnimatorDelegate {
   lazy var displayLink: CADisplayLink = CADisplayLink(target: self, selector: Selector("updateFrame"))
 
   /// The size of the frame cache.
-  public var framePreloadCount = 50
+  public var framePreloadCount = 100
 
     public var imageName : String = ""
     
     // Delegate
-    weak var delegate: GIFAnimatedImageViewDelegate?
+    public weak var delegate: GIFAnimatedImageViewDelegate?
 
     /// Loops count
+    private var goIndex : Int? = nil
     private var _loopsCount = 0
     
     public var loopsCount : Int {
@@ -49,7 +50,6 @@ public class AnimatableImageView: UIImageView, AnimatorDelegate {
   public func prepareForAnimation(imageData data: NSData) {
     image = UIImage(data: data)
     animator = Animator(data: data, size: frame.size, contentMode: contentMode, framePreloadCount: framePreloadCount)
-    animator?.loopsCount = self.loopsCount
     animator?.prepareFrames()
     animator?.delegate = self
     attachDisplayLink()
@@ -61,6 +61,7 @@ public class AnimatableImageView: UIImageView, AnimatorDelegate {
   public func animateWithImage(named imageName: String) {
     self.imageName = imageName
     prepareForAnimation(imageNamed: imageName)
+    animator?.loopsCount = self.loopsCount
     startAnimatingGIF()
   }
 
@@ -72,28 +73,39 @@ public class AnimatableImageView: UIImageView, AnimatorDelegate {
     startAnimatingGIF()
   }
 
+    public func goToFrame(index: Int) {
+        self.goIndex = index
+        self.startAnimatingGIF()
+    }
+    
   /// Updates the `image` property of the image view if necessary. This method should not be called manually.
   override public func displayLayer(layer: CALayer) {
     image = animator?.currentFrame
   }
 
-  /// Starts the image view animation.
-  public func startAnimatingGIF() {
-    if animator?.isAnimatable ?? false {
-      displayLink.paused = false
-        if let delegate = self.delegate {
-            delegate.gifAnimationDidStart(self.imageName)
+    /// Starts the image view animation.
+    public func startAnimatingGIF() {
+        animator?.currentLoopIndex = 0
+        //animator?.currentFrameIndex = 0
+        if animator?.isAnimatable ?? false {
+            displayLink.paused = false
+            if let delegate = self.delegate {
+                delegate.gifAnimationDidStart(self.imageName)
+            }
         }
     }
-  }
 
   /// Stops the image view animation.
   public func stopAnimatingGIF() {
-    displayLink.paused = true
-    if let delegate = self.delegate {
-        delegate.gifAnimationDidStop(self.imageName, finished: true)
-    }
+    self.stopAnimatingGIF(true)
   }
+    
+    public func stopAnimatingGIF(callout: Bool) {
+        displayLink.paused = true
+        if let delegate = self.delegate where callout {
+            delegate.gifAnimationDidStop(self.imageName, finished: true)
+        }
+    }
 
   /// Update the current frame with the displayLink duration
   func updateFrame() {
@@ -111,11 +123,16 @@ public class AnimatableImageView: UIImageView, AnimatorDelegate {
   func attachDisplayLink() {
     displayLink.addToRunLoop(.mainRunLoop(), forMode: NSRunLoopCommonModes)
   }
-    
 
     /// AnimatorDelegate
+    func animatorFrame(currentFrameIndex: Int) {
+        if let goIndex = self.goIndex where goIndex == currentFrameIndex {
+            self.goIndex = nil
+            self.stopAnimatingGIF(false)
+        }
+    }
+    
     func animatorLoopEnd(currentLoopIndex: Int) {
-        print(currentLoopIndex)
         if let delegate = self.delegate {
             delegate.gifAnimationDidFinishLoop(self.imageName, loop: currentLoopIndex)
         }
@@ -126,7 +143,7 @@ public class AnimatableImageView: UIImageView, AnimatorDelegate {
     }
 }
 
-protocol GIFAnimatedImageViewDelegate: class {
+public protocol GIFAnimatedImageViewDelegate: class {
     func gifAnimationDidStart(anim: String)
     func gifAnimationDidStop(anim: String, finished: Bool)
     func gifAnimationDidFinishLoop(anim: String, loop: Int)

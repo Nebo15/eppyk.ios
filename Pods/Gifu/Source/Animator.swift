@@ -96,23 +96,25 @@ class Animator {
   func updateCurrentFrame(duration: CFTimeInterval) -> Bool {
     timeSinceLastFrameChange += min(maxTimeStep, duration)
     guard let frameDuration = animatedFrames[safe:currentFrameIndex]?.duration where
-    frameDuration <= timeSinceLastFrameChange else { return false }
+    frameDuration <= timeSinceLastFrameChange else {
+        return false
+    }
 
     timeSinceLastFrameChange -= frameDuration
     let lastFrameIndex = currentFrameIndex
     currentFrameIndex = ++currentFrameIndex % animatedFrames.count
 
     if let delegate = self.delegate {
-        delegate.animatorFrame(currentLoopIndex)
+        delegate.animatorFrame(currentFrameIndex)
     }
     
     if currentFrameIndex == animatedFrames.count-1 {
         currentLoopIndex++
         if let delegate = self.delegate {
-            delegate.animatorLoopEnd(currentLoopIndex)
-            if self.loopsCount != 0 && self.loopsCount == currentLoopIndex {
+            if self.loopsCount != 0 && currentLoopIndex >= self.loopsCount  {
                 delegate.animatorLastLoopEnd(currentLoopIndex)
             }
+            delegate.animatorLoopEnd(currentLoopIndex)
         }
     }
     

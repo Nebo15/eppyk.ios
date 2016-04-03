@@ -265,7 +265,10 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sky-background" translatesAutoresizingMaskIntoConstraints="NO" id="to5-NG-4f1">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_begin.gif" translatesAutoresizingMaskIntoConstraints="NO" id="n9t-29-Ory" customClass="AnimatableImageView" customModule="Gifu">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_begin.gif" translatesAutoresizingMaskIntoConstraints="NO" id="n9t-29-Ory" customClass="AnimatableImageView" customModule="Gifu">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_begin.gif" translatesAutoresizingMaskIntoConstraints="NO" id="qjB-dc-D7Q" customClass="AnimatableImageView" customModule="Gifu">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_begin.gif" translatesAutoresizingMaskIntoConstraints="NO" id="goY-Kw-PiQ" customClass="AnimatableImageView" customModule="Gifu">
@@ -463,6 +466,7 @@
                             <constraint firstItem="YUM-A4-G1R" firstAttribute="leading" secondItem="7Qy-oe-hVA" secondAttribute="leading" id="F5s-vZ-Gwv"/>
                             <constraint firstItem="f6U-Hj-xqB" firstAttribute="top" secondItem="7Qy-oe-hVA" secondAttribute="top" id="Fbf-ZU-yAK"/>
                             <constraint firstAttribute="trailing" secondItem="to5-NG-4f1" secondAttribute="trailing" id="Igh-PH-MQC"/>
+                            <constraint firstItem="qjB-dc-D7Q" firstAttribute="leading" secondItem="7Qy-oe-hVA" secondAttribute="leading" id="LAf-yW-n86"/>
                             <constraint firstItem="SFd-Ca-j6J" firstAttribute="leading" secondItem="YUM-A4-G1R" secondAttribute="leading" constant="-56" id="LSm-or-23y"/>
                             <constraint firstItem="6eb-4c-QrY" firstAttribute="leading" secondItem="7Qy-oe-hVA" secondAttribute="leadingMargin" constant="-8" id="Mw5-8O-Tju"/>
                             <constraint firstItem="YUM-A4-G1R" firstAttribute="top" secondItem="SFd-Ca-j6J" secondAttribute="bottom" constant="-93" id="Ofi-J0-8GR"/>
@@ -475,14 +479,17 @@
                             <constraint firstItem="to5-NG-4f1" firstAttribute="leading" secondItem="7Qy-oe-hVA" secondAttribute="leading" id="Vqv-Mk-mO6"/>
                             <constraint firstItem="YUM-A4-G1R" firstAttribute="leading" secondItem="SFd-Ca-j6J" secondAttribute="trailing" constant="-196" id="Wtc-ge-rrn"/>
                             <constraint firstItem="YUM-A4-G1R" firstAttribute="top" secondItem="S2t-zN-XYX" secondAttribute="bottom" constant="-26" id="XSG-kg-6sE"/>
+                            <constraint firstAttribute="trailing" secondItem="qjB-dc-D7Q" secondAttribute="trailing" id="XTf-9a-77E"/>
                             <constraint firstItem="YUM-A4-G1R" firstAttribute="leading" secondItem="S2t-zN-XYX" secondAttribute="trailing" constant="-110" id="XY8-rq-ejI"/>
                             <constraint firstItem="SFd-Ca-j6J" firstAttribute="width" secondItem="YUM-A4-G1R" secondAttribute="height" multiplier="52:27" id="YGe-la-WpA"/>
                             <constraint firstItem="to5-NG-4f1" firstAttribute="top" secondItem="7Qy-oe-hVA" secondAttribute="top" id="ZzW-QW-mVM"/>
                             <constraint firstAttribute="trailing" secondItem="rhn-TD-iKn" secondAttribute="trailing" id="bDq-E8-o0Q"/>
                             <constraint firstItem="goY-Kw-PiQ" firstAttribute="top" secondItem="7Qy-oe-hVA" secondAttribute="top" id="bVa-1S-Wnp"/>
+                            <constraint firstItem="fsA-9a-9Ng" firstAttribute="top" secondItem="qjB-dc-D7Q" secondAttribute="bottom" id="c8p-LS-Mxd"/>
                             <constraint firstItem="rhn-TD-iKn" firstAttribute="leading" secondItem="7Qy-oe-hVA" secondAttribute="leading" id="cXE-cp-JM1"/>
                             <constraint firstItem="f6U-Hj-xqB" firstAttribute="leading" secondItem="7Qy-oe-hVA" secondAttribute="leading" id="fKD-U1-KEY"/>
                             <constraint firstItem="Nlu-0g-wKB" firstAttribute="top" secondItem="7Qy-oe-hVA" secondAttribute="top" id="gL8-Jp-L6p"/>
+                            <constraint firstItem="qjB-dc-D7Q" firstAttribute="top" secondItem="7Qy-oe-hVA" secondAttribute="top" id="iH8-P2-OMC"/>
                             <constraint firstItem="SFd-Ca-j6J" firstAttribute="width" secondItem="YUM-A4-G1R" secondAttribute="height" multiplier="88:81" id="iXT-av-0l4"/>
                             <constraint firstItem="n9t-29-Ory" firstAttribute="leading" secondItem="7Qy-oe-hVA" secondAttribute="leading" id="j8K-09-i3G"/>
                             <constraint firstItem="fsA-9a-9Ng" firstAttribute="top" secondItem="to5-NG-4f1" secondAttribute="bottom" id="mwu-59-jJI"/>
@@ -516,18 +523,19 @@
                         <outlet property="buttonTryWidth" destination="Q4z-fY-FLT" id="L8D-Ce-Yad"/>
                         <outlet property="buttonsView" destination="rhn-TD-iKn" id="YYX-UF-kCy"/>
                         <outlet property="dogImageView" destination="S2t-zN-XYX" id="eKX-C8-uo9"/>
-                        <outlet property="gifStarView" destination="goY-Kw-PiQ" id="q7u-lY-fnV"/>
                         <outlet property="gifStarViewBack" destination="n9t-29-Ory" id="iyn-A2-4zv"/>
+                        <outlet property="gifStarViewBegin" destination="goY-Kw-PiQ" id="kxY-YR-2cq"/>
+                        <outlet property="gifStarViewDrop" destination="qjB-dc-D7Q" id="6Ch-S9-ist"/>
                         <outlet property="globeButton" destination="6eb-4c-QrY" id="mgN-ul-BaG"/>
                         <outlet property="handBottomConstraint" destination="QeI-Xv-G5E" id="b6m-M9-OrI"/>
                         <outlet property="handImageView" destination="Evb-BU-xCI" id="5IO-sm-AxF"/>
                         <outlet property="logoImage" destination="wJl-02-YIr" id="Xhn-9n-Fu3"/>
                         <outlet property="logoTopConst" destination="zUZ-i1-cYn" id="eIm-qR-1oU"/>
                         <outlet property="logosView" destination="f6U-Hj-xqB" id="jQw-wQ-Lfa"/>
+                        <outlet property="manImageView" destination="SFd-Ca-j6J" id="VEf-I0-MIP"/>
                         <outlet property="manLeftConstraint" destination="LSm-or-23y" id="Vt7-9t-GU4"/>
                         <outlet property="planetButtomConst" destination="SLa-qR-NfZ" id="tho-8E-8sw"/>
                         <outlet property="planetImage" destination="YUM-A4-G1R" id="Alp-E1-rE0"/>
-                        <outlet property="princeImageView" destination="SFd-Ca-j6J" id="uwu-M5-AL9"/>
                         <outlet property="questionBottomConstraint" destination="quN-ge-0Wh" id="rOd-Cx-Kd9"/>
                         <outlet property="questionTextField" destination="WIf-vL-Szx" id="1ec-6W-wNJ"/>
                         <outlet property="saveAnswerButton" destination="efE-Ol-6dy" id="RRI-Xv-xlN"/>
