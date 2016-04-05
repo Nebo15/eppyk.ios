@@ -46,11 +46,17 @@ class ImageManager {
     
     
     func screenshotView(view: UIView) -> UIImage {
-        UIGraphicsBeginImageContext(view.frame.size)
-        view.layer.renderInContext(UIGraphicsGetCurrentContext()!)
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return image
+        
+        let window = UIApplication.sharedApplication().keyWindow
+        let rect = window?.bounds
+        
+        UIGraphicsBeginImageContextWithOptions(rect!.size, true, 0.0);
+        let context = UIGraphicsGetCurrentContext();
+        window?.layer.renderInContext(context!)
+        let capturedScreen = UIGraphicsGetImageFromCurrentImageContext();
+        
+        UIGraphicsEndImageContext();
+        return capturedScreen
     }
     
     func saveImageToGallery(image: UIImage, completionHandler: ((Bool, NSError?) -> Void)?) {

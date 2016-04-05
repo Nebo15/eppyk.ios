@@ -46,6 +46,8 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
     @IBOutlet weak var questionTextField: EppykTextField!
     @IBOutlet weak var shakeText: EppykLabelView!
     @IBOutlet weak var answerLabelView: EppykLabelView!
+    @IBOutlet weak var questionLabelView: EppykLabelView!
+    
     
     @IBOutlet weak var userControlsView: UIView!
     @IBOutlet weak var logosView: UIView!
@@ -59,7 +61,7 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
     @IBOutlet weak var manImageView: AnimatableImageView!
     @IBOutlet weak var gifStarViewBegin: AnimatableImageView!
     @IBOutlet weak var gifStarViewBack: AnimatableImageView!
-    
+
     @IBOutlet weak var gifStarViewDrop: AnimatableImageView!
     
     //MARK: Constraints
@@ -70,7 +72,6 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
     @IBOutlet weak var handBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var questionBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var whatQuestionBottomConstraint: NSLayoutConstraint!
-    
     @IBOutlet weak var answerBottomConstraint: NSLayoutConstraint!
     
     
@@ -81,6 +82,7 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
     @IBOutlet weak var buttonTryWidth: NSLayoutConstraint!
     @IBOutlet weak var buttonTryRight: NSLayoutConstraint!
     
+    @IBOutlet weak var questionLabelWidthConstraint: NSLayoutConstraint!
     
     var aiDog: [String] = []
     var aiMan: [String] = []
@@ -420,9 +422,14 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
     
     override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
         super.motionEnded(motion, withEvent: event)
-        if motion == .MotionShake && self.canShake! && !self.questionTextField.text!.isEmpty {
+        
+        if !self.answerView.hidden && self.canShake! {
+            self.refreshAnswer()
+        } else if motion == .MotionShake && self.canShake! && !self.questionTextField.text!.isEmpty {
             self.getAnswer()
         }
+        
+        
     }
     
     
@@ -468,11 +475,9 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
                 }
                 
             })
-        
-        
     }
     
-    func hideAnswer() {
+    func hideAnswer(hideQuestion: Bool, completion: (() -> Void)?) {
         
         if ScreenSize.width == 320 {
             self.answerBottomConstraint.constant = 200
@@ -480,11 +485,19 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
             self.answerBottomConstraint.constant = 300
         }
         
-        UIView.animateWithDuration(2, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {[weak self] () -> Void in
+        UIView.animateWithDuration(0.5, delay: 0, options: .CurveEaseInOut, animations: {[weak self] () -> Void in
             self?.answerLabelView.alpha = 0
+            if hideQuestion {
+                self?.questionLabelView.alpha = 0
+                self?.questionLabelWidthConstraint.constant = 0
+            }
+            
             self?.answerView.layoutIfNeeded()
         }) { (Bool) -> Void in
             self.answerControlsToStartPosition()
+            if let _completion = completion {
+                _completion()
+            }
         }
     }
     
@@ -504,6 +517,7 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
     
     func answerControlsToStartPosition() {
         self.answerLabelView.hidden = true
+        self.answerView.hidden = true
         self.answerLabelView.alpha = 0
         self.answerBottomConstraint.constant = 95
         self.answerView.layoutIfNeeded()
@@ -561,18 +575,27 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
         self.dropStars()
     }
     
+    func refreshAnswer() {
+        self.canShake = false
+        self.hideAnswer(false) {
+            self.answerLabelView.text = QAManager.sharedInstance.fetchAnswer()
+            self.showAnswer()
+        }
+        
+    }
+    
     func dropStars() {
         
         self.gifAnimation(.GIFStarsDrop)
         
         
         // User controls start animation
-        self.shakeBottomConstraint.constant += 40
-        self.handBottomConstraint.constant += 40
-        self.questionBottomConstraint.constant += 40
-        self.whatQuestionBottomConstraint.constant += 40
+        self.shakeBottomConstraint.constant += 120
+        self.handBottomConstraint.constant += 110
+        self.questionBottomConstraint.constant += 100
+        self.whatQuestionBottomConstraint.constant += 90
         
-        UIView.animateWithDuration(1.5, delay: 0.5, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {[weak self] () -> Void in
+        UIView.animateWithDuration(0.8, delay: 0.5, options: .CurveEaseInOut, animations: {[weak self] () -> Void in
             self?.userControlsView.layoutIfNeeded()
             self?.shakeText.alpha = 0
             self?.handImageView.alpha = 0
@@ -580,6 +603,8 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
             self?.whatQuestionText.alpha = 0
             
         }) { (Bool) -> Void in
+            self.questionLabelView.text = self.questionTextField.text
+
             self.showAnswer()
             self.showButtons()
         }
@@ -588,6 +613,7 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
     
     func showAnswer() {
         self.answerLabelView.text = QAManager.sharedInstance.fetchAnswer()
+        self.answerView.hidden = false
         self.answerLabelView.hidden = false
         
         if ScreenSize.width == 320 {
@@ -596,12 +622,15 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
             self.answerBottomConstraint.constant = 250
         }
         
-        
         UIView.animateWithDuration(1.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {[weak self] () -> Void in
+            
+            self?.questionLabelWidthConstraint.constant = (self?.questionLabelView.bounds.size.width)!
+            
+            self?.questionLabelView.alpha = 0.9
             self?.answerLabelView.alpha = 0.9
             self?.answerView.layoutIfNeeded()
         }) { (Bool) -> Void in
-            
+            self.canShake = true
         }
     }
     
@@ -615,7 +644,11 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
             self.screenShotFlash()
             
             let view = self.view
+            self.buttonsView.hidden = true
+            self.globeButton.hidden = true
             let image = ImageManager.sharedInstance.screenshotView(view)
+            self.buttonsView.hidden = false
+            self.globeButton.hidden = false
             ImageManager.sharedInstance.saveImageToGallery(image) { (success: Bool, error: NSError?) -> Void in
                 print(success ? "OK" : error!.localizedDescription)
             }
@@ -645,7 +678,7 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
 
             self.showTryAgainAnimation()
             self.showUIControls()
-            self.hideAnswer()
+            self.hideAnswer(true, completion: nil)
             self.canShake = true
         }
     }
