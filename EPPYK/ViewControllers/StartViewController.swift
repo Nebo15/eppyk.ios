@@ -44,11 +44,14 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
     @IBOutlet weak var whatQuestionText: EppykLabelView!
     @IBOutlet weak var questionTextField: EppykTextField!
     @IBOutlet weak var shakeText: EppykLabelView!
+    @IBOutlet weak var answerLabelView: EppykLabelView!
     
     @IBOutlet weak var userControlsView: UIView!
     @IBOutlet weak var logosView: UIView!
-    
     @IBOutlet weak var buttonsView: UIView!
+    @IBOutlet weak var answerView: UIView!
+    
+    
     @IBOutlet weak var handImageView: AnimatableImageView!
     @IBOutlet weak var dogImageView: AnimatableImageView!
     
@@ -67,13 +70,14 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
     @IBOutlet weak var questionBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var whatQuestionBottomConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var answerBottomConstraint: NSLayoutConstraint!
+    
     
     @IBOutlet weak var buttonSaveWidth: NSLayoutConstraint!
     @IBOutlet weak var buttonSaveLeft: NSLayoutConstraint!
     
     
     @IBOutlet weak var buttonTryWidth: NSLayoutConstraint!
-    
     @IBOutlet weak var buttonTryRight: NSLayoutConstraint!
     
     
@@ -409,7 +413,7 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
     
     func showButtons() {
         
-        UIView.animateWithDuration(1.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {[weak self] () -> Void in
+        UIView.animateWithDuration(1.5, delay: 1, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {[weak self] () -> Void in
             self?.buttonSaveLeft.constant = 20
             self?.buttonTryRight.constant = 20
             
@@ -431,6 +435,17 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
         
     }
     
+    func hideAnswer() {
+        
+        self.answerBottomConstraint.constant = 300
+        UIView.animateWithDuration(2, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {[weak self] () -> Void in
+            self?.answerLabelView.alpha = 0
+            self?.answerView.layoutIfNeeded()
+        }) { (Bool) -> Void in
+            self.answerControlsToStartPosition()
+        }
+    }
+    
 
     func uiControlsToStartPosition() {
         self.shakeText.alpha = 0
@@ -444,6 +459,14 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
         self.userControlsView.layoutIfNeeded()
         self.questionTextField.text = "";
     }
+    
+    func answerControlsToStartPosition() {
+        self.answerLabelView.hidden = true
+        self.answerLabelView.alpha = 0
+        self.answerBottomConstraint.constant = 95
+        self.answerView.layoutIfNeeded()
+    }
+    
     
     func showUIControls() {
         
@@ -502,7 +525,7 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
         self.questionBottomConstraint.constant += 40
         self.whatQuestionBottomConstraint.constant += 40
         
-        UIView.animateWithDuration(2, delay: 0.5, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {[weak self] () -> Void in
+        UIView.animateWithDuration(1.5, delay: 0.5, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {[weak self] () -> Void in
             self?.userControlsView.layoutIfNeeded()
             self?.shakeText.alpha = 0
             self?.handImageView.alpha = 0
@@ -510,32 +533,70 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
             self?.whatQuestionText.alpha = 0
             
         }) { (Bool) -> Void in
+            self.showAnswer()
             self.showButtons()
         }
         
-        self.questionTextField.text = QAManager.sharedInstance.fetchAnswer()
+    }
+    
+    func showAnswer() {
+        self.answerLabelView.text = QAManager.sharedInstance.fetchAnswer()
+        self.answerLabelView.hidden = false
         
-
+        self.answerBottomConstraint.constant = 200
+        UIView.animateWithDuration(1.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {[weak self] () -> Void in
+            self?.answerLabelView.alpha = 0.9
+            self?.answerView.layoutIfNeeded()
+        }) { (Bool) -> Void in
+            
+        }
     }
     
     @IBAction func makeScreenshot(sender: AnyObject) {
-        let view = self.view
         
-        let image = ImageManager.sharedInstance.screenshotView(view)
-        ImageManager.sharedInstance.saveImageToGallery(image) { (success: Bool, error: NSError?) -> Void in
-            print(success ? "OK" : error!.localizedDescription)
+        (sender as! UIButton).transform = CGAffineTransformMakeScale(0.8, 0.8)
+        UIView.animateWithDuration(1.0, delay: 0, usingSpringWithDamping: CGFloat(0.40), initialSpringVelocity: CGFloat(0), options: UIViewAnimationOptions.AllowUserInteraction, animations: {
+            (sender as! UIButton).transform = CGAffineTransformIdentity
+        }) { (ok: Bool) -> Void in
+            // Animation
+            self.screenShotFlash()
+            
+            let view = self.view
+            let image = ImageManager.sharedInstance.screenshotView(view)
+            ImageManager.sharedInstance.saveImageToGallery(image) { (success: Bool, error: NSError?) -> Void in
+                print(success ? "OK" : error!.localizedDescription)
+            }
         }
+        
+    }
+    
+    
+    func screenShotFlash() {
+        let aView = UIView(frame: self.view.bounds)
+        aView.backgroundColor = UIColor.whiteColor()
+        self.view.addSubview(aView)
+        
+        UIView.animateWithDuration(0.8, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+            aView.alpha = 0.0
+            }, completion: { (done) -> Void in
+                aView.removeFromSuperview()
+        })
     }
     
     
     @IBAction func makeTryAgain(sender: AnyObject) {
         
-        self.showTryAgainAnimation()
+        (sender as! UIButton).transform = CGAffineTransformMakeScale(0.8, 0.8)
+        UIView.animateWithDuration(1.0, delay: 0, usingSpringWithDamping: CGFloat(0.40), initialSpringVelocity: CGFloat(0), options: UIViewAnimationOptions.AllowUserInteraction, animations: {
+            (sender as! UIButton).transform = CGAffineTransformIdentity
+        }) { (ok: Bool) -> Void in
+
+            self.showTryAgainAnimation()
+            self.showUIControls()
+            self.hideButtons()
+            self.hideAnswer()
         
-        self.showUIControls()
-        
-        self.hideButtons()
-        
+        }
     }
     
     
