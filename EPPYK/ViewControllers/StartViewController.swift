@@ -604,11 +604,11 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
             
         }) { (Bool) -> Void in
             self.questionLabelView.text = self.questionTextField.text
+            self.questionLabelView.sizeToFit()
 
             self.showAnswer()
             self.showButtons()
         }
-        
     }
     
     func showAnswer() {
