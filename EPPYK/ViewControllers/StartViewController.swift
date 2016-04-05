@@ -101,20 +101,6 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
         super.viewDidLoad()
         
         self.beginAnimationDone = false
-        
-        //self.gifAnimation(.GIFStarsBegin);
-        
-        // DOG
-        self.aiDog.append("dog_move_1@3x.gif")
-        self.aiDog.append("dog_move_2@3x.gif")
-        self.aiDog.append("dog_move_3@3x.gif")
-        self.aiDog.append("dog_move_4@3x.gif")
-
-        // MAN
-        self.aiMan.append("man_move_1@3x.gif")
-        self.aiMan.append("man_move_2@3x.gif")
-        self.aiMan.append("man_move_3@3x.gif")
-        self.aiMan.append("man_move_4@3x.gif")
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -286,6 +272,36 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
         self.gifStarViewBack.delegate = self
         self.gifStarViewBack.stopAnimatingGIF(false)
         self.gifStarViewBack.hidden = true
+        
+        
+        // DOG
+        self.aiDog.append("dog_move_1@3x.gif")
+        self.aiDog.append("dog_move_2@3x.gif")
+        self.aiDog.append("dog_move_3@3x.gif")
+        self.aiDog.append("dog_move_4@3x.gif")
+        
+//        for image: String in self.aiMan {
+//            self.dogImageView.animateWithImage(named: image)
+//        }
+//        self.dogImageView.stopAnimatingGIF()
+        
+        
+        // MAN
+        self.aiMan.append("man_move_1@3x.gif")
+        self.aiMan.append("man_move_2@3x.gif")
+        self.aiMan.append("man_move_3@3x.gif")
+        self.aiMan.append("man_move_4@3x.gif")
+        
+        self.manImageView.animateWithImage(named: GIFAnimationType.GIFManStarDrop.rawValue)
+        self.manImageView.animateWithImage(named: GIFAnimationType.GIFManStarCatch.rawValue)
+        self.manImageView.animateWithImage(named: GIFAnimationType.GIFManStatWithStar.rawValue)
+        
+//        for image: String in self.aiMan {
+//            self.manImageView.animateWithImage(named: image)
+//        }
+        self.manImageView.stopAnimatingGIF()
+        
+        
     }
     
     func stopAllAnimation() {
@@ -324,7 +340,7 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
             self.gifStarViewDrop.startAnimatingGIF()
 
             
-            let dispatchTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(0.7 * Double(NSEC_PER_SEC)))
+            let dispatchTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(0.6 * Double(NSEC_PER_SEC)))
             dispatch_after(dispatchTime, dispatch_get_main_queue(), {
                 self.manImageView.animateWithImage(named: GIFAnimationType.GIFManStarCatch.rawValue)
                 self.manImageView.delegate = self
@@ -436,14 +452,10 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
     
     func hideButtons() {
         
-        
         UIView.animateWithDuration(0.3, delay: 0.9, options: .CurveEaseInOut, animations: {[weak self] () -> Void in
-            
             self?.buttonSaveLeft.constant = 30
             self?.buttonTryRight.constant = 30
-            
             self?.buttonsView.layoutIfNeeded()
-
             
             }, completion: {[weak self] (Bool) -> Void in
                 
@@ -456,9 +468,6 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
                 }
                 
             })
-        
-        
-        
         
         
     }
@@ -505,11 +514,17 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
         
         self.uiControlsToStartPosition()
         
+        var offset: CGFloat = 40
+        
+        if ScreenSize.width == 320 {
+            offset = 5
+        }
+        
         // User controls start animation
-        self.shakeBottomConstraint.constant += 40
-        self.handBottomConstraint.constant += 68
-        self.questionBottomConstraint.constant += 130
-        self.whatQuestionBottomConstraint.constant += 160
+        self.shakeBottomConstraint.constant += offset
+        self.handBottomConstraint.constant += offset + 25
+        self.questionBottomConstraint.constant += offset + 85
+        self.whatQuestionBottomConstraint.constant += offset + 110
         
         UIView.animateWithDuration(1.5, delay: 1.5, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {[weak self] () -> Void in
             
