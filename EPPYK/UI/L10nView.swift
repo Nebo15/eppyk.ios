@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import AFNetworking
 
 protocol L10nViewProtocol {
     func didSelectL10N(l10n: L10n)
