@@ -309,9 +309,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <subviews>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Something goes wrong" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="rZM-od-a35" customClass="EppykLabelView" customModule="EPPYK" customModuleProvider="target">
-                                        <rect key="frame" x="38" y="333" width="338" height="300"/>
+                                        <rect key="frame" x="38" y="383" width="338" height="250"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="300" id="Fbs-L0-H5S"/>
+                                            <constraint firstAttribute="height" constant="250" id="Fbs-L0-H5S"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Sabado" family="Sabado" pointSize="50"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

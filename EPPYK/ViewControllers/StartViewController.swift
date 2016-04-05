@@ -30,6 +30,7 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
     var dogTimer: NSTimer?
     var handTimer: NSTimer?
     var beginAnimationDone: Bool?
+    var canShake: Bool?
     
     //MARK: UI
     @IBOutlet weak var saveAnswerButton: UIButton!
@@ -79,8 +80,6 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
     
     @IBOutlet weak var buttonTryWidth: NSLayoutConstraint!
     @IBOutlet weak var buttonTryRight: NSLayoutConstraint!
-    
-    
     
     
     var aiDog: [String] = []
@@ -212,6 +211,7 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
                         self?.logoImage.hidden = true
                         self?.smallLogoImage.hidden = false
                         self?.beginAnimationDone = true
+                        self?.canShake = true
                 })
         })
         
@@ -244,7 +244,14 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
         }
         
         if anim == GIFAnimationType.GIFManStarDrop.rawValue {
-            self.manImageView.animateWithImage(named: GIFAnimationType.GIFManStat.rawValue)
+            
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+                self.manImageView.animateWithImage(named: GIFAnimationType.GIFManStat.rawValue)
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.manImageView.delegate = self
+                    self.manImageView.loopsCount = 0
+                });
+            });
         }
         
         
@@ -317,6 +324,7 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
             self.gifStarViewDrop.hidden = false;
             self.gifStarViewDrop.startAnimatingGIF()
 
+            
             let dispatchTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(0.7 * Double(NSEC_PER_SEC)))
             dispatch_after(dispatchTime, dispatch_get_main_queue(), {
                 self.manImageView.animateWithImage(named: GIFAnimationType.GIFManStarCatch.rawValue)
@@ -374,6 +382,7 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
     }
     
     func moveHand() {
+        return
         print("Shake hand")
         self.handImageView.animateWithImage(named: GIFAnimationType.GIFHandShake.rawValue)
         self.handImageView.loopsCount = 2
@@ -393,7 +402,7 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
     
     override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
         super.motionEnded(motion, withEvent: event)
-        if motion == .MotionShake {
+        if motion == .MotionShake && self.canShake! {
             self.getAnswer()
         }
     }
@@ -437,7 +446,12 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
     
     func hideAnswer() {
         
-        self.answerBottomConstraint.constant = 300
+        if ScreenSize.width == 320 {
+            self.answerBottomConstraint.constant = 200
+        } else {
+            self.answerBottomConstraint.constant = 300
+        }
+        
         UIView.animateWithDuration(2, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {[weak self] () -> Void in
             self?.answerLabelView.alpha = 0
             self?.answerView.layoutIfNeeded()
@@ -507,11 +521,10 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
     
     
     func getAnswer() {
+        self.canShake = false
         
         self.view.endEditing(true)
-        
         self.dropStars()
-        
     }
     
     func dropStars() {
@@ -543,7 +556,13 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
         self.answerLabelView.text = QAManager.sharedInstance.fetchAnswer()
         self.answerLabelView.hidden = false
         
-        self.answerBottomConstraint.constant = 200
+        if ScreenSize.width == 320 {
+            self.answerBottomConstraint.constant = 170
+        } else {
+            self.answerBottomConstraint.constant = 250
+        }
+        
+        
         UIView.animateWithDuration(1.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {[weak self] () -> Void in
             self?.answerLabelView.alpha = 0.9
             self?.answerView.layoutIfNeeded()
@@ -570,7 +589,6 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
         
     }
     
-    
     func screenShotFlash() {
         let aView = UIView(frame: self.view.bounds)
         aView.backgroundColor = UIColor.whiteColor()
@@ -595,10 +613,8 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
             self.showUIControls()
             self.hideButtons()
             self.hideAnswer()
-        
+            self.canShake = true
         }
     }
-    
-    
     
 }
