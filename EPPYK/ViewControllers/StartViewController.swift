@@ -579,6 +579,7 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
         self.canShake = false
         self.hideAnswer(false) {
             self.answerLabelView.text = QAManager.sharedInstance.fetchAnswer()
+            self.questionLabelView.sizeToFit()
             self.showAnswer()
         }
         
