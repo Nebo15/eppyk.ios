@@ -69,6 +69,12 @@ class L10nView: UIView, UITableViewDataSource, UITableViewDelegate {
         
         cell.setL10N(l10n)
         
+        if let currL10n = SettingsManager.sharedInstance.getValue(SettingsManager.SelectedL10N) where currL10n == l10n.code {
+            cell.arrowImage.image = UIImage.init(named: "check")
+        } else {
+            cell.arrowImage.image = nil
+        }
+        
         return cell
     }
     
@@ -77,7 +83,8 @@ class L10nView: UIView, UITableViewDataSource, UITableViewDelegate {
         if let delegate = self.delegate {
             delegate.didSelectL10N(l10n)
         }
-
+        self.tableView.reloadData()
+        
     }
     
 }

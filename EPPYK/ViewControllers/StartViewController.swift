@@ -9,6 +9,7 @@
 import Foundation
 import Gifu
 import AFNetworking
+import Mixpanel
 
 enum GIFAnimationType: String {
     case GIFStarsBegin = "star_begin@2x.gif"
@@ -83,16 +84,19 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
     @IBOutlet weak var buttonTryRight: NSLayoutConstraint!
     
     @IBOutlet weak var questionLabelWidthConstraint: NSLayoutConstraint!
+    var mixpanel: Mixpanel?
     
     var aiDog: [String] = []
     var aiMan: [String] = []
     
     //MARK: L10nViewProtocol
     func didSelectL10N(l10n: L10n) {
+        self.mixpanel!.track("Localization selected", properties: ["L10N": l10n.code])
         SettingsManager.sharedInstance.setValue(l10n.code, key: SettingsManager.SelectedL10N)
     }
     
     func didFinish() {
+        self.mixpanel!.track("Finish localization selection")
         if self.beginAnimationDone == false {
             self.showMainView()
         }
@@ -101,6 +105,7 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
     //MARK: View life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.mixpanel = Mixpanel.sharedInstanceWithToken("ee8c37904fb6e9b30bb56b3a945c9dad")
         
         self.beginAnimationDone = false
     }
@@ -145,6 +150,7 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
     
     func showL10NView(data: [L10n]) {
         if let view = UIView.loadFromNibNamed("L10nView") {
+            self.mixpanel!.track("Language select show")
             let frame = CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y,
                                    self.view.bounds.size.width, self.view.bounds.size.height + L10nView.UpBounse)
             view.frame = frame
@@ -157,6 +163,7 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
     
     func showMainView() {
         
+        self.mixpanel!.track("Application start")
         self.loadGIFs()
         
         self.gifAnimation(.GIFStarsBegin)
@@ -402,8 +409,6 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
     }
     
     func moveHand() {
-        return
-        print("Shake hand")
         self.handImageView.animateWithImage(named: GIFAnimationType.GIFHandShake.rawValue)
         self.handImageView.loopsCount = 2
         self.handImageView.delegate = self
@@ -411,6 +416,7 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
     
     //MARK: UITextFieldDelegate
     func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.mixpanel!.track("Go press for answer", properties: ["Question": questionTextField.text!])
         self.getAnswer()
         return true
     }
@@ -424,12 +430,12 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
         super.motionEnded(motion, withEvent: event)
         
         if !self.answerView.hidden && self.canShake! {
+            self.mixpanel!.track("Shake for another answer", properties: ["Question": questionTextField.text!])
             self.refreshAnswer()
         } else if motion == .MotionShake && self.canShake! && !self.questionTextField.text!.isEmpty {
+            self.mixpanel!.track("Shake for answer", properties: ["Question": questionTextField.text!])
             self.getAnswer()
         }
-        
-        
     }
     
     
@@ -636,6 +642,7 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
     }
     
     @IBAction func makeScreenshot(sender: AnyObject) {
+        self.mixpanel!.track("Screenshot pressed")
         
         (sender as! UIButton).transform = CGAffineTransformMakeScale(0.8, 0.8)
         UIView.animateWithDuration(1.0, delay: 0, usingSpringWithDamping: CGFloat(0.40), initialSpringVelocity: CGFloat(0), options: UIViewAnimationOptions.AllowUserInteraction, animations: {
@@ -671,6 +678,7 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
     
     
     @IBAction func makeTryAgain(sender: AnyObject) {
+        self.mixpanel!.track("Try again pressed")
         
         (sender as! UIButton).transform = CGAffineTransformMakeScale(0.8, 0.8)
         UIView.animateWithDuration(1.0, delay: 0, usingSpringWithDamping: CGFloat(0.40), initialSpringVelocity: CGFloat(0), options: UIViewAnimationOptions.AllowUserInteraction, animations: {

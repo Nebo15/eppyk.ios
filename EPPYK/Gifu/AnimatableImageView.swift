@@ -3,7 +3,7 @@ import UIKit
 /// A subclass of `UIImageView` that can be animated using an image name string or raw data.
 public class AnimatableImageView: UIImageView, AnimatorDelegate {
   /// An `Animator` instance that holds the frames of a specific image in memory.
-  var animator: Animator?
+    var animatorDict: [String: Animator] = [:]
   /// A display link that keeps calling the `updateFrame` method on every screen refresh.
   lazy var displayLink: CADisplayLink = CADisplayLink(target: self, selector: Selector("updateFrame"))
 
@@ -11,6 +11,10 @@ public class AnimatableImageView: UIImageView, AnimatorDelegate {
   public var framePreloadCount = 100
 
     public var imageName : String = ""
+    
+    private var animator: Animator? {
+        get { return self.animatorDict[imageName] }
+    }
     
     // Delegate
     public weak var delegate: GIFAnimatedImageViewDelegate?
@@ -49,7 +53,7 @@ public class AnimatableImageView: UIImageView, AnimatorDelegate {
   /// - parameter data: GIF image data.
   public func prepareForAnimation(imageData data: NSData) {
     image = UIImage(data: data)
-    animator = Animator(data: data, size: frame.size, contentMode: contentMode, framePreloadCount: framePreloadCount)
+    animatorDict[imageName] = Animator(data: data, size: frame.size, contentMode: contentMode, framePreloadCount: framePreloadCount)
     animator?.prepareFrames()
     animator?.delegate = self
     attachDisplayLink()
@@ -59,6 +63,19 @@ public class AnimatableImageView: UIImageView, AnimatorDelegate {
   ///
   /// - parameter imageName: The name of the GIF file. The method looks for the file in the app bundle.
   public func animateWithImage(named imageName: String) {
+
+    if self.animatorDict.keys.contains(imageName) {
+        let startTime = CFAbsoluteTimeGetCurrent()
+
+        stopAnimatingGIF(false)
+        self.imageName = imageName
+        startAnimatingGIF()
+        
+        let timeElapsed = CFAbsoluteTimeGetCurrent() - startTime
+        print( Double(timeElapsed) )
+        return
+    }
+    
     self.imageName = imageName
     prepareForAnimation(imageNamed: imageName)
     animator?.loopsCount = self.loopsCount
@@ -100,9 +117,9 @@ public class AnimatableImageView: UIImageView, AnimatorDelegate {
     self.stopAnimatingGIF(true)
   }
     
-    public func stopAnimatingGIF(callout: Bool) {
+    public func stopAnimatingGIF(callback: Bool) {
         displayLink.paused = true
-        if let delegate = self.delegate where callout {
+        if let delegate = self.delegate where callback {
             delegate.gifAnimationDidStop(self.imageName, finished: true)
         }
     }

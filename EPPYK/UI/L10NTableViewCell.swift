@@ -14,7 +14,6 @@ class L10NTableViewCell: UITableViewCell {
     @IBOutlet weak var moviesLabel: UILabel!
     @IBOutlet weak var arrowImage: UIImageView!
     
-    
     var l10n: L10n?
     
     override func awakeFromNib() {
@@ -28,17 +27,6 @@ class L10NTableViewCell: UITableViewCell {
         self.titleLabel.textColor = UIColor.whiteColor()
         self.moviesLabel.text = String(format: "%@ %@", ("Answers from").localized, l10n.title)
         self.moviesLabel.textColor = UIColor.whiteColor()
-    }
-    
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        if selected {
-            self.arrowImage.image = UIImage.init(named: "check")
-        } else {
-            self.arrowImage.image = nil
-        }
-        
     }
     
 }

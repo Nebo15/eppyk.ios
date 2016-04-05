@@ -25,17 +25,22 @@ PODS:
     - Mantle/extobjc (= 1.5.4)
   - Mantle/extobjc (1.5.4)
   - MBProgressHUD (0.9.2)
+  - Mixpanel (2.9.4):
+    - Mixpanel/Mixpanel (= 2.9.4)
+  - Mixpanel/Mixpanel (2.9.4)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5)
   - Gifu
   - Mantle (= 1.5.4)
   - MBProgressHUD
+  - Mixpanel
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   Gifu: bf7a99fe9f20a1dc18c3cb4289aebc922a2ad419
   Mantle: 60acd0cd363e27d945bda0a6b8e90577112d28f3
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
+  Mixpanel: 80d2ca9bb38ae91c1044d738e80fe448377ac89f
 
 COCOAPODS: 0.39.0
