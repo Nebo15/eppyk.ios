@@ -97,6 +97,10 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
     
     func didFinish() {
         self.mixpanel!.track("Finish localization selection")
+        if let l10n = SettingsManager.sharedInstance.getValue(SettingsManager.SelectedL10N) {
+            UpdateManager.sharedInstance.updateAnswers( l10n );
+        }
+        
         if self.beginAnimationDone == false {
             self.showMainView()
         }

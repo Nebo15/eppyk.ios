@@ -37,12 +37,15 @@ class SettingsManager: NSObject {
         let documentsDirectory = paths.objectAtIndex(0) as! NSString
         let path = documentsDirectory.stringByAppendingPathComponent(SettingsManager.configFile)
         
-        let dict: NSMutableDictionary = ["XInitializerItem": "DoNotEverChangeMe"]
+        var currDict = NSMutableDictionary(contentsOfFile: path)
+        if currDict == nil {
+            currDict = NSMutableDictionary.init(object: "DoNotEverChangeMe", forKey: "XInitializerItem")
+        }
         
-        dict.setObject(date, forKey: key)
+        currDict!.setObject(date, forKey: key)
         
         //writing to GameData.plist
-        dict.writeToFile(path, atomically: false)
+        currDict!.writeToFile(path, atomically: false)
         
         let resultDictionary = NSMutableDictionary(contentsOfFile: path)
         print("Saved Config.plist file is --> \(resultDictionary?.description)")

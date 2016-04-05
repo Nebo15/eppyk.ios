@@ -329,10 +329,10 @@
                                         </constraints>
                                     </view>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Something goes wrong" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="rZM-od-a35" customClass="EppykLabelView" customModule="EPPYK" customModuleProvider="target">
-                                        <rect key="frame" x="38" y="433" width="338" height="200"/>
+                                        <rect key="frame" x="38" y="453" width="338" height="180"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="200" id="Fbs-L0-H5S"/>
+                                            <constraint firstAttribute="height" constant="180" id="Fbs-L0-H5S"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Sabado" family="Sabado" pointSize="50"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
