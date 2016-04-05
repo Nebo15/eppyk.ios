@@ -244,7 +244,6 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
         }
         
         if anim == GIFAnimationType.GIFManStarDrop.rawValue {
-            
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
                 self.manImageView.animateWithImage(named: GIFAnimationType.GIFManStat.rawValue)
                 dispatch_async(dispatch_get_main_queue(), {
@@ -360,6 +359,9 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
         self.manImageView.animateWithImage(named: GIFAnimationType.GIFManStarDrop.rawValue)
         self.manImageView.delegate = self
         self.manImageView.loopsCount = 1
+        
+        // Hide buttons
+        self.hideButtons()
     }
     
     func moveMan(let moveIndex: Int) {
@@ -402,7 +404,7 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
     
     override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
         super.motionEnded(motion, withEvent: event)
-        if motion == .MotionShake && self.canShake! {
+        if motion == .MotionShake && self.canShake! && !self.questionTextField.text!.isEmpty {
             self.getAnswer()
         }
     }
@@ -434,13 +436,30 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
     
     func hideButtons() {
         
-        UIView.animateWithDuration(1.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {[weak self] () -> Void in
-            self?.buttonSaveLeft.constant = 0 - ((self?.buttonSaveWidth.constant)! + 20)
-            self?.buttonTryRight.constant = 0 - ((self?.buttonTryWidth.constant)! + 20)
+        
+        UIView.animateWithDuration(0.3, delay: 0.9, options: .CurveEaseInOut, animations: {[weak self] () -> Void in
+            
+            self?.buttonSaveLeft.constant = 30
+            self?.buttonTryRight.constant = 30
             
             self?.buttonsView.layoutIfNeeded()
-        }) { (Bool) -> Void in
-        }
+
+            
+            }, completion: {[weak self] (Bool) -> Void in
+                
+                UIView.animateWithDuration(1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {[weak self] () -> Void in
+                    self?.buttonSaveLeft.constant = 0 - ((self?.buttonSaveWidth.constant)! + 20)
+                    self?.buttonTryRight.constant = 0 - ((self?.buttonTryWidth.constant)! + 20)
+                    
+                    self?.buttonsView.layoutIfNeeded()
+                }) { (Bool) -> Void in
+                }
+                
+            })
+        
+        
+        
+        
         
     }
     
@@ -611,7 +630,6 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
 
             self.showTryAgainAnimation()
             self.showUIControls()
-            self.hideButtons()
             self.hideAnswer()
             self.canShake = true
         }
