@@ -292,7 +292,7 @@
                                         </variation>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eppyk-text" translatesAutoresizingMaskIntoConstraints="NO" id="wJl-02-YIr">
-                                        <rect key="frame" x="54" y="150" width="306" height="156"/>
+                                        <rect key="frame" x="54" y="145" width="306" height="156"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -302,7 +302,7 @@
                                     <constraint firstItem="wJl-02-YIr" firstAttribute="centerX" secondItem="f6U-Hj-xqB" secondAttribute="centerX" id="o5N-OU-tcf"/>
                                     <constraint firstItem="b4O-xU-ZeF" firstAttribute="centerX" secondItem="f6U-Hj-xqB" secondAttribute="centerX" id="s7F-HZ-X2c"/>
                                     <constraint firstItem="b4O-xU-ZeF" firstAttribute="top" secondItem="f6U-Hj-xqB" secondAttribute="top" constant="32" id="ucI-7O-t6I"/>
-                                    <constraint firstItem="wJl-02-YIr" firstAttribute="top" secondItem="f6U-Hj-xqB" secondAttribute="top" constant="150" id="zUZ-i1-cYn"/>
+                                    <constraint firstItem="wJl-02-YIr" firstAttribute="top" secondItem="f6U-Hj-xqB" secondAttribute="top" constant="145" id="zUZ-i1-cYn"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HlD-fL-QEO">
