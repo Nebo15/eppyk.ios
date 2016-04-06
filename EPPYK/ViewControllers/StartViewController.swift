@@ -35,7 +35,6 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
     
     //MARK: UI
     @IBOutlet weak var saveAnswerButton: UIButton!
-    
     @IBOutlet weak var tryAgainButton: UIButton!
     
     @IBOutlet weak var planetImage: UIImageView!
@@ -99,6 +98,7 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
             UpdateManager.sharedInstance.updateAnswers( l10nCode );
         }
         
+        self.updateUILocalization(l10nCode)
         if self.beginAnimationDone == false {
             self.showMainView()
         }
@@ -110,6 +110,10 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
         self.mixpanel = Mixpanel.sharedInstanceWithToken("ee8c37904fb6e9b30bb56b3a945c9dad")
         
         self.beginAnimationDone = false
+        
+        if let l10nCode = SettingsManager.sharedInstance.getValue(SettingsManager.SelectedL10N) {
+            self.updateUILocalization(l10nCode)
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -161,6 +165,30 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
             self.view.addSubview(view)
             (view as! L10nView).show()
         }
+    }
+    
+    func updateUILocalization(l10nCode: String) {
+        return
+        
+        var language = "en"
+        if l10nCode != "" {
+            let l10n = l10nCode.componentsSeparatedByString("_")
+            language = l10n[0]
+        }
+        
+        let path = NSBundle.mainBundle().pathForResource(language, ofType: "lproj")
+        guard let _ = path else {
+            return
+        }
+        let bundle = NSBundle(path: path!)
+        let test = bundle?.localizedStringForKey("WHAT'S YOUR QUESTION?", value: nil, table: nil)
+
+        self.whatQuestionText.text = "WHAT'S YOUR QUESTION?".localized
+        self.questionTextField.placeholder = "ask it here".localized
+        self.shakeText.text = "AND SHAKE YOUR PHOE TO GET THE ANSWER".localized
+        self.saveAnswerButton.setTitle("Save the answer".localized, forState: .Normal)
+        self.tryAgainButton.setTitle("Try again".localized, forState: .Normal)
+        
     }
     
     func showMainView() {

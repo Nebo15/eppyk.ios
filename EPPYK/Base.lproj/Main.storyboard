@@ -382,7 +382,7 @@
                                             <constraint firstAttribute="height" constant="36" id="zpJ-Kw-qAc"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AND SHAKE YOUR PHOE TO GET THE ANSWER" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIT-eP-R5C" customClass="EppykLabelView" customModule="EPPYK" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AND SHAKE YOUR PHOE TO GET THE ANSWER" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="fIT-eP-R5C" customClass="EppykLabelView" customModule="EPPYK" customModuleProvider="target">
                                         <rect key="frame" x="8" y="475" width="398" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="HQT-J0-gty"/>
