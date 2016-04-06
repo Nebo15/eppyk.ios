@@ -29,6 +29,8 @@
 	</dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Geometria.otf</string>
+		<string>Geometria-Bold.otf</string>
 		<string>Sabado Italic.otf</string>
 		<string>Sabado Regular.otf</string>
 	</array>

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A02DA4F1CB5C073009D2FB8 /* Geometria.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3A02DA4E1CB5C073009D2FB8 /* Geometria.otf */; };
+		3A02DA511CB5C0F2009D2FB8 /* Geometria-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3A02DA501CB5C0F2009D2FB8 /* Geometria-Bold.otf */; };
 		3A1FAC941C87848500575C44 /* AnimatedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1FAC931C87848400575C44 /* AnimatedImageView.swift */; };
 		3A2C6D801C52DC12006C3C92 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2C6D7F1C52DC12006C3C92 /* RootViewController.swift */; };
 		3A35B30D1C90E12D00EA30ED /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A35B3081C90E12D00EA30ED /* DebugView.swift */; };
@@ -76,6 +78,8 @@
 
 /* Begin PBXFileReference section */
 		29E4DA030E178A1C624ABE1F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		3A02DA4E1CB5C073009D2FB8 /* Geometria.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Geometria.otf; path = Resources/fonts/Geometria.otf; sourceTree = "<group>"; };
+		3A02DA501CB5C0F2009D2FB8 /* Geometria-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Geometria-Bold.otf"; path = "Resources/fonts/Geometria-Bold.otf"; sourceTree = "<group>"; };
 		3A1FAC931C87848400575C44 /* AnimatedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnimatedImageView.swift; path = Views/AnimatedImageView.swift; sourceTree = "<group>"; };
 		3A2C6D7F1C52DC12006C3C92 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootViewController.swift; path = ViewControllers/RootViewController.swift; sourceTree = "<group>"; };
 		3A35B3081C90E12D00EA30ED /* DebugView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DebugView.swift; path = XAnimatedImage/DebugView.swift; sourceTree = "<group>"; };
@@ -314,6 +318,8 @@
 		3A5F67251C539309002BB6F9 /* fonts */ = {
 			isa = PBXGroup;
 			children = (
+				3A02DA501CB5C0F2009D2FB8 /* Geometria-Bold.otf */,
+				3A02DA4E1CB5C073009D2FB8 /* Geometria.otf */,
 				3A5F67261C539328002BB6F9 /* Sabado Italic.otf */,
 				3A5F67271C539328002BB6F9 /* Sabado Regular.otf */,
 			);
@@ -453,11 +459,13 @@
 				3A35B32E1C9185AC00EA30ED /* star_begin@2x.gif in Resources */,
 				3A35B32D1C9185AC00EA30ED /* star_back@2x.gif in Resources */,
 				3A35B32B1C9185AC00EA30ED /* man_star_catch@3x.gif in Resources */,
+				3A02DA4F1CB5C073009D2FB8 /* Geometria.otf in Resources */,
 				3AA3E8BB1C77461700BE0CDF /* UI.strings in Resources */,
 				3A3BA52C1C4DA97300B5194C /* LaunchScreen.storyboard in Resources */,
 				3A35B3221C9185AC00EA30ED /* dog_move_1@3x.gif in Resources */,
 				3A35B3281C9185AC00EA30ED /* man_move_2@3x.gif in Resources */,
 				3A56C0591C5A8E83008DFF59 /* L10n.strings in Resources */,
+				3A02DA511CB5C0F2009D2FB8 /* Geometria-Bold.otf in Resources */,
 				3AA3E8AE1C7696A700BE0CDF /* L10nView.xib in Resources */,
 				3A3BA5291C4DA97300B5194C /* Assets.xcassets in Resources */,
 				3A35B32A1C9185AC00EA30ED /* man_move_4@3x.gif in Resources */,
