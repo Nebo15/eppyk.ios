@@ -53,6 +53,25 @@ class QAManager {
         }
     }
     
+    
+    func deleteAllData()
+    {
+        let moc = agManagedObjectContext!
+        let fetchRequest = NSFetchRequest(entityName: "AnswerEntity")
+        fetchRequest.returnsObjectsAsFaults = false
+        do
+        {
+            let results = try moc.executeFetchRequest(fetchRequest)
+            for managedObject in results
+            {
+                let managedObjectData:NSManagedObject = managedObject as! NSManagedObject
+                moc.deleteObject(managedObjectData)
+            }
+        } catch let error as NSError {
+            print("Detele all data in AnswerEntity error : \(error) \(error.userInfo)")
+        }
+    }
+    
     func editAnswer(answer: Answer) {
         do {
             try answer.managedObjectContext?.save()

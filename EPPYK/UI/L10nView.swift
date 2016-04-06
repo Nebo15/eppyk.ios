@@ -11,12 +11,13 @@ import AFNetworking
 
 protocol L10nViewProtocol {
     func didSelectL10N(l10n: L10n)
-    func didFinish()
+    func didFinish(l10nCode: String)
 }
 
 class L10nView: UIView, UITableViewDataSource, UITableViewDelegate {
  
     static let UpBounse: CGFloat = 40
+    var selectedL10n: String = ""
     
     var delegate: L10nViewProtocol?
     var data: [L10n] = []
@@ -29,6 +30,11 @@ class L10nView: UIView, UITableViewDataSource, UITableViewDelegate {
         tableView.delegate = self
         tableView.tableFooterView = UIView(frame: CGRect.zero)        
         tableView.registerNib(UINib(nibName: "L10NTableViewCell", bundle: nil), forCellReuseIdentifier: "L10NTableViewCell")
+        
+        if let l10n = SettingsManager.sharedInstance.getValue(SettingsManager.SelectedL10N) {
+            selectedL10n = l10n
+        }
+        
         self.alpha = 0
     }
     
@@ -50,7 +56,7 @@ class L10nView: UIView, UITableViewDataSource, UITableViewDelegate {
                     }) { (Bool) -> Void in
                         self.removeFromSuperview()
                         if let delegate = self.delegate {
-                            delegate.didFinish()
+                            delegate.didFinish(self.selectedL10n)
                         }
                 }
         }
@@ -69,7 +75,7 @@ class L10nView: UIView, UITableViewDataSource, UITableViewDelegate {
         
         cell.setL10N(l10n)
         
-        if let currL10n = SettingsManager.sharedInstance.getValue(SettingsManager.SelectedL10N) where currL10n == l10n.code {
+        if selectedL10n == l10n.code || (l10n.code == NSLocale.currentLocale().localeIdentifier && selectedL10n == "") {
             cell.arrowImage.image = UIImage.init(named: "check")
         } else {
             cell.arrowImage.image = nil
@@ -80,6 +86,7 @@ class L10nView: UIView, UITableViewDataSource, UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let l10n = self.data[indexPath.row]
+        selectedL10n = l10n.code
         if let delegate = self.delegate {
             delegate.didSelectL10N(l10n)
         }

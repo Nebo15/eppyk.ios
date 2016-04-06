@@ -91,14 +91,12 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
     
     //MARK: L10nViewProtocol
     func didSelectL10N(l10n: L10n) {
-        self.mixpanel!.track("Localization selected", properties: ["L10N": l10n.code])
-        SettingsManager.sharedInstance.setValue(l10n.code, key: SettingsManager.SelectedL10N)
     }
     
-    func didFinish() {
-        self.mixpanel!.track("Finish localization selection")
-        if let l10n = SettingsManager.sharedInstance.getValue(SettingsManager.SelectedL10N) {
-            UpdateManager.sharedInstance.updateAnswers( l10n );
+    func didFinish(l10nCode: String) {
+        self.mixpanel!.track("Localization selected", properties: ["L10N": l10nCode])
+        if l10nCode != "" {
+            UpdateManager.sharedInstance.updateAnswers( l10nCode );
         }
         
         if self.beginAnimationDone == false {

@@ -25,7 +25,9 @@ class UpdateManager: NSObject {
         
         var params : Dictionary<String, String>? = nil
         if let date = SettingsManager.sharedInstance.getValue(SettingsManager.UpdateAfter) {
-            params = ["updated_after": date]
+            if let currentL10n = SettingsManager.sharedInstance.getValue(SettingsManager.SelectedL10N) where currentL10n == l10n {
+                params = ["updated_after": date]            
+            }
         }
         
         print( String(format: "%@%@", url, String(format: UMRequest.Answers.rawValue, l10n)))
@@ -36,7 +38,11 @@ class UpdateManager: NSObject {
 
                 let code = responseObject["meta"]!!["code"]
                 if let _code = code where _code as! Int == 200 {
+                    SettingsManager.sharedInstance.setValue(l10n, key: SettingsManager.SelectedL10N)
                     let data: Array<Dictionary<String, String>> = responseObject["data"] as! Array
+                    if !data.isEmpty {
+                        QAManager.sharedInstance.deleteAllData()
+                    }
                     for item in data {
                         guard let dbAnswer = QAManager.sharedInstance.findAnswerById(item["id"]!) else {
                             QAManager.sharedInstance.addAnswer(item["id"]!, text: item["text"]!)
