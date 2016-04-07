@@ -50,7 +50,7 @@ class AnimatedImageView: UIImageView {
     
     func removeAnimation() {
         
-        guard let animation = self.animation else {
+        guard self.animation != nil else {
             return;
         }
         self.layer.removeAnimationForKey("animation");

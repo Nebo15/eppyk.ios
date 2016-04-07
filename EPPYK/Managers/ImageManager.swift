@@ -23,7 +23,7 @@ class ImageManager {
             fetchOptions.predicate = NSPredicate(format: "title = %@", ImageManager.albumName)
             let collection = PHAssetCollection.fetchAssetCollectionsWithType(.Album, subtype: .Any, options: fetchOptions)
             
-            if let firstObject: AnyObject = collection.firstObject {
+            if let _: AnyObject = collection.firstObject {
                 return collection.firstObject as! PHAssetCollection
             }
             

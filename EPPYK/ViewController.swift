@@ -58,7 +58,7 @@ class ViewController: RootViewController, UIDynamicAnimatorDelegate, UITextField
         
         self.questionTextField.delegate = self
         
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
         self.skyView.addGestureRecognizer(tap)
         
     }
@@ -132,7 +132,7 @@ class ViewController: RootViewController, UIDynamicAnimatorDelegate, UITextField
         self.view.endEditing(true)
         goButton.hidden = true
         for star in stars {
-            NSTimer.scheduledTimerWithTimeInterval(drand48(), target: self, selector: "startGravityForStarByTimer:", userInfo: star, repeats: false)
+            NSTimer.scheduledTimerWithTimeInterval(drand48(), target: self, selector: #selector(ViewController.startGravityForStarByTimer(_:)), userInfo: star, repeats: false)
         }
     }
         

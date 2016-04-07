@@ -68,7 +68,7 @@ class Star: UIView {
     func startGlowing(chance: GlowChance) {
         self.glowChance = chance
         let time = Double.init(arc4random_uniform(5)) + 3.0 + drand48()
-        NSTimer.scheduledTimerWithTimeInterval(time, target: self, selector: "glow", userInfo: nil, repeats: true)
+        NSTimer.scheduledTimerWithTimeInterval(time, target: self, selector: #selector(Star.glow), userInfo: nil, repeats: true)
     }
     
     func glow() {
