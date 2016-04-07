@@ -24,7 +24,6 @@
 		3A35B3271C9185AC00EA30ED /* man_move_1@3x.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3A35B3191C9185AC00EA30ED /* man_move_1@3x.gif */; };
 		3A35B3281C9185AC00EA30ED /* man_move_2@3x.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3A35B31A1C9185AC00EA30ED /* man_move_2@3x.gif */; };
 		3A35B3291C9185AC00EA30ED /* man_move_3@3x.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3A35B31B1C9185AC00EA30ED /* man_move_3@3x.gif */; };
-		3A35B32A1C9185AC00EA30ED /* man_move_4@3x.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3A35B31C1C9185AC00EA30ED /* man_move_4@3x.gif */; };
 		3A35B32B1C9185AC00EA30ED /* man_star_catch@3x.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3A35B31D1C9185AC00EA30ED /* man_star_catch@3x.gif */; };
 		3A35B32C1C9185AC00EA30ED /* man_star_drop@3x.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3A35B31E1C9185AC00EA30ED /* man_star_drop@3x.gif */; };
 		3A35B32D1C9185AC00EA30ED /* star_back@2x.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3A35B31F1C9185AC00EA30ED /* star_back@2x.gif */; };
@@ -95,7 +94,6 @@
 		3A35B3191C9185AC00EA30ED /* man_move_1@3x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "man_move_1@3x.gif"; path = "Resources/animation/man_move_1@3x.gif"; sourceTree = "<group>"; };
 		3A35B31A1C9185AC00EA30ED /* man_move_2@3x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "man_move_2@3x.gif"; path = "Resources/animation/man_move_2@3x.gif"; sourceTree = "<group>"; };
 		3A35B31B1C9185AC00EA30ED /* man_move_3@3x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "man_move_3@3x.gif"; path = "Resources/animation/man_move_3@3x.gif"; sourceTree = "<group>"; };
-		3A35B31C1C9185AC00EA30ED /* man_move_4@3x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "man_move_4@3x.gif"; path = "Resources/animation/man_move_4@3x.gif"; sourceTree = "<group>"; };
 		3A35B31D1C9185AC00EA30ED /* man_star_catch@3x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "man_star_catch@3x.gif"; path = "Resources/animation/man_star_catch@3x.gif"; sourceTree = "<group>"; };
 		3A35B31E1C9185AC00EA30ED /* man_star_drop@3x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "man_star_drop@3x.gif"; path = "Resources/animation/man_star_drop@3x.gif"; sourceTree = "<group>"; };
 		3A35B31F1C9185AC00EA30ED /* star_back@2x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "star_back@2x.gif"; path = "Resources/animation/star_back@2x.gif"; sourceTree = "<group>"; };
@@ -181,7 +179,6 @@
 				3A35B3191C9185AC00EA30ED /* man_move_1@3x.gif */,
 				3A35B31A1C9185AC00EA30ED /* man_move_2@3x.gif */,
 				3A35B31B1C9185AC00EA30ED /* man_move_3@3x.gif */,
-				3A35B31C1C9185AC00EA30ED /* man_move_4@3x.gif */,
 				3A35B31D1C9185AC00EA30ED /* man_star_catch@3x.gif */,
 				3A35B31E1C9185AC00EA30ED /* man_star_drop@3x.gif */,
 				3A35B31F1C9185AC00EA30ED /* star_back@2x.gif */,
@@ -468,7 +465,6 @@
 				3A02DA511CB5C0F2009D2FB8 /* Geometria-Bold.otf in Resources */,
 				3AA3E8AE1C7696A700BE0CDF /* L10nView.xib in Resources */,
 				3A3BA5291C4DA97300B5194C /* Assets.xcassets in Resources */,
-				3A35B32A1C9185AC00EA30ED /* man_move_4@3x.gif in Resources */,
 				3A35B3251C9185AC00EA30ED /* dog_move_4@3x.gif in Resources */,
 				3AA3E8B61C769C9F00BE0CDF /* L10NTableViewCell.xib in Resources */,
 				3A35B32F1C9185AC00EA30ED /* star_drop@2x.gif in Resources */,

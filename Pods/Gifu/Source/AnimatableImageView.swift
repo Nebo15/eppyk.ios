@@ -8,7 +8,7 @@ public class AnimatableImageView: UIImageView, AnimatorDelegate {
   lazy var displayLink: CADisplayLink = CADisplayLink(target: self, selector: Selector("updateFrame"))
 
   /// The size of the frame cache.
-  public var framePreloadCount = 100
+  public var framePreloadCount = 120
 
     public var imageName : String = ""
     
@@ -81,6 +81,17 @@ public class AnimatableImageView: UIImageView, AnimatorDelegate {
     animator?.loopsCount = self.loopsCount
     startAnimatingGIF()
   }
+    
+    public func loadAnimationInBackground(imageName: String) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+            let imagePath = NSBundle.mainBundle().bundleURL.URLByAppendingPathComponent(imageName)
+            let data = NSData(contentsOfURL: imagePath)!
+            self.animatorDict[imageName] = Animator(data: data, size: self.frame.size, contentMode: self.contentMode, framePreloadCount: self.framePreloadCount)
+            self.animatorDict[imageName]!.prepareFrames()
+            self.animatorDict[imageName]!.delegate = self
+            self.animatorDict[imageName]!.currentLoopIndex = 0
+        });
+    }
 
   /// Prepares the frames using raw GIF image data and starts animating the image view.
   ///

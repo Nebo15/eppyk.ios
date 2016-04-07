@@ -193,6 +193,8 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
     
     func showMainView() {
         
+        let startTime = CFAbsoluteTimeGetCurrent()
+        
         self.mixpanel!.track("Application start")
         self.loadGIFs()
         
@@ -242,6 +244,8 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
         
         self.showUIControls()
         
+        let timeElapsed = CFAbsoluteTimeGetCurrent() - startTime
+        print( "Loading time: \(Double(timeElapsed))" )
     }
     
     
@@ -300,18 +304,26 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
         self.gifStarViewBegin.stopAnimatingGIF(false)
 
         
+//        self.gifStarViewDrop.loadAnimationInBackground(GIFAnimationType.GIFStarsDrop.rawValue)
+//        self.gifStarViewDrop.delegate = self
+//        
+//        self.gifStarViewBack.loadAnimationInBackground(GIFAnimationType.GIFStarsBack.rawValue)
+//        self.gifStarViewBack.delegate = self
+
+
         self.gifStarViewDrop.animateWithImage(named: GIFAnimationType.GIFStarsDrop.rawValue)
         self.gifStarViewDrop.loopsCount = 1
         self.gifStarViewDrop.delegate = self
         self.gifStarViewDrop.stopAnimatingGIF(false)
         
-        
-        self.gifStarViewBack.animateWithImage(named: GIFAnimationType.GIFStarsBack.rawValue)
-        self.gifStarViewBack.loopsCount = 1
-        self.gifStarViewBack.delegate = self
-        self.gifStarViewBack.stopAnimatingGIF(false)
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+            self.gifStarViewBack.animateWithImage(named: GIFAnimationType.GIFStarsBack.rawValue)
+            self.gifStarViewBack.loopsCount = 1
+            self.gifStarViewBack.delegate = self
+            self.gifStarViewBack.stopAnimatingGIF(false)
+        });
         self.gifStarViewBack.hidden = true
-        
+
         
         // DOG
         self.aiDog.append("dog_move_1@3x.gif")
@@ -319,27 +331,15 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
         self.aiDog.append("dog_move_3@3x.gif")
         self.aiDog.append("dog_move_4@3x.gif")
         
-//        for image: String in self.aiMan {
-//            self.dogImageView.animateWithImage(named: image)
-//        }
-//        self.dogImageView.stopAnimatingGIF()
-        
-        
         // MAN
         self.aiMan.append("man_move_1@3x.gif")
         self.aiMan.append("man_move_2@3x.gif")
         self.aiMan.append("man_move_3@3x.gif")
-        self.aiMan.append("man_move_4@3x.gif")
         
-        self.manImageView.animateWithImage(named: GIFAnimationType.GIFManStarDrop.rawValue)
-        self.manImageView.animateWithImage(named: GIFAnimationType.GIFManStarCatch.rawValue)
-        self.manImageView.animateWithImage(named: GIFAnimationType.GIFManStatWithStar.rawValue)
-        
-//        for image: String in self.aiMan {
-//            self.manImageView.animateWithImage(named: image)
-//        }
+        self.manImageView.loadAnimationInBackground(GIFAnimationType.GIFManStarDrop.rawValue)
+        self.manImageView.loadAnimationInBackground(GIFAnimationType.GIFManStarCatch.rawValue)
+        self.manImageView.loadAnimationInBackground(GIFAnimationType.GIFManStatWithStar.rawValue)
         self.manImageView.stopAnimatingGIF()
-        
         
     }
     
