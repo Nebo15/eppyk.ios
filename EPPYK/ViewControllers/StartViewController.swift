@@ -155,6 +155,7 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
 
     
     func showL10NView(data: [L10n]) {
+        self.view.endEditing(true);
         if let view = UIView.loadFromNibNamed("L10nView") {
             self.mixpanel!.track("Language select show")
             let frame = CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y,
@@ -281,8 +282,6 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
                 });
             });
         }
-        
-        
     }
     
     func gifAnimationDidFinishLoop(anim: String, loop: Int) {
@@ -292,6 +291,14 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
                 let moveIndex = Int.init(arc4random_uniform(UInt32.init(aiMan.count)))
                 moveMan(moveIndex)
             }
+        }
+    }
+    
+    func gifAnimationFrame(anim: String, frame: Int) {
+        if (anim == GIFAnimationType.GIFStarsDrop.rawValue && frame == 14) {
+            self.manImageView.animateWithImage(named: GIFAnimationType.GIFManStarCatch.rawValue)
+            self.manImageView.delegate = self
+            self.manImageView.loopsCount = 1
         }
     }
     
@@ -379,12 +386,12 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
             self.gifStarViewDrop.startAnimatingGIF()
 
             
-            let dispatchTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(0.6 * Double(NSEC_PER_SEC)))
-            dispatch_after(dispatchTime, dispatch_get_main_queue(), {
-                self.manImageView.animateWithImage(named: GIFAnimationType.GIFManStarCatch.rawValue)
-                self.manImageView.delegate = self
-                self.manImageView.loopsCount = 1
-            })
+//            let dispatchTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(0.5 * Double(NSEC_PER_SEC)))
+//            dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+//                self.manImageView.animateWithImage(named: GIFAnimationType.GIFManStarCatch.rawValue)
+//                self.manImageView.delegate = self
+//                self.manImageView.loopsCount = 1
+//            })
             
             break
             

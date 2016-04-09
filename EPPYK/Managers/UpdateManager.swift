@@ -26,7 +26,7 @@ class UpdateManager: NSObject {
         var params : Dictionary<String, String>? = nil
         if let date = SettingsManager.sharedInstance.getValue(SettingsManager.UpdateAfter) {
             if let currentL10n = SettingsManager.sharedInstance.getValue(SettingsManager.SelectedL10N) where currentL10n == l10n {
-                params = ["updated_after": date]            
+                params = ["updated_after": date]
             }
         }
         
@@ -35,12 +35,17 @@ class UpdateManager: NSObject {
             parameters: params,
             success: { (operation: AFHTTPRequestOperation!, responseObject: AnyObject!) in
                 print("JSON: " + responseObject.description)
+                var currentL10n = ""
+                if let curr = SettingsManager.sharedInstance.getValue(SettingsManager.SelectedL10N) {
+                    currentL10n = curr
+                }
 
+                
                 let code = responseObject["meta"]!!["code"]
                 if let _code = code where _code as! Int == 200 {
                     SettingsManager.sharedInstance.setValue(l10n, key: SettingsManager.SelectedL10N)
                     let data: Array<Dictionary<String, String>> = responseObject["data"] as! Array
-                    if !data.isEmpty {
+                    if !data.isEmpty && l10n != currentL10n {
                         QAManager.sharedInstance.deleteAllData()
                     }
                     for item in data {
@@ -53,7 +58,8 @@ class UpdateManager: NSObject {
                     }
                     
                     let dateFormatter = NSDateFormatter()
-                    dateFormatter.dateFormat = "yyyy-MM-dd"
+                    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:s"
+                    dateFormatter.timeZone = NSTimeZone(abbreviation: "UTC");
                     SettingsManager.sharedInstance.setValue(dateFormatter.stringFromDate(NSDate()), key: SettingsManager.UpdateAfter)
                 }
             },

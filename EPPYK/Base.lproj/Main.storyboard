@@ -366,14 +366,14 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ask it here" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WIf-vL-Szx" customClass="EppykTextField" customModule="EPPYK" customModuleProvider="target">
+                                    <textField opaque="NO" clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ask it here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WIf-vL-Szx" customClass="EppykTextField" customModule="EPPYK" customModuleProvider="target">
                                         <rect key="frame" x="40" y="475" width="334" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="pkz-Vr-oeO"/>
                                         </constraints>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Geometria-Bold" family="Geometria" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="go"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="go"/>
                                     </textField>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="scaleToFill" image="hand.gif" translatesAutoresizingMaskIntoConstraints="NO" id="Evb-BU-xCI" customClass="AnimatableImageView" customModule="Gifu">
                                         <rect key="frame" x="189" y="460" width="36" height="36"/>
@@ -620,7 +620,7 @@
         <image name="man_stat_1.gif" width="166" height="166"/>
         <image name="planet" width="354" height="162"/>
         <image name="sky-background" width="375" height="667"/>
-        <image name="splash-background" width="414" height="736"/>
+        <image name="splash-background" width="375" height="667"/>
         <image name="star_begin.gif" width="375" height="667"/>
     </resources>
 </document>
