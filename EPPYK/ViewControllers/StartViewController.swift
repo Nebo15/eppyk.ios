@@ -186,7 +186,7 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
 
         self.whatQuestionText.text = "WHAT'S YOUR QUESTION?".localized
         self.questionTextField.placeholder = "ask it here".localized
-        self.shakeText.text = "AND SHAKE YOUR PHOE TO GET THE ANSWER".localized
+        self.shakeText.text = "AND SHAKE YOUR PHONE TO GET THE ANSWER".localized
         self.saveAnswerButton.setTitle("Save the answer".localized, forState: .Normal)
         self.tryAgainButton.setTitle("Try again".localized, forState: .Normal)
         

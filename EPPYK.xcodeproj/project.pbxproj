@@ -418,7 +418,7 @@
 				TargetAttributes = {
 					3A3BA51D1C4DA97300B5194C = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = FQ4NLM7MD5;
+						DevelopmentTeam = MMWKJ4RYB7;
 					};
 					3A3BA5311C4DA97300B5194C = {
 						CreatedOnToolsVersion = 7.2;
@@ -726,7 +726,7 @@
 				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = EPPYK/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Nebo-15.EPPYK.ent";
+				PRODUCT_BUNDLE_IDENTIFIER = "Nebo-15.EPPYK";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -742,7 +742,7 @@
 				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = EPPYK/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Nebo-15.EPPYK.ent";
+				PRODUCT_BUNDLE_IDENTIFIER = "Nebo-15.EPPYK";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
