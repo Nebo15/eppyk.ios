@@ -686,8 +686,6 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
             (sender as! UIButton).transform = CGAffineTransformIdentity
         }) { (ok: Bool) -> Void in
             // Animation
-            self.screenShotFlash()
-            
             let view = self.view
             self.buttonsView.hidden = true
             self.globeButton.hidden = true
@@ -696,6 +694,13 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
             self.globeButton.hidden = false
             ImageManager.sharedInstance.saveImageToGallery(image) { (success: Bool, error: NSError?) -> Void in
                 print(success ? "OK" : error!.localizedDescription)
+                
+                let dispatchTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(0.5 * Double(NSEC_PER_SEC)))
+                dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+                    self.screenShotFlash()
+                })
+
+                
             }
         }
         
