@@ -163,7 +163,8 @@ class ViewController: RootViewController, UIDynamicAnimatorDelegate, UITextField
     
     //MARK: Q&A    
     func getAnswer() {
-        self.questionTextField.text = QAManager.sharedInstance.fetchAnswer()
+        let answer = QAManager.sharedInstance.fetchAnswer()
+        self.questionTextField.text = answer.0
         activateGravity()
     }
     

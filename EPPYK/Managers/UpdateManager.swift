@@ -39,21 +39,29 @@ class UpdateManager: NSObject {
                 if let curr = SettingsManager.sharedInstance.getValue(SettingsManager.SelectedL10N) {
                     currentL10n = curr
                 }
-
+                
+                var clearList = true;
+                if let _clearList = (responseObject as! NSDictionary).objectForKey("meta")!.objectForKey("append") {
+                    clearList = !(_clearList as! Bool)
+                }
                 
                 let code = responseObject["meta"]!!["code"]
+                
                 if let _code = code where _code as! Int == 200 {
                     SettingsManager.sharedInstance.setValue(l10n, key: SettingsManager.SelectedL10N)
                     let data: Array<Dictionary<String, String>> = responseObject["data"] as! Array
-                    if !data.isEmpty && l10n != currentL10n {
+                    
+                    if clearList == true || (!data.isEmpty && l10n != currentL10n) {
                         QAManager.sharedInstance.deleteAllData()
                     }
                     for item in data {
+                        let author = item["author"] == nil ? "" : item["author"]
                         guard let dbAnswer = QAManager.sharedInstance.findAnswerById(item["id"]!) else {
-                            QAManager.sharedInstance.addAnswer(item["id"]!, text: item["text"]!)
+                            QAManager.sharedInstance.addAnswer(item["id"]!, text: item["text"]!, author: author)
                             continue
                         }
                         dbAnswer.text = item["text"]!
+                        dbAnswer.author = author
                         QAManager.sharedInstance.editAnswer(dbAnswer)
                     }
                     
@@ -81,7 +89,7 @@ class UpdateManager: NSObject {
                     // Data
                     let data: Array<Dictionary<String, String>> = responseObject["data"] as! Array
                     for item in data {
-                        let l10n = L10n(code:item["code"]!, id:item["id"]!, title: item["title"]!)
+                        let l10n = L10n(code:item["code"]!, id:item["id"]!, title: item["title"]!, description: item["description"])
                         l10ns.append(l10n)
                     }
                     completion(result: true, l10ns: l10ns)

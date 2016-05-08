@@ -12,4 +12,5 @@ struct L10n {
     var code : String
     var id : String
     var title : String
+    var description : String?
 }

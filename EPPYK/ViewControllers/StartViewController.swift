@@ -47,6 +47,7 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
     @IBOutlet weak var shakeText: EppykLabelView!
     @IBOutlet weak var answerLabelView: EppykLabelView!
     @IBOutlet weak var questionLabelView: EppykLabelView!
+    @IBOutlet weak var authorLabelView: EppykLabelView!
     
     
     @IBOutlet weak var userControlsView: UIView!
@@ -61,7 +62,6 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
     @IBOutlet weak var manImageView: AnimatableImageView!
     @IBOutlet weak var gifStarViewBegin: AnimatableImageView!
     @IBOutlet weak var gifStarViewBack: AnimatableImageView!
-
     @IBOutlet weak var gifStarViewDrop: AnimatableImageView!
     
     //MARK: Constraints
@@ -188,7 +188,7 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
         self.questionTextField.placeholder = "ask it here".localized
         self.shakeText.text = "AND SHAKE YOUR PHONE TO GET THE ANSWER".localized
         self.saveAnswerButton.setTitle("Save the answer".localized, forState: .Normal)
-        self.tryAgainButton.setTitle("Try again".localized, forState: .Normal)
+        self.tryAgainButton.setTitle("Ask Another Question".localized, forState: .Normal)
         
     }
     
@@ -530,6 +530,7 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
         
         UIView.animateWithDuration(0.5, delay: 0, options: .CurveEaseInOut, animations: {[weak self] () -> Void in
             self?.answerLabelView.alpha = 0
+            self?.authorLabelView.alpha = 0
             if hideQuestion {
                 self?.questionLabelView.alpha = 0
                 self?.questionLabelWidthConstraint.constant = 0
@@ -560,8 +561,10 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
     
     func answerControlsToStartPosition() {
         self.answerLabelView.hidden = true
+        self.authorLabelView.hidden = true
         self.answerView.hidden = true
         self.answerLabelView.alpha = 0
+        self.authorLabelView.alpha = 0;
         self.answerBottomConstraint.constant = 95
         self.answerView.layoutIfNeeded()
     }
@@ -621,8 +624,11 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
     func refreshAnswer() {
         self.canShake = false
         self.hideAnswer(false) {
-            self.answerLabelView.text = QAManager.sharedInstance.fetchAnswer()
+            let answer = QAManager.sharedInstance.fetchAnswer()
+            self.answerLabelView.text = answer.0
+            self.authorLabelView.text = answer.1
             self.questionLabelView.sizeToFit()
+            self.authorLabelView.sizeToFit()
             self.showAnswer()
         }
         
@@ -656,14 +662,17 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
     }
     
     func showAnswer() {
-        self.answerLabelView.text = QAManager.sharedInstance.fetchAnswer()
+        let answer = QAManager.sharedInstance.fetchAnswer()
+        self.answerLabelView.text = answer.0
+        self.authorLabelView.text = answer.1
         self.answerView.hidden = false
+        self.authorLabelView.hidden = false
         self.answerLabelView.hidden = false
         
         if ScreenSize.width == 320 {
-            self.answerBottomConstraint.constant = 170
+            self.answerBottomConstraint.constant = 200
         } else {
-            self.answerBottomConstraint.constant = 250
+            self.answerBottomConstraint.constant = 280
         }
         
         UIView.animateWithDuration(1.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {[weak self] () -> Void in
@@ -672,6 +681,7 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
             
             self?.questionLabelView.alpha = 0.9
             self?.answerLabelView.alpha = 0.9
+            self?.authorLabelView.alpha = 0.9
             self?.answerView.layoutIfNeeded()
         }) { (Bool) -> Void in
             self.canShake = true
@@ -680,29 +690,30 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
     
     @IBAction func makeScreenshot(sender: AnyObject) {
         self.mixpanel!.track("Screenshot pressed")
+    
         
-        (sender as! UIButton).transform = CGAffineTransformMakeScale(0.8, 0.8)
-        UIView.animateWithDuration(1.0, delay: 0, usingSpringWithDamping: CGFloat(0.40), initialSpringVelocity: CGFloat(0), options: UIViewAnimationOptions.AllowUserInteraction, animations: {
-            (sender as! UIButton).transform = CGAffineTransformIdentity
-        }) { (ok: Bool) -> Void in
-            // Animation
-            let view = self.view
-            self.buttonsView.hidden = true
-            self.globeButton.hidden = true
-            let image = ImageManager.sharedInstance.screenshotView(view)
-            self.buttonsView.hidden = false
-            self.globeButton.hidden = false
-            ImageManager.sharedInstance.saveImageToGallery(image) { (success: Bool, error: NSError?) -> Void in
-                print(success ? "OK" : error!.localizedDescription)
+            (sender as! UIButton).transform = CGAffineTransformMakeScale(0.8, 0.8)
+            UIView.animateWithDuration(0.6, delay: 0, usingSpringWithDamping: CGFloat(0.80), initialSpringVelocity: CGFloat(0), options: UIViewAnimationOptions.AllowUserInteraction, animations: {
+                (sender as! UIButton).transform = CGAffineTransformIdentity
+            }) { (ok: Bool) -> Void in
                 
-                let dispatchTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(0.5 * Double(NSEC_PER_SEC)))
+                self.screenShotFlash()
+                let dispatchTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(0.3 * Double(NSEC_PER_SEC)))
                 dispatch_after(dispatchTime, dispatch_get_main_queue(), {
-                    self.screenShotFlash()
-                })
 
-                
+                    
+                    // Animation
+                    let view = self.view
+                    self.buttonsView.hidden = true
+                    self.globeButton.hidden = true
+                    let image = ImageManager.sharedInstance.screenshotView(view)
+                    self.buttonsView.hidden = false
+                    self.globeButton.hidden = false
+                    ImageManager.sharedInstance.saveImageToGallery(image) { (success: Bool, error: NSError?) -> Void in
+                        print(success ? "OK" : error!.localizedDescription)
+                    }
+                })
             }
-        }
         
     }
     
@@ -720,10 +731,10 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
     
     
     @IBAction func makeTryAgain(sender: AnyObject) {
-        self.mixpanel!.track("Try again pressed")
+        self.mixpanel!.track("Ask Another Question pressed")
         
         (sender as! UIButton).transform = CGAffineTransformMakeScale(0.8, 0.8)
-        UIView.animateWithDuration(1.0, delay: 0, usingSpringWithDamping: CGFloat(0.40), initialSpringVelocity: CGFloat(0), options: UIViewAnimationOptions.AllowUserInteraction, animations: {
+        UIView.animateWithDuration(0.6, delay: 0, usingSpringWithDamping: CGFloat(0.80), initialSpringVelocity: CGFloat(0), options: UIViewAnimationOptions.AllowUserInteraction, animations: {
             (sender as! UIButton).transform = CGAffineTransformIdentity
         }) { (ok: Bool) -> Void in
 

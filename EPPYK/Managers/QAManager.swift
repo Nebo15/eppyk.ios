@@ -35,7 +35,7 @@ class QAManager {
     }
     
     
-    func addAnswer(id: String, text: String) {
+    func addAnswer(id: String, text: String, author: String?) {
         
         // create an instance of our managedObjectContext
         let moc = agManagedObjectContext!
@@ -44,6 +44,7 @@ class QAManager {
         // add a data
         entity.setValue(id, forKey: "id")
         entity.setValue(text, forKey: "text")
+        entity.setValue(author, forKey: "author")
         
         // Save the entity
         do {
@@ -89,26 +90,30 @@ class QAManager {
         return count == 0 ? .L10N : .DB
     }
     
-    func fetchAnswer() ->String {
-        guard let dbAnswer = self.fetchAnswerDB().1 else {
-            return self.fetchAnswerL10n()
+    func fetchAnswer() -> (answer: String, author: String) {
+        let dbAnswer = self.fetchAnswerDB()
+        if let _ = dbAnswer.0 {
+            return (dbAnswer.1!, dbAnswer.2!)
         }
-        return dbAnswer
+
+        return self.fetchAnswerL10n()
     }
 
-    func fetchAnswerL10n() -> String {
+    func fetchAnswerL10n() -> (String, String) {
         let answersCount = Int.init("count".localizedAnswer)!
         let answerId = Int(arc4random_uniform(UInt32.init(answersCount)))
         let text = "answer\(answerId)".localizedAnswer
-        return text
+        let author = "author\(answerId)".localizedAnswer
+        return (text, author)
     }
     
     
-    func fetchAnswerDB() -> (String?, String?)  {
+    func fetchAnswerDB() -> (String?, String?, String?)  {
         let moc = agManagedObjectContext!
         let answerFetch = NSFetchRequest(entityName: "AnswerEntity")
         var answerText: String? = nil
         var answerId: String? = nil
+        var answerAuthor: String? = nil
         do {
             let fetchedAnswer = try moc.executeFetchRequest(answerFetch) as! [Answer]
             
@@ -116,9 +121,10 @@ class QAManager {
                 let position = Int(arc4random_uniform(UInt32.init(fetchedAnswer.count)))
                 answerId = fetchedAnswer[position].id
                 answerText = fetchedAnswer[position].text
+                answerAuthor = fetchedAnswer[position].author
             }
         } catch {}
-        return (answerId, answerText)
+        return (answerId, answerText, answerAuthor)
     }
     
     

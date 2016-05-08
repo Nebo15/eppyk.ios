@@ -16,6 +16,7 @@
             <string>Geometria-Bold</string>
             <string>Geometria-Bold</string>
             <string>Geometria-Bold</string>
+            <string>Geometria-Bold</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -312,10 +313,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="question text" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="of2-Aq-R0k">
-                                        <rect key="frame" x="20" y="120" width="200" height="70"/>
+                                        <rect key="frame" x="20" y="110" width="274" height="65"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="70" id="tSp-dt-Nvj"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="65" id="tSp-dt-Nvj"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Geometria-Bold" family="Geometria" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -341,14 +342,33 @@
                                         <nil key="highlightedColor"/>
                                         <size key="shadowOffset" width="0.0" height="0.0"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="osT-FH-oKH" userLabel="Author Label View" customClass="EppykLabelView" customModule="EPPYK" customModuleProvider="target">
+                                        <rect key="frame" x="252" y="540" width="150" height="80"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="80" id="08Y-6z-SzR"/>
+                                            <constraint firstAttribute="width" constant="150" id="swG-EW-Pfw"/>
+                                        </constraints>
+                                        <string key="text" base64-UTF8="YES">
+0JXQstCz0LXQvdC40Lkg0JzQvtGA0LPRg9C90L7QsiDQkdGL0LLQsNC70YvQuQPQntC/0LXRgNCw0YbQ
+uNGPINCrINC4INC00YDRg9Cz0LjQtSDQv9GA0LjQutC70Y7Rh9C10L3QuNGPINGI0YPRgNC40LrQsCAo
+MTk2NSk
+</string>
+                                        <fontDescription key="fontDescription" name="Geometria-Bold" family="Geometria" pointSize="11"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                        <size key="shadowOffset" width="0.0" height="0.0"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="of2-Aq-R0k" secondAttribute="trailing" constant="194" id="CUz-3D-c2I"/>
+                                    <constraint firstAttribute="trailing" secondItem="of2-Aq-R0k" secondAttribute="trailing" constant="120" id="CUz-3D-c2I"/>
                                     <constraint firstItem="of2-Aq-R0k" firstAttribute="leading" secondItem="HlD-fL-QEO" secondAttribute="leading" constant="20" id="CqA-md-Zce"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="rZM-od-a35" secondAttribute="trailing" constant="30" id="Egp-K5-dwT"/>
                                     <constraint firstAttribute="bottomMargin" secondItem="rZM-od-a35" secondAttribute="bottom" constant="95" id="ISt-C7-YjG"/>
-                                    <constraint firstItem="of2-Aq-R0k" firstAttribute="top" secondItem="HlD-fL-QEO" secondAttribute="top" constant="120" id="Yqo-56-Bci"/>
+                                    <constraint firstAttribute="bottom" secondItem="osT-FH-oKH" secondAttribute="bottom" constant="116" id="W6n-qP-wP8"/>
+                                    <constraint firstAttribute="trailing" secondItem="osT-FH-oKH" secondAttribute="trailing" constant="20" id="WaI-cM-a9L"/>
+                                    <constraint firstItem="of2-Aq-R0k" firstAttribute="top" secondItem="HlD-fL-QEO" secondAttribute="top" constant="110" id="Yqo-56-Bci"/>
                                     <constraint firstItem="rZM-od-a35" firstAttribute="leading" secondItem="HlD-fL-QEO" secondAttribute="leadingMargin" constant="30" id="cNh-eJ-xl9"/>
                                     <constraint firstItem="qkL-NN-D9h" firstAttribute="leading" secondItem="of2-Aq-R0k" secondAttribute="leading" id="joF-Fn-Jdb"/>
                                     <constraint firstItem="qkL-NN-D9h" firstAttribute="bottom" secondItem="of2-Aq-R0k" secondAttribute="bottom" constant="2" id="kEH-dS-3dV"/>
@@ -455,7 +475,7 @@
                                             <constraint firstAttribute="width" constant="185" id="7TN-Ob-kWY"/>
                                             <constraint firstAttribute="height" constant="50" id="8tz-G7-sOS"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Geometria-Bold" family="Geometria" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="Geometria-Bold" family="Geometria" pointSize="13"/>
                                         <state key="normal" title="Save the answer">
                                             <color key="titleColor" red="0.13333333333333333" green="0.26666666666666666" blue="0.47450980392156861" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -475,8 +495,8 @@
                                             <constraint firstAttribute="width" constant="185" id="Q4z-fY-FLT"/>
                                             <constraint firstAttribute="width" secondItem="SO4-5N-4fZ" secondAttribute="height" multiplier="185:52" id="tNt-Me-TkP"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Geometria-Bold" family="Geometria" pointSize="15"/>
-                                        <state key="normal" title="Try again">
+                                        <fontDescription key="fontDescription" name="Geometria-Bold" family="Geometria" pointSize="11"/>
+                                        <state key="normal" title="Ask Another Question">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -574,6 +594,7 @@
                         <outlet property="answerBottomConstraint" destination="ISt-C7-YjG" id="ddw-Xl-c1E"/>
                         <outlet property="answerLabelView" destination="rZM-od-a35" id="fuw-X0-kG5"/>
                         <outlet property="answerView" destination="HlD-fL-QEO" id="9L5-Xc-AwW"/>
+                        <outlet property="authorLabelView" destination="osT-FH-oKH" id="xNJ-Pa-J7P"/>
                         <outlet property="buttonSaveLeft" destination="l1M-1u-o69" id="r80-Zw-aQN"/>
                         <outlet property="buttonSaveWidth" destination="7TN-Ob-kWY" id="9kP-zo-RDD"/>
                         <outlet property="buttonTryRight" destination="lfc-Xf-EdG" id="HOs-uw-ou1"/>

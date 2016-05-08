@@ -26,7 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    
     func configCoreData() {
         guard let modelURL = NSBundle.mainBundle().URLForResource("QADataModel", withExtension:"momd") else {
             fatalError("Error loading model from bundle")

@@ -25,8 +25,12 @@ class L10NTableViewCell: UITableViewCell {
     func setL10N(l10n: L10n) {
         self.l10n = l10n
         self.titleLabel.textColor = UIColor.whiteColor()
-        self.moviesLabel.text = String(format: "%@ %@", ("Answers from").localized, l10n.title)
+        
+        self.titleLabel.text = l10n.title
+        
         self.moviesLabel.textColor = UIColor.whiteColor()
+        self.moviesLabel.text = l10n.description
+        
     }
     
 }
