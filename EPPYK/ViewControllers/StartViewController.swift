@@ -136,7 +136,12 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
             // Start with language select
             UpdateManager.sharedInstance.updateL10ns({[weak self] (success, l10ns) -> Void in
                 if success {
-                    self?.showL10NView(l10ns)
+                    if l10ns.count > 1 {
+                        self?.showL10NView(l10ns)
+                    } else {
+                        self?.updateUILocalization(l10ns[0].code)
+                        self!.showMainView()
+                    }
                 } else {
                     self!.showMainView()
                 }
@@ -169,8 +174,6 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
     }
     
     func updateUILocalization(l10nCode: String) {
-        return
-        
         var language = "en"
         if l10nCode != "" {
             let l10n = l10nCode.componentsSeparatedByString("_")

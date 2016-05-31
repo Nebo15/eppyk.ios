@@ -330,11 +330,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EPPYK/ViewControllers/StartViewController.swift"
-            timestampString = "481887386.692201"
+            timestampString = "486401623.715381"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
             landmarkName = "showL10NView(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -378,11 +378,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EPPYK/ViewControllers/StartViewController.swift"
-            timestampString = "481887386.692201"
+            timestampString = "486401623.715381"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "161"
-            endingLineNumber = "161"
+            startingLineNumber = "166"
+            endingLineNumber = "166"
             landmarkName = "showL10NView(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -700,11 +700,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EPPYK/ViewControllers/StartViewController.swift"
-            timestampString = "481887386.692201"
+            timestampString = "486401570.685957"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "138"
-            endingLineNumber = "138"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
             landmarkName = "viewDidAppear(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -716,11 +716,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EPPYK/ViewControllers/StartViewController.swift"
-            timestampString = "481887386.692201"
+            timestampString = "486401623.715381"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
             landmarkName = "showL10NView(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -780,11 +780,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EPPYK/ViewControllers/StartViewController.swift"
-            timestampString = "481887386.692201"
+            timestampString = "486401670.219064"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "259"
-            endingLineNumber = "259"
+            startingLineNumber = "262"
+            endingLineNumber = "262"
             landmarkName = "gifAnimationDidStop(_:finished:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -860,11 +860,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EPPYK/ViewControllers/StartViewController.swift"
-            timestampString = "481888027.93965"
+            timestampString = "486401670.219064"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "287"
-            endingLineNumber = "287"
+            startingLineNumber = "290"
+            endingLineNumber = "290"
             landmarkName = "gifAnimationDidFinishLoop(_:loop:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -908,11 +908,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EPPYK/ViewControllers/StartViewController.swift"
-            timestampString = "481888027.93965"
+            timestampString = "486401670.219064"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "441"
-            endingLineNumber = "441"
+            startingLineNumber = "444"
+            endingLineNumber = "444"
             landmarkName = "moveDog()"
             landmarkType = "5">
          </BreakpointContent>
@@ -924,11 +924,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EPPYK/ViewControllers/StartViewController.swift"
-            timestampString = "481887386.692201"
+            timestampString = "486401670.219064"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "257"
-            endingLineNumber = "257"
+            startingLineNumber = "260"
+            endingLineNumber = "260"
             landmarkName = "gifAnimationDidStart(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -956,11 +956,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EPPYK/ViewControllers/StartViewController.swift"
-            timestampString = "481888027.93965"
+            timestampString = "486401670.219064"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "448"
-            endingLineNumber = "448"
+            startingLineNumber = "451"
+            endingLineNumber = "451"
             landmarkName = "moveHand()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1244,11 +1244,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EPPYK/ViewControllers/StartViewController.swift"
-            timestampString = "481887386.692201"
+            timestampString = "486401670.219064"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "267"
-            endingLineNumber = "267"
+            startingLineNumber = "270"
+            endingLineNumber = "270"
             landmarkName = "gifAnimationDidStop(_:finished:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1260,11 +1260,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EPPYK/ViewControllers/StartViewController.swift"
-            timestampString = "481887386.692201"
+            timestampString = "486401670.219064"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "266"
-            endingLineNumber = "266"
+            startingLineNumber = "269"
+            endingLineNumber = "269"
             landmarkName = "gifAnimationDidStop(_:finished:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1276,11 +1276,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EPPYK/ViewControllers/StartViewController.swift"
-            timestampString = "481888027.93965"
+            timestampString = "486401670.219064"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "288"
-            endingLineNumber = "288"
+            startingLineNumber = "291"
+            endingLineNumber = "291"
             landmarkName = "gifAnimationDidFinishLoop(_:loop:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1468,11 +1468,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EPPYK/ViewControllers/StartViewController.swift"
-            timestampString = "481888027.93965"
+            timestampString = "486401670.219064"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "290"
-            endingLineNumber = "290"
+            startingLineNumber = "293"
+            endingLineNumber = "293"
             landmarkName = "gifAnimationDidFinishLoop(_:loop:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1548,11 +1548,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EPPYK/ViewControllers/StartViewController.swift"
-            timestampString = "481888027.93965"
+            timestampString = "486401670.219064"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "291"
-            endingLineNumber = "291"
+            startingLineNumber = "294"
+            endingLineNumber = "294"
             landmarkName = "gifAnimationDidFinishLoop(_:loop:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1564,11 +1564,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EPPYK/ViewControllers/StartViewController.swift"
-            timestampString = "481888027.93965"
+            timestampString = "486401670.219064"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "291"
-            endingLineNumber = "291"
+            startingLineNumber = "294"
+            endingLineNumber = "294"
             landmarkName = "gifAnimationDidFinishLoop(_:loop:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1580,11 +1580,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EPPYK/ViewControllers/StartViewController.swift"
-            timestampString = "481888027.93965"
+            timestampString = "486401670.219064"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "292"
-            endingLineNumber = "292"
+            startingLineNumber = "295"
+            endingLineNumber = "295"
             landmarkName = "gifAnimationDidFinishLoop(_:loop:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1596,11 +1596,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EPPYK/ViewControllers/StartViewController.swift"
-            timestampString = "481887386.692201"
+            timestampString = "486401670.219064"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "262"
-            endingLineNumber = "262"
+            startingLineNumber = "265"
+            endingLineNumber = "265"
             landmarkName = "gifAnimationDidStop(_:finished:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1612,11 +1612,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EPPYK/ViewControllers/StartViewController.swift"
-            timestampString = "481888027.93965"
+            timestampString = "486401670.219064"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "430"
-            endingLineNumber = "430"
+            startingLineNumber = "433"
+            endingLineNumber = "433"
             landmarkName = "moveMan(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1660,11 +1660,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EPPYK/ViewControllers/StartViewController.swift"
-            timestampString = "481888027.93965"
+            timestampString = "486401670.219064"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "354"
-            endingLineNumber = "354"
+            startingLineNumber = "357"
+            endingLineNumber = "357"
             landmarkName = "stopAllAnimation()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1788,11 +1788,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EPPYK/ViewControllers/StartViewController.swift"
-            timestampString = "481888027.93965"
+            timestampString = "486401670.219064"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "372"
-            endingLineNumber = "372"
+            startingLineNumber = "375"
+            endingLineNumber = "375"
             landmarkName = "gifAnimation(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -2044,11 +2044,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EPPYK/ViewControllers/StartViewController.swift"
-            timestampString = "484409309.855946"
+            timestampString = "486401670.219064"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "721"
-            endingLineNumber = "721"
+            startingLineNumber = "724"
+            endingLineNumber = "724"
             landmarkName = "screenShotFlash()"
             landmarkType = "5">
          </BreakpointContent>
@@ -2060,11 +2060,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EPPYK/ViewControllers/StartViewController.swift"
-            timestampString = "484409309.855946"
+            timestampString = "486401670.219064"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "726"
-            endingLineNumber = "726"
+            startingLineNumber = "729"
+            endingLineNumber = "729"
             landmarkName = "screenShotFlash()"
             landmarkType = "5">
             <Locations>
@@ -2108,11 +2108,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EPPYK/ViewControllers/StartViewController.swift"
-            timestampString = "484409309.855946"
+            timestampString = "486401670.219064"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "720"
-            endingLineNumber = "720"
+            startingLineNumber = "723"
+            endingLineNumber = "723"
             landmarkName = "screenShotFlash()"
             landmarkType = "5">
          </BreakpointContent>
@@ -2124,11 +2124,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EPPYK/ViewControllers/StartViewController.swift"
-            timestampString = "484409309.855946"
+            timestampString = "486401670.219064"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "737"
-            endingLineNumber = "737"
+            startingLineNumber = "740"
+            endingLineNumber = "740"
             landmarkName = "makeTryAgain(_:)"
             landmarkType = "5">
             <Locations>
@@ -2204,11 +2204,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EPPYK/ViewControllers/StartViewController.swift"
-            timestampString = "481888027.93965"
+            timestampString = "486401670.219064"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "467"
-            endingLineNumber = "467"
+            startingLineNumber = "470"
+            endingLineNumber = "470"
             landmarkName = "motionEnded(_:withEvent:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -2220,11 +2220,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EPPYK/ViewControllers/StartViewController.swift"
-            timestampString = "481888027.93965"
+            timestampString = "486401670.219064"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "469"
-            endingLineNumber = "469"
+            startingLineNumber = "472"
+            endingLineNumber = "472"
             landmarkName = "motionEnded(_:withEvent:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -2236,11 +2236,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EPPYK/ViewControllers/StartViewController.swift"
-            timestampString = "484409309.855946"
+            timestampString = "486401670.219064"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "628"
-            endingLineNumber = "628"
+            startingLineNumber = "631"
+            endingLineNumber = "631"
             landmarkName = "refreshAnswer()"
             landmarkType = "5">
          </BreakpointContent>
@@ -2252,11 +2252,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EPPYK/ViewControllers/StartViewController.swift"
-            timestampString = "484409309.855946"
+            timestampString = "486401670.219064"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "532"
-            endingLineNumber = "532"
+            startingLineNumber = "535"
+            endingLineNumber = "535"
             landmarkName = "hideAnswer(_:completion:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -2268,11 +2268,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EPPYK/ViewControllers/StartViewController.swift"
-            timestampString = "481888027.93965"
+            timestampString = "486401670.219064"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "530"
-            endingLineNumber = "530"
+            startingLineNumber = "533"
+            endingLineNumber = "533"
             landmarkName = "hideAnswer(_:completion:)"
             landmarkType = "5">
             <Locations>
@@ -2316,11 +2316,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EPPYK/ViewControllers/StartViewController.swift"
-            timestampString = "481888027.93965"
+            timestampString = "486401670.219064"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "531"
-            endingLineNumber = "531"
+            startingLineNumber = "534"
+            endingLineNumber = "534"
             landmarkName = "hideAnswer(_:completion:)"
             landmarkType = "5">
             <Locations>
@@ -2364,11 +2364,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EPPYK/ViewControllers/StartViewController.swift"
-            timestampString = "484409118.995735"
+            timestampString = "486401670.219064"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "541"
-            endingLineNumber = "541"
+            startingLineNumber = "544"
+            endingLineNumber = "544"
             landmarkName = "hideAnswer(_:completion:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -2396,11 +2396,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EPPYK/ViewControllers/StartViewController.swift"
-            timestampString = "481887386.692201"
+            timestampString = "486401670.219064"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "199"
-            endingLineNumber = "199"
+            startingLineNumber = "202"
+            endingLineNumber = "202"
             landmarkName = "showMainView()"
             landmarkType = "5">
          </BreakpointContent>
@@ -2412,11 +2412,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EPPYK/ViewControllers/StartViewController.swift"
-            timestampString = "481887386.692201"
+            timestampString = "486401623.715381"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
             landmarkName = "showL10NView(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -3080,15 +3080,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EPPYK/ViewControllers/StartViewController.swift"
-            timestampString = "481887386.692201"
+            timestampString = "486401670.219064"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
+            startingLineNumber = "177"
+            endingLineNumber = "177"
             landmarkName = "updateUILocalization(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -3100,11 +3100,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EPPYK/ViewControllers/StartViewController.swift"
-            timestampString = "481887386.692201"
+            timestampString = "486401670.219064"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "174"
-            endingLineNumber = "174"
+            startingLineNumber = "184"
+            endingLineNumber = "184"
             landmarkName = "updateUILocalization(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -3116,39 +3116,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EPPYK/ViewControllers/StartViewController.swift"
-            timestampString = "481887386.692201"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "181"
-            endingLineNumber = "181"
-            landmarkName = "updateUILocalization(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EPPYK/ViewControllers/StartViewController.swift"
-            timestampString = "481887386.692201"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "182"
-            endingLineNumber = "182"
-            landmarkName = "updateUILocalization(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EPPYK/ViewControllers/StartViewController.swift"
-            timestampString = "481887386.692201"
+            timestampString = "486401670.219064"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "185"
@@ -3164,11 +3132,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EPPYK/ViewControllers/StartViewController.swift"
-            timestampString = "481887386.692201"
+            timestampString = "486401670.219064"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "187"
-            endingLineNumber = "187"
+            startingLineNumber = "188"
+            endingLineNumber = "188"
+            landmarkName = "updateUILocalization(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EPPYK/ViewControllers/StartViewController.swift"
+            timestampString = "486401670.219064"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "190"
+            endingLineNumber = "190"
             landmarkName = "updateUILocalization(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -3250,6 +3234,54 @@
             startingLineNumber = "55"
             endingLineNumber = "55"
             landmarkName = "updateAnswers(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EPPYK/ViewControllers/StartViewController.swift"
+            timestampString = "486401670.219064"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "611"
+            endingLineNumber = "611"
+            landmarkName = "showL10View(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EPPYK/ViewControllers/StartViewController.swift"
+            timestampString = "486401559.004043"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
+            landmarkName = "viewDidAppear(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EPPYK/ViewControllers/StartViewController.swift"
+            timestampString = "486401629.811382"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
+            landmarkName = "viewDidAppear(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
