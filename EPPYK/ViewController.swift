@@ -25,6 +25,8 @@ class ViewController: RootViewController, UIDynamicAnimatorDelegate, UITextField
     @IBOutlet weak var questionTextField: UITextField!
     
     
+    
+    
     //MARK: Starts
     var stars = [Star]()
     var fixedStars = [Star]()

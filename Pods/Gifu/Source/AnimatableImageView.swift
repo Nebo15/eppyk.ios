@@ -87,9 +87,11 @@ public class AnimatableImageView: UIImageView, AnimatorDelegate {
             let imagePath = NSBundle.mainBundle().bundleURL.URLByAppendingPathComponent(imageName)
             let data = NSData(contentsOfURL: imagePath)!
             self!.animatorDict[imageName] = Animator(data: data, size: self!.frame.size, contentMode: self!.contentMode, framePreloadCount: self!.framePreloadCount)
-            self!.animatorDict[imageName]!.prepareFrames()
-            self!.animatorDict[imageName]!.delegate = self
-            self!.animatorDict[imageName]!.currentLoopIndex = 0
+            if self!.animatorDict[imageName] != nil {
+                self!.animatorDict[imageName]!.prepareFrames()
+                self!.animatorDict[imageName]!.delegate = self!
+                self!.animatorDict[imageName]!.currentLoopIndex = 0
+            }
         });
     }
 

@@ -64,6 +64,10 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
     @IBOutlet weak var gifStarViewBack: AnimatableImageView!
     @IBOutlet weak var gifStarViewDrop: AnimatableImageView!
     
+    @IBOutlet weak var shakeHintBg: UIImageView!
+    @IBOutlet weak var shakeHintText: UILabel!
+    
+    
     //MARK: Constraints
     @IBOutlet weak var planetButtomConst: NSLayoutConstraint!
     @IBOutlet weak var manLeftConstraint: NSLayoutConstraint!
@@ -531,6 +535,14 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
             self.answerBottomConstraint.constant = 300
         }
         
+        UIView.animateWithDuration(0.5, animations: { 
+                self.shakeHintBg.alpha = 0
+                self.shakeHintText.alpha = 0
+            }) { (Bool) -> Void in
+                self.shakeHintBg.hidden = true
+                self.shakeHintText.hidden = true
+        }
+    
         UIView.animateWithDuration(0.5, delay: 0, options: .CurveEaseInOut, animations: {[weak self] () -> Void in
             self?.answerLabelView.alpha = 0
             self?.authorLabelView.alpha = 0
@@ -688,6 +700,15 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
             self?.answerView.layoutIfNeeded()
         }) { (Bool) -> Void in
             self.canShake = true
+            
+            self.shakeHintBg.alpha = 0
+            self.shakeHintBg.hidden = false
+            self.shakeHintText.alpha = 0
+            self.shakeHintText.hidden = false
+            UIView.animateWithDuration(1.0, animations: {
+                self.shakeHintBg.alpha = 1
+                self.shakeHintText.alpha = 1
+            })
         }
     }
     
