@@ -17,7 +17,6 @@
             <string>Geometria-Bold</string>
             <string>Geometria-Bold</string>
             <string>Geometria-Bold</string>
-            <string>Geometria-Bold</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -355,7 +354,7 @@
 uNGPINCrINC4INC00YDRg9Cz0LjQtSDQv9GA0LjQutC70Y7Rh9C10L3QuNGPINGI0YPRgNC40LrQsCAo
 MTk2NSk
 </string>
-                                        <fontDescription key="fontDescription" name="Geometria-Bold" family="Geometria" pointSize="11"/>
+                                        <fontDescription key="fontDescription" name="Helvetica-BoldOblique" family="Helvetica" pointSize="11"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                         <size key="shadowOffset" width="0.0" height="0.0"/>
