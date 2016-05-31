@@ -79,6 +79,10 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
     @IBOutlet weak var answerBottomConstraint: NSLayoutConstraint!
     
     
+    @IBOutlet weak var askAnotherBottomConst: NSLayoutConstraint!
+    @IBOutlet weak var saveAnsverBottomConst: NSLayoutConstraint!
+    
+    
     @IBOutlet weak var buttonSaveWidth: NSLayoutConstraint!
     @IBOutlet weak var buttonSaveLeft: NSLayoutConstraint!
     
@@ -125,7 +129,11 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
         
         // Correct constraints for iPhone 5
         if ScreenSize.width == 320 {
-            self.manLeftConstraint.constant += 10;
+            self.manLeftConstraint.constant += 10
+            
+            self.askAnotherBottomConst.constant -= 6
+            self.saveAnsverBottomConst.constant -= 6
+            
             self.view.layoutIfNeeded()
         }
         
@@ -227,7 +235,7 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
         let finalLogoRect = CGRectMake(0, 0, logoRect.size.width / 2.0, logoRect.size.height / 2.0)
 
         let planetHeight = self.planetImage.bounds.size.height
-        self.planetButtomConst.constant = planetHeight / 1.6 * -1
+        self.planetButtomConst.constant = planetHeight / 1.9 * -1
         self.logoTopConst.constant = -7
 
         UIView.animateWithDuration(0.8, delay: 1, options: .CurveEaseInOut, animations: {[weak self] () -> Void in

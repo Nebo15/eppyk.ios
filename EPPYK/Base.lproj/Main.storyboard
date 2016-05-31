@@ -474,7 +474,7 @@ MTk2NSk
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="efE-Ol-6dy">
-                                        <rect key="frame" x="12" y="53" width="185" height="52"/>
+                                        <rect key="frame" x="12" y="38" width="185" height="52"/>
                                         <color key="backgroundColor" red="0.6705882352941176" green="0.99607843137254903" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="efE-Ol-6dy" secondAttribute="height" multiplier="185:52" id="6Sb-fO-ufZ"/>
@@ -495,7 +495,7 @@ MTk2NSk
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SO4-5N-4fZ">
-                                        <rect key="frame" x="217" y="53" width="185" height="52"/>
+                                        <rect key="frame" x="217" y="38" width="185" height="52"/>
                                         <color key="backgroundColor" red="0.96470588235294119" green="0.14509803921568626" blue="0.33725490196078434" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="185" id="Q4z-fY-FLT"/>
@@ -510,7 +510,7 @@ MTk2NSk
                                         </connections>
                                     </button>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IF YOU DON'T LIKE THE ANSWER SHAKE AGAIN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="dJp-hP-2TV">
-                                        <rect key="frame" x="12" y="113" width="390" height="21"/>
+                                        <rect key="frame" x="12" y="109" width="390" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="ueM-fB-OUh"/>
                                         </constraints>
@@ -521,17 +521,17 @@ MTk2NSk
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="efE-Ol-6dy" secondAttribute="bottom" constant="35" id="53c-Fe-BDC"/>
+                                    <constraint firstAttribute="bottom" secondItem="efE-Ol-6dy" secondAttribute="bottom" constant="50" id="53c-Fe-BDC"/>
                                     <constraint firstAttribute="bottom" secondItem="FgU-KR-tsh" secondAttribute="bottom" id="AIs-LO-qCk"/>
                                     <constraint firstItem="FgU-KR-tsh" firstAttribute="leading" secondItem="rhn-TD-iKn" secondAttribute="leading" id="MQu-9B-ka7"/>
                                     <constraint firstItem="dJp-hP-2TV" firstAttribute="leading" secondItem="rhn-TD-iKn" secondAttribute="leading" constant="12" id="Rmr-Hu-njs"/>
-                                    <constraint firstAttribute="bottom" secondItem="dJp-hP-2TV" secondAttribute="bottom" constant="6" id="YiZ-Rc-0hm"/>
+                                    <constraint firstAttribute="bottom" secondItem="dJp-hP-2TV" secondAttribute="bottom" constant="10" id="YiZ-Rc-0hm"/>
                                     <constraint firstAttribute="trailing" secondItem="FgU-KR-tsh" secondAttribute="trailing" id="f6y-0e-UxA"/>
                                     <constraint firstAttribute="height" constant="140" id="k3o-lP-d0P"/>
                                     <constraint firstItem="efE-Ol-6dy" firstAttribute="leading" secondItem="rhn-TD-iKn" secondAttribute="leading" constant="12" id="l1M-1u-o69"/>
                                     <constraint firstAttribute="trailing" secondItem="SO4-5N-4fZ" secondAttribute="trailing" constant="12" id="lfc-Xf-EdG"/>
                                     <constraint firstAttribute="trailing" secondItem="dJp-hP-2TV" secondAttribute="trailing" constant="12" id="w7l-I0-aCA"/>
-                                    <constraint firstAttribute="bottom" secondItem="SO4-5N-4fZ" secondAttribute="bottom" constant="35" id="zCu-WA-nsw"/>
+                                    <constraint firstAttribute="bottom" secondItem="SO4-5N-4fZ" secondAttribute="bottom" constant="50" id="zCu-WA-nsw"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6eb-4c-QrY">
@@ -615,6 +615,7 @@ MTk2NSk
                         <outlet property="answerBottomConstraint" destination="ISt-C7-YjG" id="ddw-Xl-c1E"/>
                         <outlet property="answerLabelView" destination="rZM-od-a35" id="fuw-X0-kG5"/>
                         <outlet property="answerView" destination="HlD-fL-QEO" id="9L5-Xc-AwW"/>
+                        <outlet property="askAnotherBottomConst" destination="53c-Fe-BDC" id="MjF-lk-Kub"/>
                         <outlet property="authorLabelView" destination="osT-FH-oKH" id="xNJ-Pa-J7P"/>
                         <outlet property="buttonSaveLeft" destination="l1M-1u-o69" id="r80-Zw-aQN"/>
                         <outlet property="buttonSaveWidth" destination="7TN-Ob-kWY" id="9kP-zo-RDD"/>
@@ -639,6 +640,7 @@ MTk2NSk
                         <outlet property="questionLabelView" destination="of2-Aq-R0k" id="lfz-tp-ncf"/>
                         <outlet property="questionLabelWidthConstraint" destination="q9U-kp-TqG" id="Yp0-wt-xK7"/>
                         <outlet property="questionTextField" destination="WIf-vL-Szx" id="1ec-6W-wNJ"/>
+                        <outlet property="saveAnsverBottomConst" destination="zCu-WA-nsw" id="puw-z6-wdM"/>
                         <outlet property="saveAnswerButton" destination="efE-Ol-6dy" id="RRI-Xv-xlN"/>
                         <outlet property="shakeBottomConstraint" destination="aAA-NQ-FNp" id="bMO-8a-iR1"/>
                         <outlet property="shakeHintBg" destination="FgU-KR-tsh" id="NdP-FJ-KRo"/>

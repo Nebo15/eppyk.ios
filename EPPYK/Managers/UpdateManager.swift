@@ -18,7 +18,7 @@ class UpdateManager: NSObject {
 
     static let sharedInstance = UpdateManager()
     private let manager = AFHTTPRequestOperationManager()
-    private let url = "http://128.199.50.95/api/v1"
+    private let url = "http://api.eppyk.com/api/v1"
     
     
     func updateAnswers(l10n: String) {
