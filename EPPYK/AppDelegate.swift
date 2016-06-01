@@ -8,13 +8,15 @@
 
 import UIKit
 import CoreData
+import Mixpanel
 
 var agManagedObjectContext: NSManagedObjectContext?
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     static let sharedInstance = self
-    
+    static var mixpanel: Mixpanel?
+
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -23,7 +25,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.configCoreData()
         
+        // Mixpanel push
+        AppDelegate.mixpanel = Mixpanel.sharedInstanceWithToken("ee8c37904fb6e9b30bb56b3a945c9dad")
+        
+        // This code will work in iOS 8.0 xcode 6.0 or later:
+        if UIApplication.sharedApplication().respondsToSelector(#selector(UIApplication.registerUserNotificationSettings(_:))) {
+            let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+            UIApplication.sharedApplication().registerUserNotificationSettings(settings)
+            UIApplication.sharedApplication().registerForRemoteNotifications()
+        } else
+        {
+            UIApplication.sharedApplication().registerForRemoteNotificationTypes([.Alert, .Badge, .Sound])
+        }
+        
+        // Call .identify to flush the People record to Mixpanel
+        AppDelegate.mixpanel?.identify((AppDelegate.mixpanel?.distinctId)!)
+        
         return true
+    }
+    
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        let mixpanel = Mixpanel.sharedInstance()
+        mixpanel.people.addPushDeviceToken(deviceToken)
     }
     
     func configCoreData() {
