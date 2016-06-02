@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AxH-sL-MiO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AxH-sL-MiO">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -342,20 +342,27 @@
                                         <nil key="highlightedColor"/>
                                         <size key="shadowOffset" width="0.0" height="0.0"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="osT-FH-oKH" userLabel="Author Label View" customClass="EppykLabelView" customModule="EPPYK" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="osT-FH-oKH" userLabel="Author Label View" customClass="EppykLabelView" customModule="EPPYK" customModuleProvider="target">
                                         <rect key="frame" x="252" y="540" width="150" height="80"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="80" id="08Y-6z-SzR"/>
                                             <constraint firstAttribute="width" constant="150" id="swG-EW-Pfw"/>
                                         </constraints>
-                                        <string key="text" base64-UTF8="YES">
+                                        <attributedString key="attributedText">
+                                            <fragment>
+                                                <string key="content" base64-UTF8="YES">
 0JXQstCz0LXQvdC40Lkg0JzQvtGA0LPRg9C90L7QsiDQkdGL0LLQsNC70YvQuQPQntC/0LXRgNCw0YbQ
 uNGPINCrINC4INC00YDRg9Cz0LjQtSDQv9GA0LjQutC70Y7Rh9C10L3QuNGPINGI0YPRgNC40LrQsCAo
 MTk2NSk
 </string>
-                                        <fontDescription key="fontDescription" name="Helvetica-BoldOblique" family="Helvetica" pointSize="11"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <attributes>
+                                                    <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <font key="NSFont" size="11" name="Helvetica-BoldOblique"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
                                         <nil key="highlightedColor"/>
                                         <size key="shadowOffset" width="0.0" height="0.0"/>
                                     </label>
@@ -509,12 +516,12 @@ MTk2NSk
                                             <action selector="makeTryAgain:" destination="563-Sh-dcB" eventType="touchUpInside" id="hYG-C7-gDn"/>
                                         </connections>
                                     </button>
-                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IF YOU DON'T LIKE THE ANSWER SHAKE AGAIN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="dJp-hP-2TV">
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IF YOU DON'T LIKE THE ANSWER SHAKE IT AGAIN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="dJp-hP-2TV">
                                         <rect key="frame" x="12" y="109" width="390" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="ueM-fB-OUh"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Geometria-Bold" family="Geometria" pointSize="11"/>
+                                        <fontDescription key="fontDescription" name="Geometria-Bold" family="Geometria" pointSize="10"/>
                                         <color key="textColor" red="0.0" green="0.063500145147368417" blue="0.34384564059210526" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>

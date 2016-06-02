@@ -16,4 +16,5 @@ extension String {
     var localizedAnswer: String {
         return NSLocalizedString(self, tableName: "L10n", bundle: NSBundle.mainBundle(), value: "", comment: "")
     }
+    
 }

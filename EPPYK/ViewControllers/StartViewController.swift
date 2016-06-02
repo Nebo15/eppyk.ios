@@ -647,7 +647,9 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
         self.hideAnswer(false) {
             let answer = QAManager.sharedInstance.fetchAnswer()
             self.answerLabelView.text = answer.0
-            self.authorLabelView.text = answer.1
+            let authorAttrString = self.getAuthorAttributedText(answer.1)
+            self.authorLabelView.attributedText = authorAttrString
+            
             self.questionLabelView.sizeToFit()
             self.authorLabelView.sizeToFit()
             self.showAnswer()
@@ -682,10 +684,42 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
         }
     }
     
+    func printFonts() {
+        let fontFamilyNames = UIFont.familyNames()
+        for familyName in fontFamilyNames {
+            print("------------------------------")
+            print("Font Family Name = [\(familyName)]")
+            let names = UIFont.fontNamesForFamilyName(familyName as! String)
+            print("Font Names = [\(names)]")
+        }
+    }
+    
+    func getAuthorAttributedText(text: String) -> NSMutableAttributedString {
+        let fontRegular = UIFont(name: "Helvetica-Bold", size: 11.0) ?? UIFont.systemFontOfSize(18.0)
+        let fontItalic = UIFont(name: "Helvetica-BoldOblique", size: 11.0) ?? UIFont.systemFontOfSize(18.0)
+        
+        let attrRegular = [NSFontAttributeName:fontRegular]
+        let attrItalic = [NSFontAttributeName:fontItalic]
+        
+        let authorAttrString = NSMutableAttributedString(string:text)
+        authorAttrString.addAttributes(attrRegular, range: NSMakeRange(0, NSString(string:text).length))
+        
+        let nsText = NSString(string: text)
+        let startIndex = nsText.rangeOfString(", in", options: NSStringCompareOptions.CaseInsensitiveSearch, range: NSMakeRange(0, nsText.length-1), locale: nil).location + 4
+        let endIndex = nsText.rangeOfString(",", options: NSStringCompareOptions.BackwardsSearch, range: NSMakeRange(0, nsText.length-1), locale: nil).location
+
+        let movieRange = NSMakeRange(startIndex, endIndex - startIndex)
+        authorAttrString.addAttributes(attrItalic, range:movieRange)
+        
+        return authorAttrString
+    }
+    
     func showAnswer() {
         let answer = QAManager.sharedInstance.fetchAnswer()
         self.answerLabelView.text = answer.0
-        self.authorLabelView.text = answer.1
+        let authorAttrString = self.getAuthorAttributedText(answer.1)
+        
+        self.authorLabelView.attributedText = authorAttrString
         self.answerView.hidden = false
         self.authorLabelView.hidden = false
         self.answerLabelView.hidden = false
@@ -731,14 +765,17 @@ class StartViewController: RootViewController, L10nViewProtocol, GIFAnimatedImag
                 let dispatchTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(0.3 * Double(NSEC_PER_SEC)))
                 dispatch_after(dispatchTime, dispatch_get_main_queue(), {
 
-                    
                     // Animation
                     let view = self.view
                     self.buttonsView.hidden = true
                     self.globeButton.hidden = true
+                    self.shakeHintBg.hidden = true
+                    self.shakeHintText.hidden = true
                     let image = ImageManager.sharedInstance.screenshotView(view)
                     self.buttonsView.hidden = false
                     self.globeButton.hidden = false
+                    self.shakeHintBg.hidden = false
+                    self.shakeHintText.hidden = false
                     ImageManager.sharedInstance.saveImageToGallery(image) { (success: Bool, error: NSError?) -> Void in
                         print(success ? "OK" : error!.localizedDescription)
                     }
